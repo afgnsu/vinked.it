@@ -1,22 +1,48 @@
-!!! 5
+!!!
 / paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-/[if lt IE 7 ] <html class=\"ie6\" lang=\"en\">
-/[if IE 7 ]    <html class=\"ie7\" lang=\"en\">
-/[if IE 8 ]    <html class=\"ie8\" lang=\"en\">
-/[if IE 9 ]    <html class=\"ie9\" lang=\"en\">
-/[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
-%head
-  %title= content_for?(:title) ? yield(:title) : I18n.t('.site.title')
-  %meta{ charset: "utf-8" }
-  %meta{ content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport" }/
-  = stylesheet_link_tag "application"
-  = javascript_include_tag "vendor/modernizr"
-  = csrf_meta_tag
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{ lang: "en"}
+  / <![endif]
+  %head
+    %title= content_for?(:title) ? yield(:title) : I18n.t('.site.title')
+    %meta{ charset: "utf-8" }
+    %meta{ content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport" }/
+    %link{ href: "http://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet", type: "text/css" }
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tag
 
-  /[if lt IE 9]
-    <script src='assets/javascripts/ie/html5shiv.js' type='text/javascript'></script>
-    <script src='assets/javascripts/ie/respond.min.js' type='text/javascript'></script>
-%body
-  = yield
+    /[if lt IE 9]
+      <script src='assets/javascripts/ie/html5shiv.js' type='text/javascript'></script>
+      <script src='assets/javascripts/ie/respond.min.js' type='text/javascript'></script>
+  %body
+    .fixed
+      %nav.top-bar{"data-topbar" => ""}
+        %ul.title-area
+          %li.name
+            %h1= link_to I18n.t('.site.title'), root_path
+        %section.top-bar-section
+          / Right Nav Section
+          %ul.right
+            %li.divider
+            %li
+              %a{href: "#"} Bla
+            %li.divider
+            %li
+              %a{href: "http://foundation.zurb.com/docs"} Get Lucky
+            %li.divider
+            %li
+              %a{href: "http://foundation.zurb.com/docs"} Get Lucky
+            / Left Nav Section
+          %ul.left
+            %li
+              %a{href: "#"} Left Nav Button
 
-  = javascript_include_tag "application"
+
+
+    = yield
+
+    = javascript_include_tag "application"

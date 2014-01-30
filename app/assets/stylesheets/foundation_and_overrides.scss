@@ -37,7 +37,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: 'Noto Sans UI', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -50,7 +50,7 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #008E00;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -1012,8 +1012,8 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #008E00;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 // $topbar-height: 45px;
@@ -1024,7 +1024,7 @@
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
+$topbar-dropdown-bg: #373737;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-link-bg: #333;
 // $topbar-dropdown-link-weight: normal;
@@ -1039,9 +1039,9 @@
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727  ;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-hover: darken($topbar-dropdown-bg, 10%);
+$topbar-link-bg-active: $primary-color;
+$topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
 
 // $topbar-button-font-size: 0.75rem;
@@ -1068,8 +1068,8 @@
 // $topbar-media-query: "only screen and (min-width: #{upper-bound($medium-range)})";
 
 // Divider Styles
-// $topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%);
-// $topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%);
+$topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%);
+$topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%);
 
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
@@ -1083,11 +1083,11 @@
 // $include-open-sans: true;
 
 // We use these to control header font styles
-// $header-font-family: join("Open Sans", $body-font-family);
+$header-font-family: join("Open Sans", $body-font-family);
 // $header-font-weight: 300;
 // $header-font-style: normal;
-// $header-font-color: #222;
-// $header-line-height: 1.4;
+//$header-font-color: $font-color;
+$header-line-height: 2;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
 // $header-text-rendering: optimizeLegibility;
@@ -1115,7 +1115,7 @@
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: normal;
 // $paragraph-font-size: 1rem;
-// $paragraph-line-height: 1.6;
+$paragraph-line-height: 2;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
 // $paragraph-aside-line-height: 1.35;
