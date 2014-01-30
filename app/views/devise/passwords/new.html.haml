@@ -1,0 +1,9 @@
+.row
+  .offset3.span6
+    #clearance.signin_container
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        %h1.form-signin-heading= I18n.t(".devise.sessions.forgot_title")
+        = devise_error_messages!
+        = f.email_field :email, class: "input-block-level", placeholder: I18n.t('.users.form.email'), autofocus: true
+        = f.submit(class: 'btn', value: I18n.t(".devise.sessions.reset"))
+        = render "devise/shared/links"
