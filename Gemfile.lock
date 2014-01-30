@@ -72,6 +72,9 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
+    gumby-framework (0.0.1)
+      jquery-rails
+      modernizr-rails
     haml (4.1.0.beta.1)
       tilt
     haml-rails (0.5.3)
@@ -106,6 +109,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    modernizr-rails (2.7.1)
     multi_json (1.8.4)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -212,6 +216,7 @@ DEPENDENCIES
   devise
   email_spec
   factory_girl_rails
+  gumby-framework
   haml-rails
   html2haml
   i18n
@@ -219,6 +224,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  modernizr-rails
   pg
   poltergeist
   quiet_assets
