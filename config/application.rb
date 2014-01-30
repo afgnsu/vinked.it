@@ -34,8 +34,8 @@ module VinkedIt
       g.helper_specs false
     end
 
-    config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :en
+    config.i18n.enforce_available_locales = false
     config.assets.initialize_on_precompile = false
     #config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end

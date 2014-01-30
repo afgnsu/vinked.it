@@ -1,0 +1,88 @@
+nl:
+  site:
+    title:          Football Ground Explorer
+    dashboard:      Dashboard
+  general:
+    not_authorized: Je hebt geen toegang tot deze pagina!
+    save:           Opslaan
+    cancel:         Annuleren
+    filter:         Filter
+    error_single:   fouten
+    error_plural:   fout
+    error_text:     "ontdekt bij het opslaan:"
+  users:
+    title:          Gebruikers
+    new_title:      Toevoegen gebruiker
+    edit_title:     Wijzigen gebruiker
+    edit_profile:   Wijzigen profiel
+    message_create: Gebruiker is succesvol toegevoegd
+    message_update: Gebruiker is succesvol gewijzigd
+    message_delete: Gebruiker is succesvol verwijderd
+    full_name:      Naam
+    created_at:     Toegevoegd op
+    last_sign_in:   Laatst ingelogd
+    my_profile:     Mijn profiel
+    profile:        Gebruiker gegevens
+    my_account:     Mijn account
+    settings:       Instellingen
+    roles:
+      user:     		Gebruiker
+      admin:        Admin
+    form:
+      first_name:   Voornaam
+      last_name:    Achternaam
+      email:        Email
+      role:         Rol
+      locale:       Taal
+      password:     Wachtwoord
+      password_confirmation: Herhaal wachtwoord
+      password_new: Nieuw wachtwoord
+      password_current: Huidige wachtwoord
+  will_paginate:
+    previous_label: "&#8592; Vorige"
+    next_label: "Volgende &#8594;"
+    page_gap: "&hellip;"
+  helpers:
+    actions:   Akties
+    edit:     wijzigen
+    details:  details
+    destroy:  verwijderen
+    confirm:  Weet je het zeker?
+    select:
+      prompt: "Selecteer"
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "is niet in de lijst opgenomen"
+      exclusion: "is niet beschikbaar"
+      invalid: "is ongeldig"
+      confirmation: "komt niet met de bevestiging overeen"
+      accepted: "moet worden geaccepteerd"
+      empty: "moet opgegeven zijn"
+      blank: "moet opgegeven zijn"
+      too_long: "is te lang (maximaal %{count} tekens)"
+      too_short: "is te kort (minimaal %{count} tekens)"
+      wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
+      not_a_number: "is geen getal"
+      not_an_integer: "moet een geheel getal zijn"
+      greater_than: "moet groter zijn dan %{count}"
+      greater_than_or_equal_to: "moet groter dan of gelijk zijn aan %{count}"
+      equal_to: "moet gelijk zijn aan %{count}"
+      less_than: "moet minder zijn dan %{count}"
+      less_than_or_equal_to: "moet minder dan of gelijk zijn aan %{count}"
+      odd: "moet oneven zijn"
+      even: "moet even zijn"
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "%{model} niet opgeslagen: 1 fout gevonden"
+          other:  "%{model} niet opgeslagen: %{count} fouten gevonden"
+        body: "Controleer de volgende velden:"
+      messages:
+        taken: "is al in gebruik"
+        record_invalid: "Validatie mislukt: %{errors}"
+        <<: *errors_messages
+      full_messages:
+        format: "%{attribute} %{message}"
+

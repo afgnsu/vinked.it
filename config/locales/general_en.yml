@@ -1,0 +1,94 @@
+en:
+  site:
+    title:          Vinked.it
+    dashboard:      Dashboard
+  general:
+    not_authorized: You don't have access to that page!
+    save:           Save
+    cancel:         Cancel
+    filter:         Filter
+    clear_filter:   remove filter
+    no_data:        No data available
+    error_single:   errors
+    error_plural:   error
+    error_text:     "detected when saving:"
+  users:
+    title:          Users
+    new_title:      Add user
+    edit_title:     Edit user
+    edit_profile:   Change profile
+    message_create: User has been added successfully
+    message_update: User has been edited successfully
+    message_delete: User has been removed successfully
+    full_name:      Name
+    created_at:     Created at
+    last_sign_in:   Last login
+    my_profile:     My profile
+    profile:        User data
+    settings:       Settings
+    my_account:     My account
+    roles:
+      user:     		User
+      admin:        Admin
+    locales:
+      en:           English
+      nl:           Nederlands
+    form:
+      first_name:   First name
+      last_name:    Last name
+      email:        Email
+      role:         Role
+      locale:       Language
+      password:     Password
+      password_confirmation: Repeat password
+      password_new: New password
+      password_current: Current Password
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+  helpers:
+    actions:   Actions
+    edit:     edit
+    destroy:  delete
+    details:  details
+    confirm:  Are you sure?
+    yes:      Yes
+    no:       No
+    select:
+      prompt: "Select"
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "is not included in the list"
+      exclusion: "is not available"
+      invalid: "is invalid"
+      confirmation: "is not the same as the confirmation"
+      accepted: "must be accepted"
+      empty: "can not be empty"
+      blank: "can not be blank"
+      too_long: "is too long (max %{count} characters)"
+      too_short: "is too short (minimaal %{count} chararcters)"
+      wrong_length: "has wrong length (must be %{count} characters)"
+      not_a_number: "is not a number"
+      not_an_integer: "must be a whole number"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be equal or greater than %{count}"
+      equal_to: "must be equal to %{count}"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less or equal to %{count}"
+      odd: "must be uneven"
+      even: "must be even"
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "%{model} not saved: 1 error found"
+          other:  "%{model} not found: %{count} errors found"
+        body: "Check these attributes:"
+      messages:
+        taken: "has already been used"
+        record_invalid: "Validation failed: %{errors}"
+        <<: *errors_messages
+      full_messages:
+        format: "%{attribute} %{message}"
+
