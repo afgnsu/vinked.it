@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
+
 gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -11,8 +12,11 @@ gem 'cancan'
 gem 'devise'
 gem 'haml-rails'
 gem 'pg'
+gem 'activerecord-postgresql-adapter'
 gem 'rolify'
-gem 'sendgrid'
+gem 'i18n'
+gem 'bcrypt-ruby'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -20,15 +24,24 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'zeus'
+  gem 'poltergeist'
+  gem 'rack-mini-profiler'
+  gem "shoulda-matchers"
+  gem 'letter_opener'
 end
+
 group :production do
   gem 'unicorn'
 end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
+  gem 'launchy'
 end

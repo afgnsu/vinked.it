@@ -13,28 +13,29 @@ Bundler.require(:default, Rails.env)
 
 module VinkedIt
   class Application < Rails::Application
+    config.action_mailer.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+        :port           => '25',
+        :address        => ENV['POSTMARK_SMTP_SERVER'],
+        :user_name      => ENV['POSTMARK_API_KEY'],
+        :password       => ENV['POSTMARK_API_KEY'],
+        :domain         => 'backbone-app.heroku.com',
+        :authentication => :plain,
+    }
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
-      
+
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
-      
-      
+
+
       g.view_specs false
       g.helper_specs false
     end
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :en
+    config.assets.initialize_on_precompile = false
+    #config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
