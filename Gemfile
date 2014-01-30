@@ -16,6 +16,7 @@ gem 'activerecord-postgresql-adapter'
 gem 'rolify'
 gem 'i18n'
 gem 'bcrypt-ruby'
+gem 'foundation-rails'
 
 group :development do
   gem 'better_errors'
