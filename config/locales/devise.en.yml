@@ -1,5 +1,3 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 en:
   devise:
     confirmations:
@@ -60,7 +58,7 @@ en:
       signed_out: "Signed out successfully."
       sign_in:  "Login"
       or:        "or"
-      register:  "register"
+      sign_up:  "Register"
       sign_out: "Logout"
     unlocks:
       title: "Resend unlock instructions"
