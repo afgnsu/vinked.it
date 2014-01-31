@@ -9,13 +9,17 @@ class Ability
       elsif user.basic?
         # Basic subscription users
         can [:index, :show, :update], User
+        can [:index, :show], Club
 
         cannot [:destroy], User
+        cannot [:create, :update, :destroy], User
       elsif user.premium?
         # Premium subscription users
         can [:index, :show, :update], User
+        can [:index, :show, :create], Club
 
         cannot [:destroy], User
+        cannot [:update, :destroy], User
       end
     else
       # Unregistered users

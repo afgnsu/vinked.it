@@ -12,6 +12,7 @@ en:
     error_single:   errors
     error_plural:   error
     error_text:     "detected when saving:"
+    home:           home
   users:
     title:          Users
     new_title:      Add user

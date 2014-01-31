@@ -28,9 +28,10 @@
       %section.top-bar-section
         / Right Nav Section
         %ul.right
-          %li.divider
-          %li
-            %a{href: "#"} Bla
+          - if signed_in? and current_user.admin?
+            %li.divider
+            %li
+              = link_to I18n.t(".clubs.index_title"), clubs_path
           %li.divider
           - if signed_in?
             %li.has-dropdown
@@ -40,13 +41,6 @@
           - else
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
-
-    .row
-      .small-12.columns.alerts
-        / Show flash errors
-        - flash.each do |name, msg|
-          %div{:class => "alert-box #{name}"}
-            = msg
 
     .row
       .small-12.columns

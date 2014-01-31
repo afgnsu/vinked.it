@@ -1,3 +1,5 @@
+@import "variables";
+
 .top-bar {
   .title-area {
     .icon {
@@ -32,4 +34,39 @@ i.white {
 .alerts {
   .notice {
   }
+}
+.login {
+  margin-top: 150px;
+}
+.page-header {
+  border-bottom: 2px solid $border-color;
+  margin-bottom: 20px;
+
+  .title {
+    float: left;
+    margin-left: 20px;
+
+    i {
+      margin-right: 20px;
+    }
+  }
+  .breadcrumb {
+    margin-left: 20px;
+
+    li {
+      float: left;
+      list-style-type: none;
+    }
+    .divider {
+      margin: 0 10px;
+    }
+  }
+}
+.form {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid $border-color;
+}
+table {
+  width: 100%;
 }

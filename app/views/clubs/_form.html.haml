@@ -1,0 +1,10 @@
+= form_for @club do |f|
+  = render "layouts/error_messages", target: @club
+  .row
+    .small-4.columns
+      %label.right.inline{for: "right-label"}= I18n.t('.clubs.form.name')
+    .small-8.columns
+      = f.text_field :name, autofocus: true
+    .small-offset-4.small-8.columns
+      = f.submit(class: 'button', value: I18n.t('.general.save'))
+      = link_to I18n.t('.general.cancel'), clubs_path, class: 'button secondary'

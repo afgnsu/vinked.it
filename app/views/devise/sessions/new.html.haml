@@ -1,5 +1,5 @@
 .row
-  .small-8.small-centered.columns
+  .small-8.small-centered.columns.login
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       %h1= I18n.t(".devise.sessions.sign_in")
       = devise_error_messages!
