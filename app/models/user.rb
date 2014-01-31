@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, :confirmable
 
+  has_many :vinks
+
   validates :first_name, :last_name, :screen_name, :email, :role, :locale, :subscription, presence: true
   validates :first_name, :last_name, :location, length: { maximum: 50 }
   validates :screen_name, length: { maximum: 15 }

@@ -116,7 +116,7 @@ describe User do
       end
 
       it "sets basic not as premium" do
-        expect(user_basic.basic?).to be_false
+        expect(user_basic.premium?).to be_false
       end
     end
   end

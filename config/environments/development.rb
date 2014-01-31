@@ -28,8 +28,11 @@ VinkedIt::Application.configure do
   config.assets.debug = true
   config.sass.debug_info = true
   config.sass.line_comments = false # source maps don't get output if this is true
-  config.action_mailer.default_url_options = { :host => 'smtp://localhost:1025' }
-  config.action_mailer.delivery_method = :letter_opener
+
+
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  #config.action_mailer.default_url_options = { :host => 'smtp://localhost:1025' }
+  #config.action_mailer.delivery_method = :letter_opener
 
   config.i18n.available_locales = :nl
 
