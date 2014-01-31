@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
-  #has_many :visits
-
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, :confirmable
 
-  validates :first_name, :last_name, :email, :role, :locale, :subscription, presence: true
-  validates :first_name, :last_name, length: { maximum: 50 }
+  validates :first_name, :last_name, :screen_name, :email, :role, :locale, :subscription, presence: true
+  validates :first_name, :last_name, :location, length: { maximum: 50 }
+  validates :screen_name, length: { maximum: 15 }
   validates :password, length: { minimum: 8 }, on: :create
 
   before_save { |user| user.email = email.downcase }

@@ -4,10 +4,13 @@ FactoryGirl.define do
   end
 
   factory :user do
-    first_name        "Piet"
-    last_name         "Jansen"
-    role              "employee"
+    first_name        "John"
+    last_name         "Van Arkelen"
+    screen_name       "DutchAddick"
+    location          "Eindhoven, The Netherlands"
     locale            "en"
+    role              "employee"
+    subscription      "basic"
     password          "password1"
     email
   end
