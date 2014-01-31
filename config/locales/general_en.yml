@@ -17,9 +17,10 @@ en:
     new_title:      Add user
     edit_title:     Edit user
     edit_profile:   Change profile
-    message_create: User has been added successfully
-    message_update: User has been edited successfully
-    message_delete: User has been removed successfully
+    message_create: Vinker has been added successfully
+    message_update: Vinker has been edited successfully
+    message_delete: Vinker has been removed successfully
+    message_self:   You can't delete yourself!
     full_name:      Name
     created_at:     Created at
     last_sign_in:   Last login

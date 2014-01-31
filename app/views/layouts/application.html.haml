@@ -32,15 +32,24 @@
           %li
             %a{href: "#"} Bla
           %li.divider
-          - if user_signed_in?
+          - if signed_in?
             %li.has-dropdown
-              %a{href: "#"}= current_user.full_name
+              %a{href: "#"}= current_user.screen_name
               %ul.dropdown
                 %li= link_to I18n.t(".devise.sessions.sign_out"), destroy_user_session_path, method: :delete
           - else
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
 
-    = yield
+    .row
+      .small-12.columns.alerts
+        / Show flash errors
+        - flash.each do |name, msg|
+          %div{:class => "alert-box #{name}"}
+            = msg
+
+    .row
+      .small-12.columns
+        = yield
 
     = javascript_include_tag "application"
