@@ -49,7 +49,8 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @club.destroy
 
-    flash[:success] = I18n.t(".clubs.messages.deleted")
+    flash[:success] = I18n.t(".clubs.messages.removed")
+    redirect_to clubs_path
   end
 
   private

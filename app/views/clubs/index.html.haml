@@ -2,11 +2,11 @@
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.clubs.index_title')
 
 - if can? :create, Club
-  .small-2.small-offset-10.columns
+  .small-12.columns
     .action= link_to I18n.t('.clubs.new_title'), new_club_path(@club), class: 'button secondary'
 
   .small-12.small-centered.columns
-    %table
+    %table.table
       %thead
         %tr
           %th= I18n.t(".clubs.form.name")
@@ -15,7 +15,7 @@
         - unless @clubs.blank?
           - @clubs.each do |club|
             %tr
-              %td= decorate_data_field(club.name)
+              %td{ "data-title" => "#{I18n.t(".clubs.form.name")}" }= decorate_data_field(club.name)
               %td
                 - if can? :edit, Club
                   = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'button tiny secondary'
@@ -24,4 +24,3 @@
         - else
           %tr
             %td{ colspan: 2 }= I18n.t('.general.no_data')
-
