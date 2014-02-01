@@ -39,8 +39,9 @@ en:
       league_id:  League
       league_step: Step
   vinks:
-    my_index_title:  My vinked.it's
     index_title:  Vinked.it
+    my_index_title:  My vinked.it's
+    latest_index_title:  Latest vinked.it's
     new_title:    Add v
     edit_title:   Edit visit
     delete_title: Remove visit

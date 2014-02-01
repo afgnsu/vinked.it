@@ -43,6 +43,7 @@
               %a{href: "#"}= I18n.t(".vinks.index_title")
               %ul.dropdown
                 %li= link_to I18n.t(".vinks.my_index_title"), vinks_path(view: "own")
+                %li= link_to I18n.t(".vinks.latest_index_title"), vinks_path(view: "latest")
             - if current_user.admin?
               %li.divider
               %li

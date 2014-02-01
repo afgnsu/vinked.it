@@ -2,8 +2,22 @@
   - if params[:view] == "own"
     - title = I18n.t('.vinks.my_index_title')
   - else
-    - title = I18n.t('.vinks.index_title')
+    - title = I18n.t('.vinks.latest_index_title')
 
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
-  = render "all_vinks"
+  - if can? :create, Vink
+    .small-12.columns
+      //.action= link_to I18n.t('.vinks.new_title'), new_vink_path(@vink), class: 'button secondary'
+
+    .small-12.small-centered.columns
+      %table.table
+        %thead
+          %tr
+            //%th//= I18n.t(".clubs.form.name")
+            %th
+        %tbody
+          - unless @vinks.blank?
+          - else
+            %tr
+              %td{ colspan: 2 }= I18n.t('.general.no_data')
