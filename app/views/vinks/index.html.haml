@@ -1,0 +1,9 @@
+- if can? :index, Vink
+  - if params[:view] == "own"
+    - title = I18n.t('.vinks.my_index_title')
+  - else
+    - title = I18n.t('.vinks.index_title')
+
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
+
+  = render "all_vinks"

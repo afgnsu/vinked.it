@@ -38,10 +38,10 @@ en:
       name:       Club
       league_id:  League
       league_step: Step
-  visits:
-    my_index_title:  My visits
-    index_title:  Visits
-    new_title:    Add visit
+  vinks:
+    my_index_title:  My vinked.it's
+    index_title:  Vinked.it
+    new_title:    Add v
     edit_title:   Edit visit
     delete_title: Remove visit
     last_month_title: Visits made by our members this month

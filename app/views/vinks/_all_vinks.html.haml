@@ -1,0 +1,15 @@
+- if can? :create, Vink
+  .small-12.columns
+    //.action= link_to I18n.t('.vinks.new_title'), new_vink_path(@vink), class: 'button secondary'
+
+  .small-12.small-centered.columns
+    %table.table
+      %thead
+        %tr
+          //%th//= I18n.t(".clubs.form.name")
+          %th
+      %tbody
+        - unless @vinks.blank?
+        - else
+          %tr
+            %td{ colspan: 2 }= I18n.t('.general.no_data')

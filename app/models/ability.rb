@@ -10,6 +10,7 @@ class Ability
         # Basic subscription users
         can [:index, :show, :update], User
         can [:index, :show], Club
+        can [:index, :show, :create, :update, :destroy], Vink
 
         cannot [:destroy], User
         cannot [:create, :update, :destroy], User
@@ -17,6 +18,7 @@ class Ability
         # Premium subscription users
         can [:index, :show, :update], User
         can [:index, :show, :create], Club
+        can [:index, :show, :create, :update, :destroy], Vink
 
         cannot [:destroy], User
         cannot [:update, :destroy], User
