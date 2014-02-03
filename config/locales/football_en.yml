@@ -29,9 +29,12 @@ en:
     index_title:  Vinked.it's
     my_index_title:  My vinked.it's
     latest_index_title:  Latest vinked.it's
+    all_index_title:  All vinked.it's
     new_title:    Add club
     edit_title:   Edit club
     delete_title: Remove club
+    none1:        "Bummer, no vinked.it's yet!"
+    none2:        "Why not add some?"
     messages:
       created:    Club has been added succesfully
       updated:    Club has been updated succesfully
@@ -45,7 +48,6 @@ en:
     edit_title:   Edit vink
     delete_title: Remove vink
     last_month_title: Vinks made by our members this month
-    none:         Bummer, no vinks made...
     messages:
       created:    vink has been added succesfully
       updated:    vink has been updated succesfully

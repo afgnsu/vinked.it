@@ -2,12 +2,13 @@
   - if params[:view] == "own"
     - title = I18n.t('.clubs.my_index_title')
   - else
-    - title = I18n.t('.clubs.latest_index_title')
+    - title = I18n.t('.clubs.all_index_title')
 
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
 - if can? :create, Club
-  .small-12.columns
-    .action= link_to I18n.t('.clubs.new_title'), new_club_path(@club), class: 'button secondary'
+  .row
+    .small-12.columns
+      .action= link_to I18n.t('.clubs.new_title'), new_club_path(@club), class: 'button secondary'
 
 = render "all_clubs"

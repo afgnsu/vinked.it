@@ -56,6 +56,10 @@ describe "Clubs" do
         expect(page).to have_content(I18n.t(".clubs.messages.created"))
         expect(page).to have_content("Charlton Athletic")
       end
+
+      describe "vinks overview" do
+
+      end
     end
   end
 

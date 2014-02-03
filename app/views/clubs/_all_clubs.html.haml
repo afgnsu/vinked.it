@@ -1,19 +1,22 @@
-.small-12.small-centered.columns
-  %table.table
-    %thead
-      %tr
-        %th= I18n.t(".clubs.form.name")
-        %th
-    %tbody
-      - unless @clubs.blank?
-        - @clubs.each do |club|
-          %tr
-            %td{ "data-title" => "#{I18n.t(".clubs.form.name")}" }= decorate_data_field(club.name)
-            %td
-              - if can? :edit, Club
-                = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'button tiny secondary'
-              - if can? :destroy, Club
-                = link_to I18n.t('.helpers.destroy'), club_path(club), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'button tiny alert'
+.row.clubs
+  - unless @clubs.blank?
+    - @clubs.each do |club|
+      - if club.vinked?(current_user)
+        - vinkedit = "vinked"
+        - icon = "white"
       - else
-        %tr
-          %td{ colspan: 2 }= I18n.t('.general.no_data')
+        - vinkedit = "not_vinked"
+        - icon = "grey"
+
+      .small-12.large-6.columns
+        .panel(class=vinkedit)
+          .vink
+            = link_to new_vink_path, remote: true do
+              %i.fi-checkbox(class=icon)
+          .club= club.name
+          .vinkedits= club.vinks.size
+          .users= club.users.size
+  - else
+    .small-6.small-centered.columns.panel.none
+      .no_data= I18n.t('.clubs.none1')
+      .no_data= link_to I18n.t('.clubs.none2'), clubs_path

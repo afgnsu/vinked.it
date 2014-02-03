@@ -3,9 +3,9 @@ class ClubsController < ApplicationController
     authorize! :index, Club
 
     if params[:view] == "own"
-      @clubs = current_user.clubs.includes(:vink).order("vinks.vink_date DESC")
+      @clubs = current_user.clubs.includes(:vinks).order("vinks.vink_date DESC")
     else
-      @clubs = Club.order("name")
+      @clubs = Club.includes(:vinks).order("name")
     end
   end
 

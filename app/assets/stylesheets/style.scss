@@ -16,6 +16,9 @@ i.large {
 i.white {
   color: white;
 }
+i.grey {
+  color: $border-color;
+}
 #error_explanation {
   border: 2px solid red;
   padding: 5px;
@@ -69,4 +72,46 @@ i.white {
 }
 table {
   width: 100%;
+}
+.clubs {
+  .no_data {
+    clear: both;
+    align: left;
+    text-align: center;
+    padding: 10px;
+  }
+  .vinked {
+    border: 1px solid $primary-color;
+    background: $primary-color;
+  }
+  .not_vinked {
+    background: #f2f2f2;
+    border: 1px solid #d8d8d8;
+  }
+  .panel {
+    display: inline-block;
+    width: 100%;
+    .vink, .club {
+      float: left;
+      color: #FFFFFF;
+    }
+    .vinkedits, .users {
+      float: right;
+      margin-left: 10px;
+      padding: 10px 15px;
+      color: #FFFFFF;
+      background: lighten($primary-color, 10%);
+    }
+    .club {
+      margin-left: 20px;
+      margin-top: 7px;
+      font-size: 125%;
+    }
+    .vink {
+      font-size: 200%;
+    }
+  }
+  .none {
+    margin-top: 100px;
+  }
 }
