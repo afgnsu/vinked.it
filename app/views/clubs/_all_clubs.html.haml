@@ -1,1 +1,19 @@
-_all_clubs
+.small-12.small-centered.columns
+  %table.table
+    %thead
+      %tr
+        %th= I18n.t(".clubs.form.name")
+        %th
+    %tbody
+      - unless @clubs.blank?
+        - @clubs.each do |club|
+          %tr
+            %td{ "data-title" => "#{I18n.t(".clubs.form.name")}" }= decorate_data_field(club.name)
+            %td
+              - if can? :edit, Club
+                = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'button tiny secondary'
+              - if can? :destroy, Club
+                = link_to I18n.t('.helpers.destroy'), club_path(club), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'button tiny alert'
+      - else
+        %tr
+          %td{ colspan: 2 }= I18n.t('.general.no_data')

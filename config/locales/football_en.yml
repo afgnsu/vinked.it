@@ -26,7 +26,9 @@ en:
       level:      Level
       country_id: Country
   clubs:
-    index_title:  Clubs
+    index_title:  Vinked.it's
+    my_index_title:  My vinked.it's
+    latest_index_title:  Latest vinked.it's
     new_title:    Add club
     edit_title:   Edit club
     delete_title: Remove club
@@ -39,18 +41,15 @@ en:
       league_id:  League
       league_step: Step
   vinks:
-    index_title:  Vinked.it
-    my_index_title:  My vinked.it's
-    latest_index_title:  Latest vinked.it's
-    new_title:    Add v
-    edit_title:   Edit visit
-    delete_title: Remove visit
-    last_month_title: Visits made by our members this month
-    none:         Bummer, no visits made...
+    new_title:    Add vink
+    edit_title:   Edit vink
+    delete_title: Remove vink
+    last_month_title: Vinks made by our members this month
+    none:         Bummer, no vinks made...
     messages:
-      created:    Visit has been added succesfully
-      updated:    Visit has been updated succesfully
-      removed:    Visit has been removed succesfully
+      created:    vink has been added succesfully
+      updated:    vink has been updated succesfully
+      removed:    vink has been removed succesfully
     form:
       visit_nr:           Visit nr.
       the92_nr:           The 92 nr.

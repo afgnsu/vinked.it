@@ -2,7 +2,11 @@ class ClubsController < ApplicationController
   def index
     authorize! :index, Club
 
-    @clubs = Club.order("name")
+    if params[:view] == "own"
+      @clubs = current_user.clubs.includes(:vink).order("vinks.vink_date DESC")
+    else
+      @clubs = Club.order("name")
+    end
   end
 
   def new

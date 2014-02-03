@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  #it { should have_many :visits }
+  it { should have_many :vinks }
+  it { should have_many(:clubs).through(:vinks) }
   it { should validate_presence_of :email         }
   it { should validate_presence_of :role          }
   it { should validate_presence_of :first_name    }

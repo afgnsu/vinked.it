@@ -1,26 +1,13 @@
 - if can? :index, Club
-  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.clubs.index_title')
+  - if params[:view] == "own"
+    - title = I18n.t('.clubs.my_index_title')
+  - else
+    - title = I18n.t('.clubs.latest_index_title')
+
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
 - if can? :create, Club
   .small-12.columns
     .action= link_to I18n.t('.clubs.new_title'), new_club_path(@club), class: 'button secondary'
 
-  .small-12.small-centered.columns
-    %table.table
-      %thead
-        %tr
-          %th= I18n.t(".clubs.form.name")
-          %th
-      %tbody
-        - unless @clubs.blank?
-          - @clubs.each do |club|
-            %tr
-              %td{ "data-title" => "#{I18n.t(".clubs.form.name")}" }= decorate_data_field(club.name)
-              %td
-                - if can? :edit, Club
-                  = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'button tiny secondary'
-                - if can? :destroy, Club
-                  = link_to I18n.t('.helpers.destroy'), club_path(club), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'button tiny alert'
-        - else
-          %tr
-            %td{ colspan: 2 }= I18n.t('.general.no_data')
+= render "all_clubs"

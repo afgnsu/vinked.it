@@ -12,6 +12,7 @@ FactoryGirl.define do
     role              "employee"
     subscription      "basic"
     password          "password1"
+    confirmed_at      DateTime.now
     email
   end
 end

@@ -5,7 +5,7 @@ describe "Authentication" do
   context "unregistered visitors" do
     it "shows the home page" do
       visit root_path
-      expect(page).to have_content(I18n.t(".site.dashboard"))
+      expect(page).not_to have_content(I18n.t('.clubs.index_title'))
     end
 
     it "shows a login option" do
@@ -13,36 +13,15 @@ describe "Authentication" do
       expect(page).to have_content(I18n.t(".devise.sessions.sign_in"))
     end
 
-    it "doesn't show options for profile and settings" do
+    it "doesn't show vinked.it's" do
       visit root_path
-      expect(page).not_to have_content(I18n.t('.users.my_profile'))
-      expect(page).not_to have_content(I18n.t('.users.settings'))
-    end
-
-    it "doesn't show the countries menu option" do
-      visit root_path
-      expect(page).not_to have_content(I18n.t(".countries.index_title"))
-    end
-      
-    it "doesn't show the user's visits menu option" do
-      visit root_path
-      expect(page).not_to have_content(I18n.t(".visits.my_index_title"))
-    end
-
-    it "shows the leagues menu option" do
-      visit root_path
-      expect(page).to have_content(I18n.t(".leagues.index_title"))
-    end
-
-    it "shows the clubs menu option" do
-      visit root_path
-      expect(page).to have_content(I18n.t(".clubs.index_title"))
+      expect(page).not_to have_content(I18n.t('.clubs.index_title'))
     end
   end
 
   describe "registered users" do
-    context "users" do
-      let!(:user)   { create(:user, role: "user") }
+    context "basic subscription" do
+      let!(:user)   { create(:user, role: "user", subscription: "basic") }
 
       before do
         sign_in(user)
@@ -50,74 +29,41 @@ describe "Authentication" do
 
       it "shows the home page" do
         visit root_path
-        expect(page).to have_content(I18n.t(".site.dashboard"))
+        expect(page).to have_content(I18n.t('.clubs.index_title'))
       end
 
-      it "shows options for profile and settings" do
+      it "shows a logout option" do
         visit root_path
-        expect(page).to have_content(I18n.t('.users.my_profile'))
-        expect(page).to have_content(I18n.t('.users.settings'))
+        expect(page).to have_content(I18n.t(".devise.sessions.sign_out"))
       end
 
-      it "doesn't show the countries menu option" do
+      it "shows vinked.it's" do
         visit root_path
-        expect(page).not_to have_content(I18n.t(".countries.index_title"))
-      end
-        
-      it "shows the user's visits menu option" do
-        visit root_path
-        expect(page).to have_content(I18n.t(".visits.my_index_title"))
-      end
-
-      it "shows the leagues menu option" do
-        visit root_path
-        expect(page).to have_content(I18n.t(".leagues.index_title"))
-      end
-
-      it "shows the clubs menu option" do
-        visit root_path
-        expect(page).to have_content(I18n.t(".clubs.index_title"))
+        expect(page).to have_content(I18n.t('.clubs.index_title'))
       end
     end
 
-    context "admins" do
-      let!(:admin)   { create(:user, role: "admin") }
+    context "premium subscription" do
+      let!(:user)   { create(:user, role: "user", subscription: "premium") }
 
       before do
-        sign_in(admin)
+        sign_in(user)
       end
 
       it "shows the home page" do
         visit root_path
-        expect(page).to have_content(I18n.t(".site.dashboard"))
+        expect(page).to have_content(I18n.t('.clubs.index_title'))
       end
 
-      it "shows options for profile and settings" do
+      it "shows a login option" do
         visit root_path
-        expect(page).to have_content(I18n.t('.users.my_profile'))
-        expect(page).to have_content(I18n.t('.users.settings'))
+        expect(page).to have_content(I18n.t(".devise.sessions.sign_out"))
       end
 
-      it "shows the countries menu option" do
+      it "shows vinked.it's" do
         visit root_path
-        expect(page).to have_content(I18n.t(".countries.index_title"))
-      end
-        
-      it "shows the user's visits menu option" do
-        visit root_path
-        expect(page).to have_content(I18n.t(".visits.my_index_title"))
-      end
-
-      it "shows the leagues menu option" do
-        visit root_path
-        expect(page).to have_content(I18n.t(".leagues.index_title"))
-      end
-
-      it "shows the clubs menu option" do
-        visit root_path
-        expect(page).to have_content(I18n.t(".clubs.index_title"))
+        expect(page).to have_content(I18n.t('.clubs.index_title'))
       end
     end
   end
-
 end
