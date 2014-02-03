@@ -14,8 +14,21 @@
             = link_to new_vink_path, remote: true do
               %i.fi-checkbox(class=icon)
           .club= club.name
-          .vinkedits= club.vinks.size
-          .users= club.users.size
+          = link_to club_path(club, view: "comments") do
+            .comments
+              .icon
+                %i.fi-comments
+              .count 283
+          = link_to club_path(club, view: "users") do
+            .users
+              .icon
+                %i.fi-torsos
+              .count= club.users.size
+          = link_to club_path(club, view: "vinkedits") do
+            .vinkedits
+              .icon
+                %i.fi-check
+              .count= club.vinks.size
   - else
     .small-6.small-centered.columns.panel.none
       .no_data= I18n.t('.clubs.none1')
