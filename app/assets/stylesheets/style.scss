@@ -109,6 +109,8 @@ table {
     display: inline-block;
     width: 100%;
     padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
 
     .vink, .club {
       float: left;
@@ -139,5 +141,19 @@ table {
   }
   .none {
     margin-top: 100px;
+  }
+}
+.vink_form {
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid $border-color;
+  width: 100%;
+
+  .date {
+    select {
+      float: left;
+      width: 33%;
+    }
   }
 }

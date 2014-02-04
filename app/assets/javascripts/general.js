@@ -10,10 +10,8 @@ $(document).ready(function(){
   });
 
   $(document).on('click', '.vink_close', function(e) {
-    alert(1);
     e.preventDefault();
-    var id = this.id;
-    $('#club_'+id).hide();
+    $('.vink_form').hide();
   });
 
 });

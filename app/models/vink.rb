@@ -2,7 +2,7 @@ class Vink < ActiveRecord::Base
   belongs_to :user
   belongs_to :club
 
-  validates :vink_nr, :vink_date, :user_id, presence: true
+  validates :vink_nr, :vink_date, :user_id, :club_id, presence: true
 
   scope :by_vink, lambda { order("vink_nr DESC") }
   scope :this_week, lambda { where("vink_date >= ? AND vink_date <= ?", 1.week.ago, DateTime.now).order("vink_date DESC") }

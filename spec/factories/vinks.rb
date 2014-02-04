@@ -2,7 +2,6 @@ FactoryGirl.define do
   factory :vink do
     vink_nr             1
     vink_date           1.day.ago
-    club_id             1
     away_club_id        2
     ground              "Emirates Stadium"
     street              "Ashburton Grove"
@@ -15,5 +14,6 @@ FactoryGirl.define do
     countfor92          false
     rating              7
     association         :user
+    association         :club
   end
 end

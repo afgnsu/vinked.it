@@ -1,7 +1,7 @@
 .row.clubs
   - unless @clubs.blank?
     - @clubs.each do |club|
-      - if club.vinked?(current_user)
+      - if @calculator.vinked?(club)
         - vinkedit = "vinked"
         - icon = "white"
       - else
@@ -18,28 +18,36 @@
             .comments
               .icon
                 %i.fi-comments
-              .count 283
+              .count 0
           = link_to club_path(club, view: "users") do
             .users
               .icon
                 %i.fi-torsos
               .count= club.users.size
+          = link_to club_path(club, view: "own_vinkedits") do
+            .users
+              .icon
+                %i.fi-torso
+              .count= @calculator.vinks?(club, current_user)
           = link_to club_path(club, view: "vinkedits") do
             .vinkedits
               .icon
                 %i.fi-check
-              .count= club.vinks.size
+              .count= @calculator.vinks?(club)
 
+      .small-8.small-centered.columns
         %div{ id: "club_#{club.id}", class: "vink_form", style: "display:none;" }
-          = form_tag new_vink_path(@vink), html: { class: "form-horizontal"}, method: :post, remote: true do
-            .small-4.columns
-              %label.right.inline{for: "right-label"}= I18n.t('.vinks.form.visit_date')
-            .small-8.columns
-              = text_field_tag :vink_date, autofocus: true
-            .small-offset-4.small-8.columns
-              = submit_tag(I18n.t('.vinks.save'), class: "button")
-              = link_to I18n.t('.general.cancel'), clubs_path, class: 'button secondary vink_close'
-
+          = form_for @vink, remote: true, remote: true do |f|
+            = f.hidden_field :user_id, current_user
+            = f.hidden_field :club_id, club
+            .row
+              .small-12.columns
+                %label= I18n.t('.vinks.form.visit_date')
+                .date= f.date_select :vink_date, { include_blank: true, default: nil, order: [:day, :month, :year], start_year: 20.years.ago.year, end_year: DateTime.now.year }
+            .row
+              .small-12.columns
+                = f.submit(I18n.t('.vinks.save'), class: "button")
+                = link_to I18n.t('.general.cancel'), clubs_path, class: 'button secondary vink_close'
   - else
     .small-6.small-centered.columns.panel.none
       .no_data= I18n.t('.clubs.none1')

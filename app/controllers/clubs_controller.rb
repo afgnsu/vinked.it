@@ -4,10 +4,13 @@ class ClubsController < ApplicationController
 
     if params[:view] == "own"
       @clubs = current_user.clubs.includes(:vinks).order("vinks.vink_date DESC")
-    else
+    elsif params[:view] == "all"
       @clubs = Club.includes(:vinks).order("name")
+    elsif params[:view] == "latest"
+      @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
     end
     @vink = Vink.new
+    @calculator = VinkCalculator.new(current_user)
   end
 
   def new

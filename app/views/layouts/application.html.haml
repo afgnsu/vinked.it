@@ -41,6 +41,9 @@
           - else
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
+          %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
+          %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
+          %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
 
     .row
       .small-12.columns
