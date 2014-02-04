@@ -8,10 +8,10 @@
         - vinkedit = "not_vinked"
         - icon = "grey"
 
-      .small-12.large-6.columns
+      .small-8.small-centered.columns
         .panel(class=vinkedit)
           .vink
-            = link_to new_vink_path, remote: true do
+            = link_to "#", class: "vink_button", id: club.id do
               %i.fi-checkbox(class=icon)
           .club= club.name
           = link_to club_path(club, view: "comments") do
@@ -29,6 +29,17 @@
               .icon
                 %i.fi-check
               .count= club.vinks.size
+
+        %div{ id: "club_#{club.id}", class: "vink_form", style: "display:none;" }
+          = form_tag new_vink_path(@vink), html: { class: "form-horizontal"}, method: :post, remote: true do
+            .small-4.columns
+              %label.right.inline{for: "right-label"}= I18n.t('.vinks.form.visit_date')
+            .small-8.columns
+              = text_field_tag :vink_date, autofocus: true
+            .small-offset-4.small-8.columns
+              = submit_tag(I18n.t('.vinks.save'), class: "button")
+              = link_to I18n.t('.general.cancel'), clubs_path, class: 'button secondary vink_close'
+
   - else
     .small-6.small-centered.columns.panel.none
       .no_data= I18n.t('.clubs.none1')

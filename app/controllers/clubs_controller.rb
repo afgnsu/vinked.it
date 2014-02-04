@@ -7,6 +7,7 @@ class ClubsController < ApplicationController
     else
       @clubs = Club.includes(:vinks).order("name")
     end
+    @vink = Vink.new
   end
 
   def new

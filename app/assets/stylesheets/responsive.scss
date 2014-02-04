@@ -59,6 +59,38 @@
   */
   .table td:before { content: attr(data-title); }
 
+  .clubs {
+    .panel {
+      display: inline-block;
+      width: 100%;
+      padding: 5px;
+
+      .vink, .club {
+        padding: 8px 0 0 10px;
+      }
+      .vinkedits, .users, .comments {
+        margin-left: 10px;
+        padding: 10px 10px;
+        min-width: 50px;
+
+        .count {
+          font-size: 70%;
+        }
+      }
+      .club {
+        margin-left: 0;
+        margin-top: 7px;
+        font-size: 70%;
+      }
+      .vink {
+        font-size: 100%;
+      }
+    }
+    .none {
+      margin-top: 5px;
+    }
+  }
+
 
 }
 

@@ -6,9 +6,9 @@ class Club < ActiveRecord::Base
 
   def vinked?(user=nil)
     if user == nil
-      return true #unless self.vinks.blank?
+      return true unless self.vinks.blank?
     else
-      return true #unless self.vinks.where(user_id: user.id).blank?
+      return true unless self.vinks.where(user_id: user.id).blank?
     end
     false
   end

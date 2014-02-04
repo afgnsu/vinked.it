@@ -17,7 +17,7 @@ i.white {
   color: white;
 }
 i.grey {
-  color: $border-color;
+  color: #333333;
 }
 #error_explanation {
   border: 2px solid red;
@@ -83,10 +83,27 @@ table {
   .vinked {
     border: 1px solid $primary-color;
     background: $primary-color;
+
+    .vink, .club {
+      color: #FFFFFF;
+    }
+    .vinkedits, .users, .comments {
+      background: lighten($primary-color, 10%);
+      color: #FFFFFF;
+    }
   }
   .not_vinked {
     background: #f2f2f2;
     border: 1px solid #d8d8d8;
+
+    .vink, .club {
+      color: #333333;
+    }
+
+    .vinkedits, .users, .comments {
+      background: #333333;
+      color: #FFFFFF;
+    }
   }
   .panel {
     display: inline-block;
@@ -95,15 +112,12 @@ table {
 
     .vink, .club {
       float: left;
-      color: #FFFFFF;
       padding: 8px 0 0 10px;
     }
     .vinkedits, .users, .comments {
       float: right;
       margin-left: 10px;
       padding: 10px 10px;
-      color: #FFFFFF;
-      background: lighten($primary-color, 10%);
       min-width: 50px;
 
       .count, .icon {

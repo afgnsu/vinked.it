@@ -48,6 +48,7 @@ en:
     edit_title:   Edit vink
     delete_title: Remove vink
     last_month_title: Vinks made by our members this month
+    save:         Vinked.it!
     messages:
       created:    vink has been added succesfully
       updated:    vink has been updated succesfully
