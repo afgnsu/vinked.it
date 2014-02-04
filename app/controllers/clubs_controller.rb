@@ -10,7 +10,7 @@ class ClubsController < ApplicationController
       @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
     end
     @vink = Vink.new
-    @calculator = VinkCalculator.new(current_user)
+    @calculator = VinkCalculator.new
   end
 
   def new

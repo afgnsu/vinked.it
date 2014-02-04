@@ -11,10 +11,19 @@
       .small-8.small-centered.columns
         .panel(class=vinkedit)
           .vink
-            = link_to "#", class: "vink_button", id: club.id do
+            - if current_user.basic?
+              = link_to "#", class: "vink_button", id: club.id do
+                %i.fi-checkbox(class=icon)
+            - else
               %i.fi-checkbox(class=icon)
           .club= club.name
-          = link_to club_path(club, view: "comments") do
+          - if current_user.premium?
+            = link_to club_path(club, view: "comments") do
+              .comments
+                .icon
+                  %i.fi-comments
+                .count 0
+          - else
             .comments
               .icon
                 %i.fi-comments
@@ -38,8 +47,8 @@
       .small-8.small-centered.columns
         %div{ id: "club_#{club.id}", class: "vink_form", style: "display:none;" }
           = form_for @vink, remote: true, remote: true do |f|
-            = f.hidden_field :user_id, current_user
-            = f.hidden_field :club_id, club
+            = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :club_id, value: club.id
             .row
               .small-12.columns
                 %label= I18n.t('.vinks.form.visit_date')

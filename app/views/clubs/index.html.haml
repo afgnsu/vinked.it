@@ -6,7 +6,7 @@
 
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
-- if can? :create, Club
+- if can? :create, Club and current_user.premium?
   .row
     .small-offset-10.small-2.columns
       .action= link_to I18n.t('.clubs.new_title'), new_club_path(@club), class: 'button secondary'

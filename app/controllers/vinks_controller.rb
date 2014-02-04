@@ -3,9 +3,8 @@ class VinksController < ApplicationController
   def create
     authorize! :create, Vink
 
-    params[:vink_nr] = VinkCalculator.assign_vink_nr(current_user)
-
     @vink = Vink.new(vink_params)
+    @vink.vink_nr = VinkCalculator.new.assign_vink_nr(current_user)
     @vink.save!
 
     respond_to do |format|
