@@ -57,8 +57,9 @@ en:
     destroy:  delete
     details:  details
     confirm:  Are you sure?
-    yes:      Yes
-    no:       No
+    ja:      Yes
+    nee:       No
+    eg:       e.g.
     select:
       prompt: "Select"
   errors:

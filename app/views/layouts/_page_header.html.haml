@@ -1,6 +1,6 @@
 .page-header
   .row
-    .small-12.columns
+    .small-12.columns.messages
       - flash.each do |name, msg|
         %div{class: "alert-box #{name}"}
           %a.close{"data-dismiss" => "alert"} x

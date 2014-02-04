@@ -1,0 +1,36 @@
+// Hide form
+$('.vink_form').hide();
+
+
+// Add flash message
+//$('.messages').append("<div class='alert-box success'><a class='close' data-dismiss='alert'>x</a>"<%= "#{@vink.club.name}: #{I18n.t('.vinks.messages.created')}!" %>"</div>");
+
+// Get club_id
+club_id = <%= @vink.club.id %>;
+
+// Update my vinks counter
+counter = $('div#panel_club_' + club_id + ' > a > div.my_vinkedits > div.count').text();
+counter = parseInt(counter) + 1;
+$('div#panel_club_' + club_id + ' > a > div.my_vinkedits > div.count').text(counter);
+
+// Update vinks counter
+counter = $('div#panel_club_' + club_id + ' > a > div.vinkedits > div.count').text();
+counter = parseInt(counter) + 1;
+$('div#panel_club_' + club_id + ' > a > div.vinkedits > div.count').text(counter);
+
+// Update users counter
+vinks = <%= VinkCalculator.new.vinks?(@vink.club, @vink.user) %>;
+if (parseInt(vinks) == 1) {
+  counter = $('div#panel_club_' + club_id + ' > a > div.users > div.count').text();
+  counter = parseInt(counter) + 1;
+  $('div#panel_club_' + club_id + ' > a > div.users > div.count').text(counter);
+}
+
+// Change color
+classes = $('div#panel_club_' + club_id).attr('class');
+if (classes.indexOf("not_vinked") != -1){
+  $('div#panel_club_' + club_id).removeClass('not_vinked');
+  $('div#panel_club_' + club_id).addClass('vinked');
+  $('div#panel_club_' + club_id + ' > div.vink > a.vink_button > i.fi-checkbox').removeClass('grey');
+  $('div#panel_club_' + club_id + ' > div.vink > a.vink_button > i.fi-checkbox').addClass('white');
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131082222) do
+ActiveRecord::Schema.define(version: 20140204190519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20140131082222) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   create_table "countries", force: true do |t|
@@ -75,9 +78,6 @@ ActiveRecord::Schema.define(version: 20140131082222) do
     t.string   "ground"
     t.string   "street"
     t.string   "city"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "gmaps"
     t.string   "result"
     t.string   "season"
     t.string   "kickoff"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140131082222) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "league_id"
   end
 
   add_index "vinks", ["away_club_id"], name: "index_vinks_on_away_club_id", using: :btree

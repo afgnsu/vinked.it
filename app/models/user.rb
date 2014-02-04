@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def basic?
-    return true if subscription == "basic"
+    return true if subscription == "basic" or subscription == "premium"
     false
   end
 

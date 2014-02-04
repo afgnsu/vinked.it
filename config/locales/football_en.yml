@@ -50,7 +50,7 @@ en:
     last_month_title: Vinks made by our members this month
     save:         Vinked.it!
     messages:
-      created:    vink has been added succesfully
+      created:    You vinked.it
       updated:    vink has been updated succesfully
       removed:    vink has been removed succesfully
     form:
@@ -58,19 +58,16 @@ en:
       the92_nr:           The 92 nr.
       visit_date:         Visit date
       ground:             Ground
-      address:            Address
+      street:             Street name
+      city:               City
       result:             Result
       season:             Season
       kickoff:            Kickoff
       gate:               Gate
-      ticket_price:       Ticket price
       countfor92:         Count for 92
-      rating_match:       Rating match
-      rating_ground:      Rating ground
-      rating_atmosphere:  Rating atmosphere
-      rating_average:     Rating average
+      rating:             Rating
       programme:          Programme
-      ticket:             Ticket
+      ticket:             Ticket price
       league_id:          League visited
       league_now:         League now
       club_id:            Home club

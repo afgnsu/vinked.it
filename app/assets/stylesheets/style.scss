@@ -87,7 +87,7 @@ table {
     .vink, .club {
       color: #FFFFFF;
     }
-    .vinkedits, .users, .comments {
+    .vinkedits, .users, .my_vinkedits, .comments, .date {
       background: lighten($primary-color, 10%);
       color: #FFFFFF;
     }
@@ -100,7 +100,7 @@ table {
       color: #333333;
     }
 
-    .vinkedits, .users, .comments {
+    .vinkedits, .users, .my_vinkedits, .comments, .date {
       background: #333333;
       color: #FFFFFF;
     }
@@ -116,11 +116,24 @@ table {
       float: left;
       padding: 8px 0 0 10px;
     }
-    .vinkedits, .users, .comments {
+    .vinkedits, .users, .my_vinkedits, .comments {
       float: right;
       margin-left: 10px;
       padding: 10px 10px;
       min-width: 50px;
+
+      .count, .icon {
+        clear: both;
+        text-align: center;
+      }
+      .count {
+        font-size: 90%;
+      }
+    }
+    .date {
+      float: right;
+      margin-left: 10px;
+      padding: 18px 10px;
 
       .count, .icon {
         clear: both;
@@ -150,10 +163,16 @@ table {
   border: 1px solid $border-color;
   width: 100%;
 
-  .date {
+  .small {
     select {
       float: left;
       width: 33%;
+    }
+  }
+  .medium {
+    select {
+      float: left;
+      width: 66%;
     }
   }
 }

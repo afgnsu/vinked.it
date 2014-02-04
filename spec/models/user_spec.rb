@@ -102,8 +102,8 @@ describe User do
         expect(user_none.basic?).to be_false
       end
 
-      it "sets premium not as basic" do
-        expect(user_premium.basic?).to be_false
+      it "sets premium as basic" do
+        expect(user_premium.basic?).to be_true
       end
     end
 

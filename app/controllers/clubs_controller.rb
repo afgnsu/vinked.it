@@ -10,6 +10,8 @@ class ClubsController < ApplicationController
       @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
     end
     @vink = Vink.new
+    @form_clubs = Club.order(:name)
+    @form_leagues = League.order("level, name")
     @calculator = VinkCalculator.new
   end
 
@@ -25,7 +27,7 @@ class ClubsController < ApplicationController
 
     if @club.save
       flash[:success] = I18n.t(".clubs.messages.created")
-      redirect_to clubs_path
+      redirect_to clubs_path(view: "all")
     else
       @leagues = League.includes(:country).order(:name)
       render action: "new"
@@ -44,7 +46,7 @@ class ClubsController < ApplicationController
 
     if @club.update_attributes(club_params)
       flash[:success] = I18n.t(".clubs.messages.updated")
-      redirect_to clubs_path
+      redirect_to clubs_path(view: "all")
     else
       @leagues = League.includes(:country).order(:name)
       render action: "edit"
@@ -58,13 +60,13 @@ class ClubsController < ApplicationController
     @club.destroy
 
     flash[:success] = I18n.t(".clubs.messages.removed")
-    redirect_to clubs_path
+    redirect_to clubs_path(view: "all")
   end
 
   private
 
   def club_params
-    params.require(:club).permit(:name)
+    params.require(:club).permit(:name, :latitude, :longitude)
   end
 
 end

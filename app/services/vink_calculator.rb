@@ -19,4 +19,5 @@ class VinkCalculator
       club.vinks.where(user_id: user.id).size
     end
   end
+
 end
