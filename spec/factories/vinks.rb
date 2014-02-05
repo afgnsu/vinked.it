@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :vink do
-    vink_nr             1
     vink_date           1.day.ago
     away_club_id        2
     ground              "Emirates Stadium"

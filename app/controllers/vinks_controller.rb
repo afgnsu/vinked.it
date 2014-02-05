@@ -4,7 +4,6 @@ class VinksController < ApplicationController
     authorize! :create, Vink
 
     @vink = Vink.new(vink_params)
-    @vink.vink_nr = VinkCalculator.new.assign_vink_nr(current_user)
     @vink.save
 
     respond_to do |format|
@@ -26,7 +25,7 @@ class VinksController < ApplicationController
   private
 
   def vink_params
-    params.require(:vink).permit(:vink_nr, :vink_date, :ground, :street, :city, :result,
+    params.require(:vink).permit(:vink_date, :ground, :street, :city, :result,
       :season, :kickoff, :gate, :ticket, :rating, :club_id, :away_club_id, :user_id)
   end
 

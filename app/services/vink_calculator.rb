@@ -1,6 +1,6 @@
 class VinkCalculator
   def assign_vink_nr(user)
-    nr_vinks = user.vinks.size + 1
+    #nr_vinks = user.vinks.size + 1
   end
 
   def vinked?(club, user=nil)
