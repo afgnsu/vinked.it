@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204190519) do
+ActiveRecord::Schema.define(version: 20140205125621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20140204190519) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.integer  "country_id"
   end
+
+  add_index "clubs", ["country_id"], name: "index_clubs_on_country_id", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "country"

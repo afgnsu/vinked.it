@@ -1,8 +1,9 @@
 class Club < ActiveRecord::Base
+  belongs_to :country
   has_many :vinks
   has_many :users, through: :vinks
 
-  validates :name, presence: true
+  validates :name, :country_id, presence: true
 
   def last_vink
     unless self.vinks.blank?

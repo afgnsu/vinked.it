@@ -66,7 +66,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :latitude, :longitude)
+    params.require(:club).permit(:name, :country_id, :latitude, :longitude)
   end
 
 end

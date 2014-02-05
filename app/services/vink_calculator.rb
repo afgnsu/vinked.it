@@ -1,6 +1,10 @@
 class VinkCalculator
-  def assign_vink_nr(user)
-    #nr_vinks = user.vinks.size + 1
+  def assign_vink_nr(club, user)
+    if user.vinks.blank?
+      1
+    else
+      #user.vinks.where(club_id: club.id).order(:vink_date)
+    end
   end
 
   def vinked?(club, user=nil)

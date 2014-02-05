@@ -41,8 +41,7 @@ en:
       removed:    Club has been removed succesfully
     form:
       name:       Club
-      league_id:  League
-      league_step: Step
+      country_id: Country
   vinks:
     new_title:    Add vink
     edit_title:   Edit vink
