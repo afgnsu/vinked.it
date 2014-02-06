@@ -154,8 +154,12 @@ table {
       font-size: 200%;
     }
   }
-  .none {
-    margin-top: 100px;
+}
+.none {
+  margin: 20px 0;
+
+  .no_data {
+    text-align: center;
   }
 }
 .vink_form {
@@ -176,5 +180,30 @@ table {
       float: left;
       width: 66%;
     }
+  }
+}
+.details {
+  .panel {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    .vink_nr, .vink_date, .away_club {
+      float: left;
+      padding: 8px 0 0 10px;
+    }
+    .details {
+      float: right;
+      padding: 3px 20px 0 0;
+    }
+  }
+  .vink_details_panel {
+    clear: both;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
   }
 }

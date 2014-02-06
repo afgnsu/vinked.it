@@ -33,6 +33,10 @@ en:
     new_title:    Add club
     edit_title:   Edit club
     delete_title: Remove club
+    ownvinkedits_show_title:   My vinkedit's for
+    vinkedits_show_title:   Vinkedit's for
+    users_show_title:   Users who vinked
+    comments_show_title:   Comments for
     none1:        "Bummer, no vinked.it's yet!"
     none2:        "Why not add some?"
     messages:

@@ -14,4 +14,15 @@ $(document).ready(function(){
     $('.vink_form').hide();
   });
 
+  $(document).on('click', '.vink_details', function(e) {
+    e.preventDefault();
+    var id = this.id;
+    $('#vink_'+id).show();
+  });
+
+  $(document).on('click', '.vink_details_close', function(e) {
+    e.preventDefault();
+    $('.vink_details_panel').hide();
+  });
+
 });

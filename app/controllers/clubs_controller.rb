@@ -9,10 +9,29 @@ class ClubsController < ApplicationController
     elsif params[:view] == "latest"
       @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
     end
-    @vink = Vink.new
-    @form_clubs = Club.order(:name)
-    @form_leagues = League.order("level, name")
-    @calculator = VinkCalculator.new
+    form_data
+  end
+
+  def show
+    @club = Club.includes(:vinks).find(params[:id])
+
+    if params[:view] == "ownvinkedits"
+      @vinks = current_user.vinks.where(club_id: @club.id).order("vinks.vink_date DESC")
+    end
+
+    if params[:view] == "vinkedits"
+      @vinks = Vink.where(club_id: @club.id).order("vinks.vink_date DESC")
+    end
+
+    if params[:view] == "users"
+      @users = User.includes(:vinks).where("vinks.club_id = ?", @club.id).order(:last_name)
+    end
+
+    if params[:view] == "comments"
+      #@comments =
+    end
+
+    form_data
   end
 
   def new
@@ -37,7 +56,7 @@ class ClubsController < ApplicationController
   def edit
     @club = Club.find(params[:id])
     @leagues = League.includes(:country).order(:name)
-   end
+  end
 
   def update
     authorize! :update, Club
@@ -69,4 +88,10 @@ class ClubsController < ApplicationController
     params.require(:club).permit(:name, :country_id, :latitude, :longitude)
   end
 
+  def form_data
+    @vink = Vink.new
+    @form_clubs = Club.order(:name)
+    @form_leagues = League.order("level, name")
+    @calculator = VinkCalculator.new
+  end
 end

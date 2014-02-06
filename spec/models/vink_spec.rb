@@ -6,4 +6,5 @@ describe Vink do
   it { should validate_presence_of :vink_date }
   it { should validate_presence_of :user_id }
   it { should validate_presence_of :club_id }
+  it { should validate_presence_of :away_club_id }
 end

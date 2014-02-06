@@ -9,18 +9,18 @@
         .small-12.columns
           %label= I18n.t('.vinks.form.visit_date')
           .small= f.date_select :vink_date, { include_blank: true, default: nil, order: [:day, :month, :year], start_year: 20.years.ago.year, end_year: DateTime.now.year }
+      .row
+        .small-6.columns
+          %label= I18n.t('.vinks.form.away_club_id')
+          = f.select :away_club_id, @form_clubs.map{ |c| [c.name, c.id] }, include_blank: true
       - if current_user.premium?
         .row
           .small-6.columns
             %label= I18n.t('.vinks.form.countfor92')
             .small= f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, include_blank: true
-        .row
           .small-6.columns
             %label= I18n.t('.vinks.form.league_id')
             = f.select :league_id, @form_leagues.map{ |c| [c.name, c.id] }, include_blank: true
-          .small-6.columns
-            %label= I18n.t('.vinks.form.away_club_id')
-            = f.select :away_club_id, @form_clubs.map{ |c| [c.name, c.id] }, include_blank: true
         .row
           .small-6.columns
             %label= I18n.t('.vinks.form.result')
