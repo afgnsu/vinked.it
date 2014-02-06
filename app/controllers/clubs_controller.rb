@@ -15,7 +15,7 @@ class ClubsController < ApplicationController
   def show
     @club = Club.includes(:vinks).find(params[:id])
 
-    if params[:view] == "ownvinkedits"
+    if params[:view] == "own_vinkedits"
       @vinks = current_user.vinks.where(club_id: @club.id).order("vinks.vink_date DESC")
     end
 
