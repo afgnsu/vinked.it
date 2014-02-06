@@ -21,12 +21,8 @@
   %body
     %nav.top-bar{"data-topbar" => ""}
       %ul.title-area
-        - unless signed_in?
-          %li.name
-            %h1= link_to I18n.t('.site.title'), root_path
-        - else
-          %li.name
-            %h1= link_to I18n.t(".clubs.index_title"), clubs_path(view: "own")
+        %li.name
+          %h1= link_to I18n.t('.site.title'), root_path
         %li.toggle-topbar.menu-icon
           %a{href: "#"} Menu
       %section.top-bar-section
@@ -41,9 +37,10 @@
           - else
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
-          %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
-          %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
-          %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
+          - if signed_in?
+            %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
+            %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
+            %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
 
     .row
       .small-12.columns

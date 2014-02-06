@@ -4,6 +4,8 @@
       = f.hidden_field :user_id, value: current_user.id
       = f.hidden_field :club_id, value: club.id
       .row
+        .small-10.small-centered.columns.errors
+      .row
         .small-12.columns
           %label= I18n.t('.vinks.form.visit_date')
           .small= f.date_select :vink_date, { include_blank: true, default: nil, order: [:day, :month, :year], start_year: 20.years.ago.year, end_year: DateTime.now.year }

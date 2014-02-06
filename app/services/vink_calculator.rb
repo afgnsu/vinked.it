@@ -4,6 +4,7 @@ class VinkCalculator
       1
     else
       #user.vinks.where(club_id: club.id).order(:vink_date)
+      #User.where("created_at < :created_at", created_at: user.created_at).count
     end
   end
 

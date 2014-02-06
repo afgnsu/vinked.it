@@ -19,11 +19,13 @@ i.white {
 i.grey {
   color: #333333;
 }
-#error_explanation {
+#error_explanation, .errors {
   border: 2px solid red;
   padding: 5px;
   margin: 10px;
   background-color: #f9cfda;
+  color: red;
+  font-size: 12px;
 
   h2 {
     color: red;

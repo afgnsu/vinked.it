@@ -3,7 +3,7 @@ class ClubsController < ApplicationController
     authorize! :index, Club
 
     if params[:view] == "own"
-      @clubs = current_user.clubs.includes(:vinks).order("vinks.vink_date DESC")
+      @clubs = Club.includes(:vinks).where("vinks.user_id = ?", current_user.id).uniq.order("vinks.vink_date DESC")
     elsif params[:view] == "all"
       @clubs = Club.includes(:vinks).order("name")
     elsif params[:view] == "latest"
