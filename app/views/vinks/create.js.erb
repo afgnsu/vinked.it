@@ -34,6 +34,13 @@ if (errors == "[]"){
   }
 }
 else {
-  errors = errors.replace(/\"/g, '').replace('[', '').replace(']', '');
-  $('div.errors').append(errors);
+  id = <%= @vink.club.id %>;
+  $('div#club_' + id + ' div.errors').empty();
+  $('div#club_' + id + ' div.errors').append('<div class=form_errors></div>');
+  $('div#club_' + id + ' div.errors > div.form_errors').append("<ul></ul>");
+  errors = errors.split("&quot;, &quot;");
+  for (i = 0, max = errors.length; i < max; i++) {
+    errors[i] = errors[i].replace('[&quot;', '').replace('&quot;]', '');
+    $('div#club_' + id + ' div.errors > div.form_errors > ul').append("<li>" + errors[i] + "</li>");
+  }
 }

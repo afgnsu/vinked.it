@@ -19,21 +19,24 @@ i.white {
 i.grey {
   color: #333333;
 }
-#error_explanation, .errors {
+#error_explanation, .form_errors {
   border: 2px solid red;
   padding: 5px;
   margin: 10px;
   background-color: #f9cfda;
   color: red;
-  font-size: 12px;
 
   h2 {
     color: red;
     font-size: 14px;
   }
-  ul > li {
-    color: red;
-    font-size: 12px;
+  ul {
+    margin-bottom: 0;
+
+    li {
+      color: red;
+      font-size: 14px;
+    }
   }
 }
 .alerts {
@@ -164,10 +167,19 @@ table {
 }
 .vink_form {
   display: inline-block;
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 10px;
   border: 1px solid $border-color;
   width: 100%;
+  background-color: #FFFFFF;
+
+  .title {
+    text-align: center;
+    font-size: 125%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $border-color;
+  }
 
   .small {
     select {
