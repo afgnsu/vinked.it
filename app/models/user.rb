@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :vinks
   has_many :clubs, through: :vinks
-  has_many :comments
+  has_many :comments, as: :commentable
 
   validates :first_name, :last_name, :screen_name, :email, :role, :locale, :subscription, presence: true
   validates :first_name, :last_name, :location, length: { maximum: 50 }

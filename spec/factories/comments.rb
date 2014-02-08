@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :comment do
-    content "Mijn commentaar"
-    commentable_id 1
-    commentable_type "MyString"
-    association :user
+    content           "Mijn commentaar"
+    commentable_id    1
+    commentable_type  "Club"
+    association       :user
   end
 end
