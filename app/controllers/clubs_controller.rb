@@ -28,7 +28,9 @@ class ClubsController < ApplicationController
     end
 
     if params[:view] == "comments"
-      #@comments =
+      @commentable = @club
+      @comments = @commentable.comments
+      @comment = Comment.new
     end
 
     form_data
