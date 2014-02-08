@@ -35,8 +35,7 @@
           .no_data= I18n.t('.clubs.none1')
     - if params[:view] == "comments"
       .small-8.small-centered.columns
-        //- @comments.each do |comment|
-        club comments
+        = render "comments/all_comments", comments: @comments
 
   .row.new_comment
     .small-8.small-centered.columns

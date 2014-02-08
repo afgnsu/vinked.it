@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def show
     authorize! :show, User
     @user = User.find(params[:id])
+    @commentable = @user
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def update
