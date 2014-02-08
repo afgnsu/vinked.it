@@ -5,43 +5,44 @@
   - vinkedit = "not_vinked"
   - icon = "grey"
 
-.small-8.small-centered.columns
-  .panel(class=vinkedit){ id: "panel_club_#{club.id}" }
-    .vink
-      - if current_user.basic?
-        = link_to "#", class: "vink_button", id: club.id do
+.row
+  .small-8.small-centered.columns
+    .panel(class=vinkedit){ id: "panel_club_#{club.id}" }
+      .vink
+        - if current_user.basic?
+          = link_to "#", class: "vink_button", id: club.id do
+            %i.fi-checkbox(class=icon)
+        - else
           %i.fi-checkbox(class=icon)
+      .club= decorate_data_field(club.name)
+      - if current_user.premium?
+        = link_to club_path(club, view: "comments") do
+          .comments
+            .icon
+              %i.fi-comments
+            .count 0
       - else
-        %i.fi-checkbox(class=icon)
-    .club= decorate_data_field(club.name)
-    - if current_user.premium?
-      = link_to club_path(club, view: "comments") do
         .comments
           .icon
             %i.fi-comments
           .count 0
-    - else
-      .comments
-        .icon
-          %i.fi-comments
-        .count 0
-    = link_to club_path(club, view: "users") do
-      .users
-        .icon
-          %i.fi-torsos
-        .count= decorate_data_field(club.users.size)
-    = link_to club_path(club, view: "own_vinkedits") do
-      .my_vinkedits
-        .icon
-          %i.fi-torso
-        .count= decorate_data_field(@calculator.vinks?(club, current_user))
-    = link_to club_path(club, view: "vinkedits") do
-      .vinkedits
-        .icon
-          %i.fi-check
-        .count= decorate_data_field(@calculator.vinks?(club))
-    - unless club.last_vink.blank?
-      .date
-        .count= decorate_data_field(club.last_vink.vink_date, true)
+      = link_to club_path(club, view: "users") do
+        .users
+          .icon
+            %i.fi-torsos
+          .count= decorate_data_field(club.users.size)
+      = link_to club_path(club, view: "own_vinkedits") do
+        .my_vinkedits
+          .icon
+            %i.fi-torso
+          .count= decorate_data_field(@calculator.vinks?(club, current_user))
+      = link_to club_path(club, view: "vinkedits") do
+        .vinkedits
+          .icon
+            %i.fi-check
+          .count= decorate_data_field(@calculator.vinks?(club))
+      - unless club.last_vink.blank?
+        .date
+          .count= decorate_data_field(club.last_vink.vink_date, true)
 
-    = render "vink_form", club: club
+      = render "vink_form", club: club

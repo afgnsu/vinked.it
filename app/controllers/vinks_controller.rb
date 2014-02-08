@@ -26,7 +26,7 @@ class VinksController < ApplicationController
 
   def vink_params
     params.require(:vink).permit(:vink_date, :ground, :street, :city, :result,
-      :season, :kickoff, :gate, :ticket, :rating, :club_id, :away_club_id, :user_id)
+      :season, :kickoff, :gate, :ticket, :rating, :club_id, :away_club_id, :user_id, :countfor92, :league_id)
   end
 
 end

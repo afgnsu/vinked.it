@@ -50,7 +50,15 @@
         .small-6.columns
           %label= I18n.t('.vinks.form.city')
           = f.text_field :city, placeholder: "#{I18n.t('.helpers.eg')} London"
-      //t.integer  "rating"
+      .row
+        .small-12.columns
+          %label= I18n.t('.vinks.form.rating')
+        .small-12.columns
+          - (1..10).each do |n|
+            .star= n
+        .small-12.columns
+          - (1..10).each do |n|
+            .star= f.radio_button :rating, n
     .row
       .small-12.columns
         = f.submit(I18n.t('.vinks.save'), class: "button")

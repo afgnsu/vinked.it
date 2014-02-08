@@ -8,13 +8,6 @@ module DecorationHelper
     end
   end
 
-  def decorate_boolean_field(value)
-    if value == true
-      "<span class='icon-ok'></span>".html_safe
-    else
-      "-"
-    end
-  end
 
 
 end
