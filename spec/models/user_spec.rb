@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
   it { should have_many :vinks }
+  it { should have_many :comments }
   it { should have_many(:clubs).through(:vinks) }
   it { should validate_presence_of :email         }
   it { should validate_presence_of :role          }
