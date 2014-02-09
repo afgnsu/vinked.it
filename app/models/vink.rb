@@ -1,7 +1,6 @@
 class Vink < ActiveRecord::Base
   belongs_to :user
   belongs_to :club
-  has_many :comments, as: :commentable
 
   validates :vink_date, :user_id, :club_id, :away_club_id, presence: true
 

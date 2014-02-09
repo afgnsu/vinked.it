@@ -5,6 +5,6 @@ FactoryGirl.define do
     content           "Mijn commentaar"
     commentable_id    1
     commentable_type  "Club"
-    association       :user
+    user_id           1
   end
 end
