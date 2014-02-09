@@ -1,6 +1,6 @@
 .row.clubs
   - unless @clubs.blank?
     - @clubs.each do |club|
-      = render "club_details", club: club
+      = render "clubs/club_details", club: club
   - else
-    = render "no_visits"
+    = render "clubs/no_visits"

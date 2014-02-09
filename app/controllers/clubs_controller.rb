@@ -23,7 +23,6 @@ class ClubsController < ApplicationController
       @users = User.includes(:vinks).where("vinks.club_id = ?", @club.id).uniq.order(:screen_name)
     else
       params[:view] = "comments"
-      puts "HUH #{params[:view]}"
       @commentable = @club
       @comments = @commentable.comments.order("created_at ASC")
       @comment = Comment.new

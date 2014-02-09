@@ -1,5 +1,12 @@
-%h3 User
-%p
-  User: #{@user.screen_name}
-%p
-  Email: #{@user.email if @user.email}
+- if can? :show, User
+  = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: I18n.t('.users.show_title')
+
+.row
+  .small-8.small-centered.columns
+    %h3 User
+    %p
+      User: #{@user.screen_name}
+    %p
+      Email: #{@user.email if @user.email}
+
+= render "clubs/all_clubs"
