@@ -1,11 +1,6 @@
 class VinkCalculator
-  def assign_vink_nr(club, user)
-    if user.vinks.blank?
-      1
-    else
-      #user.vinks.where(club_id: club.id).order(:vink_date)
-      #User.where("created_at < :created_at", created_at: user.created_at).count
-    end
+  def assign_vink_nr(vink)
+    vinks = Vink.where("user_id = :user_id and created_at < :created_at", user_id: vink.user_id, created_at: vink.created_at).count + 1
   end
 
   def vinked?(club, user=nil)

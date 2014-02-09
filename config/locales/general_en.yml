@@ -53,6 +53,7 @@ en:
     page_gap: "&hellip;"
   comments:
     new_title:      Add your comment
+    no_comments:    No comments yet!
     message_create: Comment has been added successfully
   helpers:
     actions:   Actions

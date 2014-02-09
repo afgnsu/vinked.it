@@ -17,17 +17,13 @@ class ClubsController < ApplicationController
 
     if params[:view] == "own_vinkedits"
       @vinks = current_user.vinks.where(club_id: @club.id).order("vinks.vink_date DESC")
-    end
-
-    if params[:view] == "vinkedits"
+    elsif params[:view] == "vinkedits"
       @vinks = Vink.where(club_id: @club.id).order("vinks.vink_date DESC")
-    end
-
-    if params[:view] == "users"
+    elsif params[:view] == "users"
       @users = User.includes(:vinks).where("vinks.club_id = ?", @club.id).order(:last_name)
-    end
-
-    if params[:view] == "comments"
+    else
+      params[:view] = "comments"
+      puts "HUH #{params[:view]}"
       @commentable = @club
       @comments = @commentable.comments
       @comment = Comment.new

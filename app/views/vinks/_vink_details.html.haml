@@ -19,7 +19,7 @@
                 No
           .small-6.columns
             .visit_label= I18n.t('.vinks.form.visit_nr')
-            .visit_item= decorate_data_field("#{Vink.where("user_id = :user_id and created_at < :created_at", user_id: vink.user_id, created_at: vink.created_at).count + 1}.")
+            .visit_item= decorate_data_field(@calculator.assign_vink_nr(vink))
         .row
           .small-6.columns
             .visit_label= I18n.t('.vinks.form.country_id')

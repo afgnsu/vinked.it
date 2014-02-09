@@ -1,5 +1,5 @@
 - unless @comments.blank?
   - @comments.each do |comment|
     .comment= comment.content
-
-//= link_to "New Comment", [:new, @commentable, :comment]
+- else
+  .panel= I18n.t('.comments.no_comments')

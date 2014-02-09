@@ -34,9 +34,7 @@
         .small-6.small-centered.columns.panel.none
           .no_data= I18n.t('.clubs.none1')
     - if params[:view] == "comments"
-      .small-8.small-centered.columns
+      .small-8.small-centered.columns.comments
         = render "comments/all_comments", comments: @comments
-
-  .row.new_comment
-    .small-8.small-centered.columns
-      = render "comments/comment_form"
+        - if current_user.premium?
+          = render "comments/comment_form"
