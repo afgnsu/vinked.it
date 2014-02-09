@@ -25,7 +25,7 @@ class ClubsController < ApplicationController
       params[:view] = "comments"
       puts "HUH #{params[:view]}"
       @commentable = @club
-      @comments = @commentable.comments
+      @comments = @commentable.comments.order("created_at ASC")
       @comment = Comment.new
     end
 

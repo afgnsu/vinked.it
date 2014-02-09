@@ -55,6 +55,7 @@ en:
     new_title:      Add your comment
     no_comments:    No comments yet!
     message_create: Comment has been added successfully
+    created_by:     added by
   helpers:
     actions:   Actions
     edit:     edit

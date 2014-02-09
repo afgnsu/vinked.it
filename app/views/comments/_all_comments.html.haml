@@ -1,5 +1,7 @@
 - unless @comments.blank?
   - @comments.each do |comment|
-    .comment= comment.content
+    .comment
+      .details= "#{I18n.t('.comments.created_by')} #{User.find(comment.user_id).screen_name} - #{comment.created_at.strftime('%d-%m-%Y @ %H:%M')}"
+      .panel= comment.content
 - else
   .panel= I18n.t('.comments.no_comments')

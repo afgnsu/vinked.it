@@ -253,12 +253,21 @@ table {
 }
 .comments {
   .comment {
+    margin-top: 20px;
 
+    .details {
+      margin-left: 10px;
+      font-size: 75%;
+    }
+    .panel {
+      word-wrap: break-word;
+      font-size: 90%;
+    }
   }
   .add_comment {
     margin-top: 20px;
     h3 {
-      font-size: 110%;
+      font-size: 100%;
     }
   }
 }
