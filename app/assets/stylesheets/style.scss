@@ -209,16 +209,40 @@ table {
 
     .vink_date, .away_club {
       float: left;
-      padding: 12px 0 0 12px;
+      padding: 18px 0 0 12px;
       font-weight: bold;
       font-size: 90%;
     }
-    .vinker {
-      float:right;
-    }
     .details {
       float: right;
-      padding: 3px 20px 0 0;
+      padding: 10px 5px 10px 15px;
+      min-width: 40px;
+    }
+    .user {
+      a, a:visited, a:hover {
+        min-width: 100px;
+        text-align: center;
+        float: right;
+        margin-left: 10px;
+        padding: 18px 10px;
+        font-size: 90%;
+        background: #333333;
+        color: #FFFFFF;
+      }
+    }
+  }
+  .vinker {
+    a, a:visited, a:hover {
+      float: left;
+      padding: 25px 20px;
+      margin: 20px 10px;
+      display: inline-block;
+      min-width: 100px;
+      text-align: center;
+      font-size: 90%;
+      background: #f2f2f2;
+      border: 1px solid #d8d8d8;
+      color: #333333;
     }
   }
   .vink_details_panel {
@@ -256,12 +280,16 @@ table {
     margin-top: 20px;
 
     .details {
-      margin-left: 10px;
+      clear: both;
+      float: right;
       font-size: 75%;
+      padding: 0;
+      margin-top: 5px;
     }
-    .panel {
-      word-wrap: break-word;
+    .content {
+      float: left;
       font-size: 90%;
+      word-wrap: break-word;
     }
   }
   .add_comment {

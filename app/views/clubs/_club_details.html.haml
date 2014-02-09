@@ -23,7 +23,7 @@
             %i.fi-comments
           .count= decorate_data_field(comment_count)
 
-      - users_count = club.users.count
+      - users_count = club.users.uniq.count
       - if users_count > 0
         = link_to club_path(club, view: "users") do
           .users

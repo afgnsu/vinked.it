@@ -7,7 +7,7 @@
         - if current_user.premium? and vink.user.premium?
           = link_to "#", class: "vink_details", id: vink.id do
             %i.fi-list.large.grey
-      .vinker= decorate_data_field(vink.user.screen_name)
+      .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user)
       %div{ id: "vink_#{vink.id}", class: "vink_details_panel", style: "display:none;" }
         .row
           .small-6.columns

@@ -28,8 +28,10 @@
         = render "no_visits"
     - if params[:view] == "users"
       - unless @users.blank?
-        - @users.each do |user|
-          bla
+        .row
+          .small-8.small-centered.columns
+            - @users.each do |user|
+              = render "users/user_details", user: user
       - else
         .small-6.small-centered.columns.panel.none
           .no_data= I18n.t('.clubs.none1')
