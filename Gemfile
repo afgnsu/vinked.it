@@ -17,6 +17,7 @@ gem 'rolify'
 gem 'i18n'
 gem 'bcrypt-ruby'
 gem 'foundation-rails'
+gem 'googlecharts', :require => "gchart"
 
 group :development do
   gem 'better_errors'

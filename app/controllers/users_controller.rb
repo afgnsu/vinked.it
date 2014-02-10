@@ -8,14 +8,13 @@ class UsersController < ApplicationController
   def show
     authorize! :show, User
     @user = User.find(params[:id])
-    @clubs = Club.includes(:vinks).where("vinks.user_id = ?", @user.id).uniq.order("vinks.vink_date DESC")
+    @vinks = @user.vinks.order("vink_date DESC")
     @commentable = @user
     @comments = @commentable.comments
     @comment = Comment.new
-    @vink = Vink.new
-    @form_clubs = Club.order(:name)
-    @form_leagues = League.order("level, name")
     @calculator = VinkCalculator.new
+
+    @countries = GraphBuilder.new.show_countries(@user)
   end
 
   def update

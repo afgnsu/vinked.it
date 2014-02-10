@@ -19,6 +19,9 @@ i.white {
 i.grey {
   color: #333333;
 }
+i.green {
+  color: $primary-color;
+}
 #error_explanation, .form_errors {
   border: 2px solid red;
   padding: 5px;
@@ -151,7 +154,8 @@ table {
     .club {
       margin-left: 0;
       margin-top: 7px;
-      font-size: 125%;
+      font-size: 120%;
+      padding-bottom: 2px;
     }
     .vink {
       font-size: 200%;
@@ -200,6 +204,10 @@ table {
   }
 }
 .details {
+  .vink {
+    background-color: #CCF5C1;
+    border: 1px solid $primary-color;
+  }
   .panel {
     display: inline-block;
     width: 100%;
@@ -226,7 +234,7 @@ table {
         margin-left: 10px;
         padding: 18px 10px;
         font-size: 90%;
-        background: #333333;
+        background: $primary-color;
         color: #FFFFFF;
       }
     }
@@ -243,6 +251,8 @@ table {
       background: #f2f2f2;
       border: 1px solid #d8d8d8;
       color: #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .vink_details_panel {

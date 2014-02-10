@@ -17,13 +17,13 @@
     - if params[:view] == "own_vinkedits"
       - unless @vinks.blank?
         - @vinks.each do |vink|
-          = render "vinks/vink_details", vink: vink
+          = render "vinks/vink_details", vink: vink, view: "club"
       - else
         = render "no_visits"
     - if params[:view] == "vinkedits"
       - unless @vinks.blank?
         - @vinks.each do |vink|
-          = render "vinks/vink_details", vink: vink
+          = render "vinks/vink_details", vink: vink, view: "club"
       - else
         = render "no_visits"
     - if params[:view] == "users"

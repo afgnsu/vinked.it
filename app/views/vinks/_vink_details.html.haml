@@ -1,13 +1,20 @@
 .row
   .small-7.small-centered.columns
-    .panel
+    .panel.vink
+      .vink_date= "#{decorate_data_field(@calculator.assign_vink_nr(vink))}."
       .vink_date= decorate_data_field(vink.vink_date, true)
-      .away_club= decorate_data_field(Club.find(vink.away_club_id).name)
+
+      - if view == "club"
+        .away_club= decorate_data_field(Club.find(vink.away_club_id).name)
+      - else
+        .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
+
       .details
         - if current_user.premium? and vink.user.premium?
           = link_to "#", class: "vink_details", id: vink.id do
-            %i.fi-list.large.grey
-      .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user)
+            %i.fi-list.large.green
+      - if view == "club"
+        .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user)
       %div{ id: "vink_#{vink.id}", class: "vink_details_panel", style: "display:none;" }
         .row
           .small-6.columns

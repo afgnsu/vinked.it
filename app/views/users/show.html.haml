@@ -1,12 +1,27 @@
 - if can? :show, User
-  = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: I18n.t('.users.show_title')
+  = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: "#{I18n.t('.users.show_title')}: #{@user.screen_name}"
 
 .row
   .small-8.small-centered.columns
-    %h3 User
-    %p
-      User: #{@user.screen_name}
-    %p
-      Email: #{@user.email if @user.email}
+    :javascript
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      google.setOnLoadCallback(drawChartCountries);
+      function drawChartCountries() {
+        // Create and populate the data table.
+        var data_countries = google.visualization.arrayToDataTable(#{@countries});
 
-= render "clubs/all_clubs"
+        // Create and draw the visualization.
+        new google.visualization.PieChart(document.getElementById('countries_chart_div')).draw(data_countries,
+          {width:350, height:350, chartArea: {left:60,top:0}, colors: ['#757370','#C41D21'],pieSliceText: "value",legend: {position: 'bottom',
+           textStyle: {color: 'black', fontSize: 12}}}
+        );
+      }
+
+    #countries_chart_div
+
+.row.details
+  - unless @vinks.blank?
+    - @vinks.each do |vink|
+      = render "vinks/vink_details", vink: vink, view: "user"
+
+

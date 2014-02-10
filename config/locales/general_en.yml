@@ -17,7 +17,7 @@ en:
     title:          Users
     new_title:      Add user
     edit_title:     Edit user
-    show_title:     User details
+    show_title:     User
     edit_profile:   Change profile
     message_create: Vinker has been added successfully
     message_update: Vinker has been edited successfully

@@ -14,7 +14,11 @@
             %i.fi-checkbox(class=icon)
         - else
           %i.fi-checkbox(class=icon)
-      .club= decorate_data_field(club.name)
+      .club
+        - if club.country.country_short != "ENG"
+          = "#{club.name} (#{club.country.country_short})"
+        - else
+          = club.name
 
       - comment_count = club.comments.count
       = link_to club_path(club, view: "comments") do
