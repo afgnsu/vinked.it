@@ -8,7 +8,7 @@ class Ability
         can :manage, :all
       elsif user.basic?
         # Basic subscription users
-        can [:index, :show, :update], User
+        can [:index, :show, :update, :profile], User
         can [:index, :show], Club
         can [:index, :show, :create, :update, :destroy], Vink
 
@@ -18,7 +18,7 @@ class Ability
         cannot [:index, :show, :create, :update, :destroy], League
       elsif user.premium?
         # Premium subscription users
-        can [:index, :show, :update], User
+        can [:index, :show, :update, :profile], User
         can [:index, :show, :create], Club
         can [:index, :show, :create, :update, :destroy], Vink
 

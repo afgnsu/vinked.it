@@ -1,0 +1,43 @@
+- if can? :edit, User
+  = render "layouts/page_header", level1_title: I18n.t(".users.profile_title"), level1_path: user_profile_path(@user), level2_title: I18n.t('.users.edit_title')
+
+  .small-8.small-centered.columns.form
+    = form_for @user do |f|
+      = render "layouts/error_messages", target: @user
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.first_name')
+          = f.text_field :first_name, autofocus: true
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.last_name')
+          = f.text_field :last_name
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.screen_name')
+          = f.text_field :screen_name
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.email')
+          = f.text_field :email
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.location')
+          = f.text_field :location
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.location')
+          = f.collection_select :locale, [["en", "English"] ,["nl", "Dutch"]], :first, :last, include_blank: true
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.subscription')
+          = f.collection_select :subscription, [["basic", I18n.t('.users.subscriptions.basic')] ,["premium", I18n.t('.users.subscriptions.premium')]], :first, :last, include_blank: true
+      .row
+        .small-12.columns
+          %label= I18n.t('.users.form.password')
+          = f.password_field :password
+      .row
+        .small-12.columns
+          = f.submit(class: 'button', value: I18n.t('.general.save'))
+          = link_to I18n.t('.general.cancel'), user_profile_path(@user), class: 'button secondary'
+

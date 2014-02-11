@@ -41,6 +41,7 @@
             %li.has-dropdown
               %a{href: "#"}= current_user.screen_name
               %ul.dropdown
+                %li= link_to I18n.t(".users.profile_title"), user_profile_path(current_user)
                 %li= link_to I18n.t(".devise.sessions.sign_out"), destroy_user_session_path, method: :delete
           - else
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path

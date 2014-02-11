@@ -1,0 +1,39 @@
+- if can? :profile, User and @user = current_user
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.users.profile_title')
+
+  - if can? :edit, User
+    .row
+      .small-offset-10.small-2.columns
+        .action= link_to I18n.t('.helpers.edit'), edit_user_path(@user), class: 'button secondary'
+
+  .row
+    .small-8.small-centered.columns
+      .panel.profile
+        .row
+          .small-4.columns= I18n.t('.users.form.first_name')
+          .small-8.columns= decorate_data_field(@user.first_name)
+        .row
+          .small-4.columns= I18n.t('.users.form.last_name')
+          .small-8.columns= decorate_data_field(@user.last_name)
+        .row
+          .small-4.columns= I18n.t('.users.form.screen_name')
+          .small-8.columns= decorate_data_field(@user.screen_name)
+        .row
+          .small-4.columns= I18n.t('.users.form.email')
+          .small-8.columns= decorate_data_field(@user.email)
+        .row
+          .small-4.columns= I18n.t('.users.form.location')
+          .small-8.columns= decorate_data_field(@user.location)
+        .row
+          .small-4.columns= I18n.t('.users.form.locale')
+          .small-8.columns= decorate_data_field(@user.locale)
+        .row
+          .small-4.columns= I18n.t('.users.form.subscription')
+          .small-8.columns= decorate_data_field(@user.subscription)
+        .row
+          .small-4.columns= I18n.t('.users.form.role')
+          .small-8.columns= decorate_data_field(@user.role)
+        .row
+          .small-4.columns= I18n.t('.users.form.last_login')
+          .small-8.columns= decorate_data_field(@user.last_sign_in_at, true)
+

@@ -1,14 +1,15 @@
-%h3 Users
-.span8
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th Username
-        %th Email
-        %th Registered
-    %tbody
-      - @users.each do |user|
+- if can? :index, User
+  %h3 Users
+  .span8
+    %table.table.table-condensed
+      %thead
         %tr
-          %td= link_to user.screen_name, user
-          %td= user.email
-          %td= user.created_at.to_date
+          %th Username
+          %th Email
+          %th Registered
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= link_to user.screen_name, user
+            %td= user.email
+            %td= user.created_at..strftime('%d-%m-%Y')

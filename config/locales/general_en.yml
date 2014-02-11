@@ -16,9 +16,10 @@ en:
   users:
     title:          Users
     new_title:      Add user
-    edit_title:     Edit user
+    edit_title:     Edit profile
     show_title:     User
     edit_profile:   Change profile
+    profile_title:  My profile
     message_create: Vinker has been added successfully
     message_update: Vinker has been edited successfully
     message_delete: Vinker has been removed successfully
@@ -30,6 +31,9 @@ en:
     profile:        User data
     settings:       Settings
     my_account:     My account
+    subscriptions:
+      basic:        Basic
+      premium:      Premium
     stats:
       countries:    countries
       clubs:        clubs
@@ -54,6 +58,7 @@ en:
       password_confirmation: Repeat password
       password_new: New password
       password_current: Current Password
+      last_login:  Last login
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"

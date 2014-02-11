@@ -2,6 +2,7 @@ VinkedIt::Application.routes.draw do
   devise_for :users
 
   resources :users do
+    get :profile
     resources :comments
   end
   resources :countries, except: [:show]
