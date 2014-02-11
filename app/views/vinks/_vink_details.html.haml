@@ -1,83 +1,90 @@
-.row
-  .small-7.small-centered.columns
-    .panel.vink
-      .vink_date= "#{decorate_data_field(vink.vink_nr)}."
-      .vink_date= decorate_data_field(vink.vink_date, true)
+- unless @vink.vink_date.blank?
+  - vink = @vink
+  - view = "club"
 
-      - if view == "club"
-        .away_club= decorate_data_field(Club.find(vink.away_club_id).name)
-      - else
-        - unless vink.club.blank? or Club.find(vink.away_club_id).blank?
-          .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
+%span{ id: "vinkdetails_#{vink.id}" }
+  .row
+    .small-7.small-centered.columns
+      .panel.vink
+        .vink_date= "#{decorate_data_field(vink.vink_nr)}."
+        .vink_date= decorate_data_field(vink.vink_date, true)
 
-      .details
-        - if current_user.premium? and vink.user.premium?
-          = link_to "#", class: "vink_details", id: vink.id do
-            %i.fi-list.large.green
-      - if view == "club"
-        .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user)
-      %div{ id: "vink_#{vink.id}", class: "vink_details_panel", style: "display:none;" }
-        .row
-          .small-12.columns
-            = link_to "edit", edit_vink_path(vink, club: vink.club)
-        .row
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.visit_nr')
-            .visit_item= decorate_data_field(vink.vink_nr)
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.countfor92')
-            .visit_item
-              - if vink.countfor92 == true
-                Yes
-              - else
-                No
-        .row
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.country_id')
-            .visit_item= decorate_data_field(League.find(vink.league_id).country.country) unless vink.league_id.blank?
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.league_id')
-            .visit_item= decorate_data_field(League.find(vink.league_id).name) unless vink.league_id.blank?
-        .row
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.result')
-            .visit_item= decorate_data_field(vink.result)
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.season')
-            .visit_item= decorate_data_field(vink.season)
-        .row
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.gate')
-            .visit_item= decorate_data_field(vink.gate)
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.kickoff')
-            .visit_item= decorate_data_field(vink.kickoff)
-        .row
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.ticket')
-            .visit_item= decorate_data_field(number_to_currency(vink.ticket, precision: 2))
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.ground')
-            .visit_item= decorate_data_field(vink.ground)
-        .row
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.street')
-            .visit_item= decorate_data_field(vink.street)
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.city')
-            .visit_item= decorate_data_field(vink.city)
-        .row
-          .small-12.columns
-            .visit_label= I18n.t('.vinks.form.rating')
-            .visit_item
-              - if vink.rating.blank?
-                - (1..10).each do |n|
-                  .fi-star.off
-              - else
-                - (1..vink.rating).each do |n|
-                  .fi-star.on
+        - if view == "club"
+          .away_club= decorate_data_field(Club.find(vink.away_club_id).name)
+        - else
+          - unless vink.club.blank? or Club.find(vink.away_club_id).blank?
+            .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
 
-                - (1..(10-vink.rating)).each do |n|
-                  .fi-star.off
+        .details
+          - if current_user.premium? and vink.user.premium?
+            = link_to "#", class: "vink_details", id: vink.id do
+              %i.fi-list.large.green
+        - if view == "club"
+          .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user)
+        %div{ id: "vink_#{vink.id}", class: "vink_details_panel", style: "display:none;" }
+          .vinkdata
+            .row
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.visit_nr')
+                .visit_item= decorate_data_field(vink.vink_nr)
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.countfor92')
+                .visit_item
+                  - if vink.countfor92 == true
+                    Yes
+                  - else
+                    No
+            .row
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.country_id')
+                .visit_item= decorate_data_field(League.find(vink.league_id).country.country) unless vink.league_id.blank?
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.league_id')
+                .visit_item= decorate_data_field(League.find(vink.league_id).name) unless vink.league_id.blank?
+            .row
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.result')
+                .visit_item= decorate_data_field(vink.result)
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.season')
+                .visit_item= decorate_data_field(vink.season)
+            .row
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.gate')
+                .visit_item= decorate_data_field(vink.gate)
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.kickoff')
+                .visit_item= decorate_data_field(vink.kickoff)
+            .row
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.ticket')
+                .visit_item= decorate_data_field(number_to_currency(vink.ticket, precision: 2))
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.ground')
+                .visit_item= decorate_data_field(vink.ground)
+            .row
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.street')
+                .visit_item= decorate_data_field(vink.street)
+              .small-6.columns
+                .visit_label= I18n.t('.vinks.form.city')
+                .visit_item= decorate_data_field(vink.city)
+            .row
+              .small-12.columns
+                .visit_label= I18n.t('.vinks.form.rating')
+                .visit_item
+                  - if vink.rating.blank?
+                    - (1..10).each do |n|
+                      .fi-star.off
+                  - else
+                    - (1..vink.rating).each do |n|
+                      .fi-star.on
+
+                    - (1..(10-vink.rating)).each do |n|
+                      .fi-star.off
+            - if can? :edit, Vink and vink.user == current_user
+              .row
+                .small-12.columns
+                  = link_to "edit", edit_vink_path(vink, club: vink.club), remote: true, class: "tiny button"
 
 

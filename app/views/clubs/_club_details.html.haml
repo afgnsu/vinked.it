@@ -16,7 +16,7 @@
           %i.fi-checkbox(class=icon)
       .club
         - if club.country.country_short != "ENG"
-          = "#{club.name} (#{club.country.country_short})"
+          = "#{club.name} (#{club.country.country_short.downcase})"
         - else
           = club.name
 

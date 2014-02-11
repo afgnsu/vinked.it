@@ -16,6 +16,21 @@ class VinksController < ApplicationController
     @form_clubs = Club.order(:name)
     @form_leagues = League.order("level, name")
     @calculator = VinkCalculator.new
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    authorize! :update, Vink
+
+    @vink = Vink.find(params[:id])
+    @vink.update_attributes(vink_params)
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy

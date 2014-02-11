@@ -7,21 +7,21 @@ if (errors == "[]"){
   club_id = <%= @vink.club.id %>;
 
   // Update my vinks counter
-  counter = $('div#panel_club_' + club_id + ' > a > div.my_vinkedits > div.count').text();
+  counter = $('div#panel_club_' + club_id + ' > div.my_vinkedits > div.count').text();
   counter = parseInt(counter) + 1;
-  $('div#panel_club_' + club_id + ' > a > div.my_vinkedits > div.count').text(counter);
+  $('div#panel_club_' + club_id + ' > div.my_vinkedits > div.count').text(counter);
 
   // Update vinks counter
-  counter = $('div#panel_club_' + club_id + ' > a > div.vinkedits > div.count').text();
+  counter = $('div#panel_club_' + club_id + ' > div.vinkedits > div.count').text();
   counter = parseInt(counter) + 1;
-  $('div#panel_club_' + club_id + ' > a > div.vinkedits > div.count').text(counter);
+  $('div#panel_club_' + club_id + ' > div.vinkedits > div.count').text(counter);
 
   // Update users counter
   vinks = <%= VinkCalculator.new.vinks?(@vink.club, @vink.user) %>;
   if (parseInt(vinks) == 1) {
-    counter = $('div#panel_club_' + club_id + ' > a > div.users > div.count').text();
+    counter = $('div#panel_club_' + club_id + ' > div.users > div.count').text();
     counter = parseInt(counter) + 1;
-    $('div#panel_club_' + club_id + ' > a > div.users > div.count').text(counter);
+    $('div#panel_club_' + club_id + ' > div.users > div.count').text(counter);
   }
 
   // Change color

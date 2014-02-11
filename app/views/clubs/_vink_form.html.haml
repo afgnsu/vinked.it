@@ -1,9 +1,17 @@
-%div{ id: "club_#{club.id}", class: "vink_form", style: "display:none;" }
+- unless @vink.club.blank?
+  - club = @vink.club
+  - style = nil
+  - title = I18n.t('.vinks.edit_title')
+- else
+  - style = "display:none;"
+  - title = I18n.t('.vinks.new_title')
+
+%div{ id: "club_#{club.id}", class: "vink_form", style: style }
   = form_for @vink, remote: true, remote: true do |f|
     = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :club_id, value: club.id
     .row
-      .small-11.small-centered.columns.title= I18n.t('.vinks.new_title')
+      .small-11.small-centered.columns.title= title
     .row
       .small-11.small-centered.columns.errors
     .row
@@ -21,7 +29,7 @@
           = f.text_field :vink_nr, autofocus: true
         .small-3.columns
           %label= I18n.t('.vinks.form.countfor92')
-          .small= f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, include_blank: true
+          = f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, include_blank: true
         .small-6.columns
           %label= I18n.t('.vinks.form.league_id')
           = f.select :league_id, @form_leagues.map{ |c| [c.name, c.id] }, include_blank: true

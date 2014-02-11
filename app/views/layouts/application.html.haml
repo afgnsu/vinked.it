@@ -46,9 +46,13 @@
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
           - if signed_in?
-            %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
-            %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
-            %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
+            %li.divider
+            %li.has-dropdown
+              %a{href: "#"}= I18n.t(".clubs.index_title")
+              %ul.dropdown
+                %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
+                %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
+                %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
 
     .row
       .small-12.columns
