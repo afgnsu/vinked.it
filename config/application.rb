@@ -41,7 +41,5 @@ module VinkedIt
     config.exceptions_app = self.routes
 
     config.i18n.enforce_available_locales = false
-
-    config.middleware.use Rack::Attack
   end
 end
