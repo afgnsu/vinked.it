@@ -18,6 +18,7 @@ gem 'i18n'
 gem 'bcrypt-ruby'
 gem 'foundation-rails'
 gem 'googlecharts', :require => "gchart"
+gem 'rails_12factor'
 
 group :development do
   gem 'better_errors'
