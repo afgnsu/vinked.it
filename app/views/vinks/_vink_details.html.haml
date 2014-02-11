@@ -1,7 +1,7 @@
 .row
   .small-7.small-centered.columns
     .panel.vink
-      .vink_date= "#{decorate_data_field(@calculator.assign_vink_nr(vink))}."
+      .vink_date= "#{decorate_data_field(vink.vink_nr)}."
       .vink_date= decorate_data_field(vink.vink_date, true)
 
       - if view == "club"
@@ -17,6 +17,12 @@
         .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user)
       %div{ id: "vink_#{vink.id}", class: "vink_details_panel", style: "display:none;" }
         .row
+          .small-12.columns
+            = link_to "edit", edit_vink_path(vink, club: vink.club)
+        .row
+          .small-6.columns
+            .visit_label= I18n.t('.vinks.form.visit_nr')
+            .visit_item= decorate_data_field(vink.vink_nr)
           .small-6.columns
             .visit_label= I18n.t('.vinks.form.countfor92')
             .visit_item
@@ -24,9 +30,6 @@
                 Yes
               - else
                 No
-          .small-6.columns
-            .visit_label= I18n.t('.vinks.form.visit_nr')
-            .visit_item= decorate_data_field(@calculator.assign_vink_nr(vink))
         .row
           .small-6.columns
             .visit_label= I18n.t('.vinks.form.country_id')

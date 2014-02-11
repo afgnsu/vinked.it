@@ -30,6 +30,11 @@ en:
     profile:        User data
     settings:       Settings
     my_account:     My account
+    stats:
+      countries:    countries
+      clubs:        clubs
+      vinks:        vinkedit's
+      rating:       average rating
     roles:
       user:     		User
       admin:        Admin

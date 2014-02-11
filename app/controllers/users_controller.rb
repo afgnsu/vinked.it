@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @comment = Comment.new
     @calculator = VinkCalculator.new
 
-    @countries = GraphBuilder.new.show_countries(@user)
+    #@countries = GraphBuilder.new.show_countries(@user)
   end
 
   def update

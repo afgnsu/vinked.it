@@ -232,7 +232,8 @@ table {
         text-align: center;
         float: right;
         margin-left: 10px;
-        padding: 18px 10px;
+        padding: 10px 10px;
+        margin-top: 7px;
         font-size: 90%;
         background: $primary-color;
         color: #FFFFFF;
@@ -307,5 +308,18 @@ table {
     h3 {
       font-size: 100%;
     }
+  }
+}
+.stats {
+  .count {
+    font-size: 150%;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
+  .text {
+    font-size: 100%;
+    padding: 5px;
+    text-align: center;
   }
 }

@@ -1,27 +1,23 @@
 - if can? :show, User
   = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: "#{I18n.t('.users.show_title')}: #{@user.screen_name}"
 
-.row
-  .small-8.small-centered.columns
-    :javascript
-      google.load('visualization', '1.0', {'packages':['corechart']});
-      google.setOnLoadCallback(drawChartCountries);
-      function drawChartCountries() {
-        // Create and populate the data table.
-        var data_countries = google.visualization.arrayToDataTable(#{@countries});
-
-        // Create and draw the visualization.
-        new google.visualization.PieChart(document.getElementById('countries_chart_div')).draw(data_countries,
-          {width:350, height:350, chartArea: {left:60,top:0}, colors: ['#757370','#C41D21'],pieSliceText: "value",legend: {position: 'bottom',
-           textStyle: {color: 'black', fontSize: 12}}}
-        );
-      }
-
-    #countries_chart_div
+.row.stats
+  .small-4.columns
+    .panel
+      .count= @user.clubs.uniq.count
+      .text= I18n.t('.users.stats.clubs')
+  .small-4.columns
+    .panel
+      .count= @user.vinks.count
+      .text= I18n.t('.users.stats.vinks')
+  .small-4.columns
+    .panel
+      .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating)
+      .text= I18n.t('.users.stats.rating')
 
 .row.details
   - unless @vinks.blank?
-    // @vinks.each do |vink|
-    //= render "vinks/vink_details", vink: vink, view: "user"
+    - @vinks.each do |vink|
+      = render "vinks/vink_details", vink: vink, view: "user"
 
 

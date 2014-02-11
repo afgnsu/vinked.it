@@ -57,7 +57,7 @@ en:
       updated:    vink has been updated succesfully
       removed:    vink has been removed succesfully
     form:
-      visit_nr:           Visit nr.
+      visit_nr:           Vink nr.
       the92_nr:           The 92 nr.
       visit_date:         Visit date
       ground:             Ground

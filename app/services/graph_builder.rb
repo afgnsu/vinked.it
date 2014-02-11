@@ -18,6 +18,24 @@ end
 
 =begin
 
+
+    :javascript
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      google.setOnLoadCallback(drawChartCountries);
+      function drawChartCountries() {
+        // Create and populate the data table.
+        var data_countries = google.visualization.arrayToDataTable(#{@countries});
+
+        // Create and draw the visualization.
+        new google.visualization.PieChart(document.getElementById('countries_chart_div')).draw(data_countries,
+          {width:350, height:350, chartArea: {left:60,top:0}, colors: ['#757370','#C41D21'],pieSliceText: "value",legend: {position: 'bottom',
+           textStyle: {color: 'black', fontSize: 12}}}
+        );
+      }
+
+    #countries_chart_div
+
+
 rescue
 
 :javascript

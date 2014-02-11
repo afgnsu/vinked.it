@@ -16,7 +16,10 @@
         = f.select :away_club_id, @form_clubs.map{ |c| [c.name, c.id] }, include_blank: true
     - if current_user.premium?
       .row
-        .small-6.columns
+        .small-3.columns
+          %label= I18n.t('.vinks.form.visit_nr')
+          = f.text_field :vink_nr, autofocus: true
+        .small-3.columns
           %label= I18n.t('.vinks.form.countfor92')
           .small= f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, include_blank: true
         .small-6.columns
