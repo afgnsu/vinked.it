@@ -5,12 +5,12 @@ class GraphBuilder
 
   def show_countries(user)
     @countries = Array.new
-    @countries << ["Country"]
+    @countries << ["Country", "Nr. vinks"]
     countries = Country.all
     countries.each do |country|
-      @countries << ['#{country.name}', user.vinks.joins(:club).where("clubs.country_id = ?", country.id).count]
+      @countries << ["#{country.country}", user.vinks.joins(:club).where("clubs.country_id = ?", country.id).count]
     end
-    return @countries
+    @countries
   end
 
 end
