@@ -14,6 +14,8 @@ class Ability
 
         cannot [:destroy], User
         cannot [:create, :update, :destroy], User
+        cannot [:index, :show, :create, :update, :destroy], Country
+        cannot [:index, :show, :create, :update, :destroy], League
       elsif user.premium?
         # Premium subscription users
         can [:index, :show, :update], User
@@ -22,6 +24,8 @@ class Ability
 
         cannot [:destroy], User
         cannot [:update, :destroy], User
+        cannot [:index, :show, :create, :update, :destroy], Country
+        cannot [:index, :show, :create, :update, :destroy], League
       end
     else
       # Unregistered users

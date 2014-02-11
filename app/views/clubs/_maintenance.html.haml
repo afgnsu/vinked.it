@@ -1,0 +1,28 @@
+- if can? :create, League
+  .row
+    .small-6.columns
+      = render "layouts/country_filter", target_path: clubs_path
+    .small-offset-4.small-2.columns
+      .action= link_to I18n.t('.clubs.new_title'), new_club_path, class: 'small button secondary'
+
+.row
+  .small-12.columns
+    %table
+      %thead
+        %tr
+          %th= I18n.t(".clubs.form.name")
+          %th= I18n.t(".clubs.form.country_id")
+          %th
+      %tbody
+        - unless @clubs.blank?
+          - @clubs.each do |club|
+            %tr
+              %td= decorate_data_field(club.name)
+              %td= decorate_data_field(club.country.country)
+              %td
+                - if can? :edit, Club
+                  = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'tiny secondary button'
+                - if can? :destroy, League
+                  = link_to I18n.t('.helpers.destroy'), club_path(club), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'tiny alert button'
+        - else
+          = render "layouts/placeholder", colspan: "4"

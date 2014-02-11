@@ -8,6 +8,14 @@ class ClubsController < ApplicationController
       @clubs = Club.includes(:vinks).order("name")
     elsif params[:view] == "latest"
       @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
+    else
+      if params[:country].blank?
+        country = Country.where(country: "England").first
+        @clubs = Club.where(country_id: country).order("name")
+      else
+        @clubs = Club.where(country_id: params[:country]).order("name")
+      end
+      @maintenance = true
     end
     form_data
   end
@@ -62,7 +70,7 @@ class ClubsController < ApplicationController
 
     if @club.update_attributes(club_params)
       flash[:success] = I18n.t(".clubs.messages.updated")
-      redirect_to clubs_path(view: "all")
+      redirect_to clubs_path
     else
       @leagues = League.includes(:country).order(:name)
       render action: "edit"
@@ -76,7 +84,7 @@ class ClubsController < ApplicationController
     @club.destroy
 
     flash[:success] = I18n.t(".clubs.messages.removed")
-    redirect_to clubs_path(view: "all")
+    redirect_to clubs_path
   end
 
   private
@@ -89,6 +97,7 @@ class ClubsController < ApplicationController
     @vink = Vink.new
     @form_clubs = Club.order(:name)
     @form_leagues = League.order("level, name")
+    @countries = Country.order(:country)
     @calculator = VinkCalculator.new
   end
 end

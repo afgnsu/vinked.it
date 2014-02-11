@@ -29,8 +29,15 @@
       %section.top-bar-section
         / Right Nav Section
         %ul.right
-          %li.divider
+          - if signed_in? and current_user.admin?
+            %li.divider
+            %li.has-dropdown
+              %a{href: "#"}= I18n.t(".users.roles.admin")
+              %ul.dropdown
+                %li= link_to I18n.t(".leagues.index_title"), leagues_path
+                %li= link_to I18n.t(".clubs.clubs_title"), clubs_path
           - if signed_in?
+            %li.divider
             %li.has-dropdown
               %a{href: "#"}= current_user.screen_name
               %ul.dropdown

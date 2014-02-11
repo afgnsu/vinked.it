@@ -1,0 +1,18 @@
+= form_for @league do |f|
+  = render "layouts/error_messages", target: @league
+  .row
+    .small-12.columns
+      %label= I18n.t('.leagues.form.name')
+      = f.text_field :name, class: "form-control", id: "inputText", placeholder: I18n.t('.leagues.form.name')
+  .row
+    .small-12.columns
+      %label= I18n.t('.leagues.form.country_id')
+      = f.select :country_id, @countries.map{ |c| [c.country, c.id] }, class: "form-control", id: "inputSelect"
+  .row
+    .small-12.columns
+      %label= I18n.t('.leagues.form.level')
+      = f.text_field :level, class: "form-control", id: "inputText", placeholder: I18n.t('.leagues.form.level'), type: "number"
+  .row
+    .small-12.columns
+      = f.submit(class: 'button', value: I18n.t('.general.save'))
+      = link_to I18n.t('.general.cancel'), leagues_path, class: 'button secondary'

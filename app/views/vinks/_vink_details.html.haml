@@ -7,7 +7,8 @@
       - if view == "club"
         .away_club= decorate_data_field(Club.find(vink.away_club_id).name)
       - else
-        .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
+        - unless vink.club.blank? or Club.find(vink.away_club_id).blank?
+          .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
 
       .details
         - if current_user.premium? and vink.user.premium?
