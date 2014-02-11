@@ -1,0 +1,5 @@
+= form_tag target_path, method: :get, class: "filter" do
+  .small-8.columns
+    = select_tag :country, options_for_select(@countries.map{ |c| [c.country, c.id] }, params[:country]), include_blank: true
+  .small-4.columns
+    = submit_tag :submit, value: I18n.t('.general.filter'), class: 'small button secondary'

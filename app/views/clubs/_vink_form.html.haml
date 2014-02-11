@@ -1,0 +1,76 @@
+- unless @vink.club.blank?
+  - club = @vink.club
+  - style = nil
+  - title = I18n.t('.vinks.edit_title')
+- else
+  - style = "display:none;"
+  - title = I18n.t('.vinks.new_title')
+
+%div{ id: "club_#{club.id}", class: "vink_form", style: style }
+  = form_for @vink, remote: true, remote: true do |f|
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :club_id, value: club.id
+    .row
+      .small-11.small-centered.columns.title= title
+    .row
+      .small-11.small-centered.columns.errors
+    .row
+      .small-12.columns
+        %label= I18n.t('.vinks.form.visit_date')
+        .small= f.date_select :vink_date, { include_blank: true, default: nil, order: [:day, :month, :year], start_year: 20.years.ago.year, end_year: DateTime.now.year }
+    .row
+      .small-6.columns
+        %label= I18n.t('.vinks.form.away_club_id')
+        = f.select :away_club_id, @form_clubs.map{ |c| [c.name, c.id] }, include_blank: true
+    - if current_user.premium?
+      .row
+        .small-3.columns
+          %label= I18n.t('.vinks.form.visit_nr')
+          = f.text_field :vink_nr, autofocus: true
+        .small-3.columns
+          %label= I18n.t('.vinks.form.countfor92')
+          = f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, include_blank: true
+        .small-6.columns
+          %label= I18n.t('.vinks.form.league_id')
+          = f.select :league_id, @form_leagues.map{ |c| [c.name, c.id] }, include_blank: true
+      .row
+        .small-6.columns
+          %label= I18n.t('.vinks.form.result')
+          = f.text_field :result, placeholder: "#{I18n.t('.helpers.eg')} 2-1"
+        .small-6.columns
+          %label= I18n.t('.vinks.form.season')
+          = f.text_field :season, placeholder: "#{I18n.t('.helpers.eg')} 2013-2014"
+      .row
+        .small-6.columns
+          %label= I18n.t('.vinks.form.kickoff')
+          = f.text_field :kickoff, placeholder: "#{I18n.t('.helpers.eg')} 15:00"
+        .small-6.columns
+          %label= I18n.t('.vinks.form.gate')
+          = f.text_field :gate, placeholder: "#{I18n.t('.helpers.eg')} 15758"
+      .row
+        .small-6.columns
+          %label= I18n.t('.vinks.form.ticket')
+          = f.text_field :ticket, placeholder: "#{I18n.t('.helpers.eg')} 25.00"
+        .small-6.columns
+          %label= I18n.t('.vinks.form.ground')
+          = f.text_field :ground, placeholder: "#{I18n.t('.helpers.eg')} The Valley"
+      .row
+        .small-6.columns
+          %label= I18n.t('.vinks.form.street')
+          = f.text_field :street, placeholder: "#{I18n.t('.helpers.eg')} Floyd Road"
+        .small-6.columns
+          %label= I18n.t('.vinks.form.city')
+          = f.text_field :city, placeholder: "#{I18n.t('.helpers.eg')} London"
+      .row
+        .small-12.columns
+          %label= I18n.t('.vinks.form.rating')
+        .small-12.columns
+          - (1..10).each do |n|
+            .star= n
+        .small-12.columns
+          - (1..10).each do |n|
+            .star= f.radio_button :rating, n
+    .row
+      .small-12.columns
+        = f.submit(I18n.t('.vinks.save'), class: "button")
+        = link_to I18n.t('.general.cancel'), clubs_path, class: 'button secondary vink_close'

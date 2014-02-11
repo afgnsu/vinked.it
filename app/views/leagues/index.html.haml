@@ -1,0 +1,34 @@
+- if can? :index, League
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.leagues.index_title')
+
+  - if can? :create, League
+    .row
+      .small-6.columns
+        = render "layouts/country_filter", target_path: leagues_path
+      .small-offset-4.small-2.columns
+        .action= link_to I18n.t('.leagues.new_title'), new_league_path, class: 'small button secondary'
+
+.row
+  .small-12.columns
+    %table
+      %thead
+        %tr
+          %th= I18n.t(".leagues.form.level")
+          %th= I18n.t(".leagues.form.name")
+          %th= I18n.t(".leagues.form.country_id")
+          %th
+      %tbody
+        - unless @leagues.blank?
+          - @leagues.each do |league|
+            %tr
+              %td= decorate_data_field(league.level)
+              %td= decorate_data_field(league.name)
+              %td= decorate_data_field(league.country.country)
+              %td
+                - if can? :edit, League
+                  = link_to I18n.t('.helpers.edit'), edit_league_path(league), class: 'tiny secondary button'
+                - if can? :destroy, League
+                  = link_to I18n.t('.helpers.destroy'), league_path(league), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'tiny alert button'
+        - else
+          = render "layouts/placeholder", colspan: "4"
+

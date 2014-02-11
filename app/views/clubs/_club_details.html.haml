@@ -1,0 +1,73 @@
+- if @calculator.vinked?(club, current_user)
+  - vinkedit = "vinked"
+  - icon = "white"
+- else
+  - vinkedit = "not_vinked"
+  - icon = "grey"
+
+.row
+  .small-8.small-centered.columns
+    .panel(class=vinkedit){ id: "panel_club_#{club.id}" }
+      .vink
+        - if current_user.basic?
+          = link_to "#", class: "vink_button", id: club.id do
+            %i.fi-checkbox(class=icon)
+        - else
+          %i.fi-checkbox(class=icon)
+      .club
+        - if club.country.country_short != "ENG"
+          = "#{club.name} (#{club.country.country_short.downcase})"
+        - else
+          = club.name
+
+      - comment_count = club.comments.count
+      = link_to club_path(club, view: "comments") do
+        .comments
+          .icon
+            %i.fi-comments
+          .count= decorate_data_field(comment_count)
+
+      - users_count = club.users.uniq.count
+      - if users_count > 0
+        = link_to club_path(club, view: "users") do
+          .users
+            .icon
+              %i.fi-torsos
+            .count= decorate_data_field(users_count)
+      - else
+        .users
+          .icon
+            %i.fi-torsos
+          .count= decorate_data_field(users_count)
+
+      - own_count = @calculator.vinks?(club, current_user)
+      - if own_count > 0
+        = link_to club_path(club, view: "own_vinkedits") do
+          .my_vinkedits
+            .icon
+              %i.fi-torso
+            .count= decorate_data_field(own_count)
+      - else
+        .my_vinkedits
+          .icon
+            %i.fi-torso
+          .count= decorate_data_field(own_count)
+
+      - all_count = @calculator.vinks?(club)
+      - if all_count > 0
+        = link_to club_path(club, view: "vinkedits") do
+          .vinkedits
+            .icon
+              %i.fi-check
+            .count= decorate_data_field(all_count)
+      - else
+        .vinkedits
+          .icon
+            %i.fi-check
+          .count= decorate_data_field(all_count)
+
+      - unless club.last_vink.blank?
+        .date
+          .count= decorate_data_field(club.last_vink.vink_date, true)
+
+      = render "clubs/vink_form", club: club

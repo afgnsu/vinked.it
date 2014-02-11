@@ -1,0 +1,5 @@
+- if can? :create, Club
+  = render "layouts/page_header", level1_title: I18n.t(".clubs.index_title"), level1_path: clubs_path, level2_title: I18n.t('.clubs.edit_title')
+
+  .small-8.small-centered.columns.form
+    = render "form"

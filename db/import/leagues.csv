@@ -1,0 +1,47 @@
+id,name,created_at,updated_at,level,website,country
+5,Premier League,2011-09-08 08:31:20.879746,2011-09-08 08:31:20.879746,1,http://www.premierleague.com,England
+6,The Championship,2011-09-09 18:05:36.669038,2011-09-09 18:05:36.669038,2,http://www.football-league.co.uk/page/ChampionshipHome,England
+7,League One,2011-09-09 18:06:13.883714,2011-09-09 18:06:13.883714,3,http://www.football-league.co.uk/page/League1Home,England
+8,League Two,2011-09-09 18:06:30.075858,2011-09-09 18:06:30.075858,4,http://www.football-league.co.uk/page/League2Home,England
+9,The Conference,2011-09-26 07:30:57.530737,2011-09-26 07:30:57.530737,5,http://www.bluesqfootball.com/,England
+10,Conference North,2011-09-26 16:32:19.021899,2011-09-26 16:32:19.021899,6,http://www.bluesqnorth.com/,England
+11,Conference South,2011-09-26 16:32:34.029479,2011-09-26 16:32:34.029479,6,http://www.bluesqsouth.com/,England
+12,FA Cup,2011-09-28 18:46:59.911623,2011-10-06 18:53:07.040353,99,http://www.thefa.com/thefacup/,England
+13,FA Trophy,2011-09-28 18:53:04.678212,2011-10-06 18:53:34.388625,99,http://www.thefa.com/Competitions/FACompetitions/TheFATrophy/,England
+14,Derelict,2011-09-29 16:57:25.059635,2012-07-31 13:21:54.873135,99,"",England
+15,Friendly,2011-09-29 17:00:39.258808,2012-07-31 13:22:02.197419,99,"",England
+16,Scottish Premier League,2011-09-29 17:07:49.416739,2011-09-29 17:07:49.416739,1,http://www.scotprem.com/content/,Scotland
+17,Ryman Premier,2011-10-06 18:38:40.909767,2012-10-14 09:51:10.817749,7,http://www.isthmian.co.uk/,England
+18,Carling Cup,2011-10-06 18:53:58.082299,2012-07-31 13:16:52.519357,99,"",England
+19,North West Counties Premier League,2011-10-07 17:33:29.220368,2012-07-31 13:20:33.727809,9,http://www.nwcfl.com/,England
+20,Western Football League,2011-10-11 17:39:37.830131,2012-07-31 13:23:52.359691,9,http://www.toolstationleague.com/,England
+21,Southern League Premier,2011-10-11 17:41:57.864909,2012-07-31 13:29:17.771009,7,http://www.southern-football-league.co.uk/,England
+22,East Midlands Counties Football League,2011-10-12 16:53:02.069306,2012-07-31 13:26:23.984626,10,"",England
+23,United Counties League,2011-10-12 16:55:18.104662,2012-07-31 13:26:46.274573,10,"",England
+24,Evo-Stik Premier League,2011-10-12 17:00:34.394316,2012-07-31 13:13:58.022236,7,http://evostikleague.pitchero.com/,England
+25,Europa League,2011-10-12 17:09:10.963586,2012-07-31 13:21:28.807201,99,"",Europe
+26,Premier League of Wales,2011-10-12 17:12:06.242385,2012-07-31 13:21:17.668395,1,http://www.welsh-premier.com/,Wales
+27,League of Ireland,2011-10-12 17:26:02.264444,2012-07-31 13:10:56.635419,1,http://www.airtricityleague.ie/,Ireland
+28,IFA Premiership,2011-10-12 17:29:53.494368,2012-07-31 13:12:18.820669,1,http://www.ifapremiership.com/,Northern Ireland
+29,Evo-Stik Northern First,2011-10-13 07:11:24.617479,2012-07-31 13:14:52.541784,8,"",England
+30,Scottish League Cup,2011-10-14 16:39:38.208451,2012-07-31 13:21:41.581098,99,"",Scotland
+31,Combined Counties Premier League,2011-10-14 16:54:26.583094,2012-07-31 13:30:13.298349,10,http://www.combinedcountiesleague.co.uk/,England
+32,Isthmian Premier League,2011-10-14 16:57:15.412543,2012-07-31 13:14:41.976657,7,"",England
+33,Ryman South,2011-12-27 09:03:56.635413,2012-10-14 09:50:59.038089,8,"",England
+34,Midland Football Alliance,2012-03-14 17:16:27.836278,2012-07-31 13:27:45.67919,9,http://www.midlandfootballalliance.co.uk/,England
+35,Evo-Stik South Premier,2012-03-14 17:25:11.80771,2012-07-31 13:15:29.207748,8,"",England
+36,Sussex County League,2012-04-10 10:01:59.677247,2012-07-31 13:29:44.619003,9,http://www.scfl.org.uk/,England
+37,Evo-Stik South Division One,,2012-07-31 13:28:24.647009,8,http://www.southern-football-league.co.uk/,England
+38,Evo-Stik Northern Premier,,2012-07-31 13:25:33.655984,7,http://evostikleague.pitchero.com/,England
+39,Third Divison,2012-08-28 09:25:45.764305,2012-08-28 09:25:45.764305,4,"",Scotland
+40,Ryman North,2012-10-14 09:51:32.818203,2012-10-14 09:51:32.818203,8,"",England
+41,Scottish First Division,2012-12-10 11:22:46.02659,2012-12-11 07:58:23.05752,2,"",Scotland
+43,Scottish Third Division,2013-02-04 09:58:46.010997,2013-02-04 09:58:46.010997,4,"",Scotland
+44,Scottish FA Cup,2013-02-04 09:59:05.73108,2013-02-04 09:59:05.73108,99,"",Scotland
+45,Scottish Second Division,2013-04-29 18:46:00.613545,2013-04-29 18:46:00.613545,3,"",Scotland
+47,Non-League - Step 10,2013-09-08 15:30:49.282399,2013-09-08 15:30:49.282399,10,"",England
+48,Non-League - Step 11,2013-09-30 09:13:12.109042,2013-09-30 09:13:12.109042,11,"",England
+49,Non-League - Step 7,2013-09-30 09:14:12.563682,2013-09-30 09:14:12.563682,7,"",England
+50,Non-League - Step 8,2013-09-30 09:14:31.426121,2013-09-30 09:14:31.426121,8,"",England
+51,Non-League - Step 9,2013-09-30 09:14:48.447604,2013-09-30 09:14:48.447604,9,"",England
+52,Irish First Division,2013-10-15 13:01:39.82527,2013-10-15 13:01:39.82527,2,"",Ireland

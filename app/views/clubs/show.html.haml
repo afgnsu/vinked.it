@@ -1,0 +1,42 @@
+- if can? :show, Club
+  - if params[:view] == "own_vinkedits"
+    - title = I18n.t('.clubs.ownvinkedits_show_title')
+  - if params[:view] == "vinkedits"
+    - title = I18n.t('.clubs.vinkedits_show_title')
+  - if params[:view] == "users"
+    - title = I18n.t('.clubs.users_show_title')
+  - if params[:view] == "comments"
+    - title = I18n.t('.clubs.comments_show_title')
+
+  = render "layouts/page_header", level1_title: I18n.t('.clubs.index_title'), level1_path: clubs_path(view: "all"), level2_title: "#{title}: #{@club.name}"
+
+  .row.clubs
+    = render "club_details", club: @club
+
+  .row.details
+    - if params[:view] == "own_vinkedits"
+      - unless @vinks.blank?
+        - @vinks.each do |vink|
+          = render "vinks/vink_details", vink: vink, view: "club"
+      - else
+        = render "no_visits"
+    - if params[:view] == "vinkedits"
+      - unless @vinks.blank?
+        - @vinks.each do |vink|
+          = render "vinks/vink_details", vink: vink, view: "club"
+      - else
+        = render "no_visits"
+    - if params[:view] == "users"
+      - unless @users.blank?
+        .row
+          .small-8.small-centered.columns
+            - @users.each do |user|
+              = render "users/user_details", user: user
+      - else
+        .small-6.small-centered.columns.panel.none
+          .no_data= I18n.t('.clubs.none1')
+    - if params[:view] == "comments"
+      .small-8.small-centered.columns.comments
+        = render "comments/all_comments", comments: @comments
+        - if current_user.premium?
+          = render "comments/comment_form"

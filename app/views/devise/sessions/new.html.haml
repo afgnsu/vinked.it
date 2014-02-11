@@ -1,0 +1,9 @@
+.row
+  .small-8.small-centered.columns.login
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      %h1= I18n.t(".devise.sessions.sign_in")
+      = devise_error_messages!
+      = f.text_field :email, placeholder: I18n.t('.users.form.email'), autofocus: true
+      = f.password_field :password, placeholder: I18n.t('.users.form.password')
+      = f.submit(class: 'button', value: I18n.t(".devise.sessions.sign_in"))
+      = render "devise/shared/links"

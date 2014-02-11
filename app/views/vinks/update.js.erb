@@ -1,0 +1,3 @@
+id = <%= @vink.id %>;
+$('span#vinkdetails_' + id).empty();
+$('span#vinkdetails_' + id).html("<%= escape_javascript(render partial: 'vink_details') %>");

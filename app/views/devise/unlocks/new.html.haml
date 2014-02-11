@@ -1,0 +1,8 @@
+.row
+  .small-8.small-centered.columns
+    = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+      %h1= I18n.t(".devise.unlocks.title")
+      = devise_error_messages!
+      = f.text_field :email, placeholder: I18n.t('.users.form.email'), autofocus: true
+      = f.submit(class: 'button', value: I18n.t(".devise.unlocks.title"))
+      = render "devise/shared/links"

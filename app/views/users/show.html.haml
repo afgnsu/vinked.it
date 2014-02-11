@@ -1,5 +1,23 @@
-%h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+- if can? :show, User
+  = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: "#{I18n.t('.users.show_title')}: #{@user.screen_name}"
+
+.row.stats
+  .small-4.columns
+    .panel
+      .count= @user.clubs.uniq.count
+      .text= I18n.t('.users.stats.clubs')
+  .small-4.columns
+    .panel
+      .count= @user.vinks.count
+      .text= I18n.t('.users.stats.vinks')
+  .small-4.columns
+    .panel
+      .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating)
+      .text= I18n.t('.users.stats.rating')
+
+.row.details
+  - unless @vinks.blank?
+    - @vinks.each do |vink|
+      = render "vinks/vink_details", vink: vink, view: "user"
+
+

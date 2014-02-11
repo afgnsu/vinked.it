@@ -1,5 +1,18 @@
 VinkedIt::Application.routes.draw do
-  root :to => "home#index"
-  devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+  devise_for :users
+
+  resources :users do
+    resources :comments
+  end
+  resources :countries, except: [:show]
+  resources :leagues, except: [:show]
+  resources :clubs do
+    resources :comments
+  end
+  resources :vinks do
+    resources :comments
+  end
+
+  root to: "site#index"
+
 end

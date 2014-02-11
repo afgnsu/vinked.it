@@ -1,0 +1,328 @@
+@import "variables";
+
+.top-bar {
+  .title-area {
+    .icon {
+      margin-left: 10px;
+    }
+    i {
+      line-height: 1.4;
+    }
+  }
+}
+i.large {
+  font-size: 30px;
+}
+i.white {
+  color: white;
+}
+i.grey {
+  color: #333333;
+}
+i.green {
+  color: $primary-color;
+}
+#error_explanation, .form_errors {
+  border: 2px solid red;
+  padding: 5px;
+  margin: 10px;
+  background-color: #f9cfda;
+  color: red;
+
+  h2 {
+    color: red;
+    font-size: 14px;
+  }
+  ul {
+    margin-bottom: 0;
+
+    li {
+      color: red;
+      font-size: 14px;
+    }
+  }
+}
+.alerts {
+  .notice {
+  }
+}
+.login {
+  margin-top: 150px;
+}
+.page-header {
+  border-bottom: 2px solid $border-color;
+  margin-bottom: 20px;
+
+  .title {
+    float: left;
+    margin-left: 20px;
+
+    i {
+      margin-right: 20px;
+    }
+  }
+  .breadcrumb {
+    margin-left: 20px;
+
+    li {
+      float: left;
+      list-style-type: none;
+    }
+    .divider {
+      margin: 0 10px;
+    }
+  }
+}
+.form {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid $border-color;
+}
+table {
+  width: 100%;
+}
+.clubs {
+  .no_data {
+    clear: both;
+    align: left;
+    text-align: center;
+    padding: 10px;
+  }
+  .vinked {
+    border: 1px solid $primary-color;
+    background: $primary-color;
+
+    .vink, .club {
+      color: #FFFFFF;
+    }
+    .vinkedits, .users, .my_vinkedits, .comments, .date {
+      background: lighten($primary-color, 10%);
+      color: #FFFFFF;
+    }
+  }
+  .not_vinked {
+    background: #f2f2f2;
+    border: 1px solid #d8d8d8;
+
+    .vink, .club {
+      color: #333333;
+    }
+
+    .vinkedits, .users, .my_vinkedits, .comments, .date {
+      background: #333333;
+      color: #FFFFFF;
+    }
+  }
+  .panel {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    .vink, .club {
+      float: left;
+      padding: 8px 0 0 10px;
+    }
+    .vinkedits, .users, .my_vinkedits, .comments {
+      float: right;
+      margin-left: 10px;
+      padding: 10px 10px;
+      min-width: 50px;
+
+      .count, .icon {
+        clear: both;
+        text-align: center;
+      }
+      .count {
+        font-size: 90%;
+      }
+    }
+    .date {
+      float: right;
+      margin-left: 10px;
+      padding: 18px 10px;
+
+      .count, .icon {
+        clear: both;
+        text-align: center;
+      }
+      .count {
+        font-size: 90%;
+      }
+    }
+    .club {
+      margin-left: 0;
+      margin-top: 7px;
+      font-size: 120%;
+      padding-bottom: 2px;
+    }
+    .vink {
+      font-size: 200%;
+    }
+  }
+}
+.none {
+  margin: 20px 0;
+
+  .no_data {
+    text-align: center;
+  }
+}
+.vink_form {
+  display: inline-block;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  border: 1px solid $border-color;
+  width: 100%;
+  background-color: #FFFFFF;
+
+  .title {
+    text-align: center;
+    font-size: 125%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .small {
+    select {
+      float: left;
+      width: 33%;
+    }
+  }
+  .medium {
+    select {
+      float: left;
+      width: 66%;
+    }
+  }
+  .star {
+    float: left;
+    margin: 5px 15px;
+    width: 25px;
+  }
+}
+.details {
+  .vink {
+    background-color: #CCF5C1;
+    border: 1px solid $primary-color;
+  }
+  .panel {
+    display: inline-block;
+    width: 100%;
+    padding: 0 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    .vink_date, .away_club {
+      float: left;
+      padding: 18px 0 0 12px;
+      font-weight: bold;
+      font-size: 90%;
+    }
+    .details {
+      float: right;
+      padding: 10px 5px 10px 15px;
+      min-width: 40px;
+    }
+    .user {
+      a, a:visited, a:hover {
+        min-width: 100px;
+        text-align: center;
+        float: right;
+        margin-left: 10px;
+        padding: 10px 10px;
+        margin-top: 7px;
+        font-size: 90%;
+        background: $primary-color;
+        color: #FFFFFF;
+      }
+    }
+  }
+  .vinker {
+    a, a:visited, a:hover {
+      float: left;
+      padding: 25px 20px;
+      margin: 20px 10px;
+      display: inline-block;
+      min-width: 100px;
+      text-align: center;
+      font-size: 90%;
+      background: #f2f2f2;
+      border: 1px solid #d8d8d8;
+      color: #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .vink_details_panel {
+    clear: both;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+
+    .visit_label, .visit_item {
+      font-size: 90%;
+      margin: 10px;
+    }
+    .visit_label {
+      font-weight: bold;
+    }
+    .on, .off {
+      float: left;
+      margin: 15px;
+    }
+    .star {
+      float: left;
+      margin: 5px 15px;
+      width: 25px;
+    }
+    .on {
+      color: #ffd700;
+      font-size: 125%;
+    }
+
+  }
+}
+.comments {
+  .comment {
+    margin-top: 20px;
+
+    .details {
+      clear: both;
+      float: right;
+      font-size: 75%;
+      padding: 0;
+      margin-top: 5px;
+    }
+    .content {
+      float: left;
+      font-size: 90%;
+      word-wrap: break-word;
+    }
+  }
+  .add_comment {
+    margin-top: 20px;
+    h3 {
+      font-size: 100%;
+    }
+  }
+}
+.stats {
+  .count {
+    font-size: 150%;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
+  .text {
+    font-size: 100%;
+    padding: 5px;
+    text-align: center;
+  }
+}
+.placeholder {
+  text-align: center;
+}

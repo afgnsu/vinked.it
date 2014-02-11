@@ -1,0 +1,82 @@
+en:
+  countries:
+    index_title:  Countries
+    new_title:    Add country
+    edit_title:   Edit country
+    delete_title: Remove country
+    messages:
+      created:    Country has been added succesfully
+      updated:    Country has been updated succesfully
+      removed:    Country has been removed succesfully
+    form:
+      country:       Country
+      country_short: Country code
+  leagues:
+    index_title:  Leagues
+    new_title:    Add league
+    edit_title:   Edit league
+    delete_title: Remove league
+    messages:
+      created:    League has been added succesfully
+      updated:    League has been updated succesfully
+      removed:    League has been removed succesfully
+    form:
+      name:       League
+      name_short: League short
+      level:      Level
+      country_id: Country
+  clubs:
+    index_title:  Vinked.it's
+    my_index_title:  My vinked.it's
+    latest_index_title:  Latest vinked.it's
+    all_index_title:  All vinked.it's
+    clubs_title:  Clubs
+    new_title:    Add club
+    edit_title:   Edit club
+    delete_title: Remove club
+    ownvinkedits_show_title:   My vinkedit's for
+    vinkedits_show_title:   Vinkedit's for
+    users_show_title:   Users who vinked
+    comments_show_title:   Comments for
+    none1:        "Bummer, no vinked.it's yet!"
+    none2:        "Why not add some?"
+    messages:
+      created:    Club has been added succesfully
+      updated:    Club has been updated succesfully
+      removed:    Club has been removed succesfully
+    form:
+      name:       Club
+      country_id: Country
+  vinks:
+    new_title:    Add vink
+    edit_title:   Edit vink
+    delete_title: Remove vinked.it
+    last_month_title: Vinks made by our members this month
+    save:         Vinked.it!
+    messages:
+      created:    You vinked.it
+      updated:    vink has been updated succesfully
+      removed:    vink has been removed succesfully
+    form:
+      visit_nr:           Vink nr.
+      the92_nr:           The 92 nr.
+      visit_date:         Visit date
+      ground:             Ground
+      street:             Street name
+      city:               City
+      result:             Result
+      season:             Season
+      kickoff:            Kickoff
+      gate:               Gate
+      countfor92:         Count for 92
+      rating:             Rating
+      programme:          Programme
+      ticket:             Ticket price
+      league_id:          League visited
+      league_now:         League now
+      club_id:            Home club
+      away_club_id:       Away club
+      match:              Match
+      photo:              Photo
+      country_id:         Country
+

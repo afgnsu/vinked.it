@@ -1,0 +1,46 @@
+errors = "<%= @vink.errors.full_messages %>";
+if (errors == "[]"){
+  // Hide form
+  $('.vink_form').hide();
+
+  // Get club_id
+  club_id = <%= @vink.club.id %>;
+
+  // Update my vinks counter
+  counter = $('div#panel_club_' + club_id + ' > div.my_vinkedits > div.count').text();
+  counter = parseInt(counter) + 1;
+  $('div#panel_club_' + club_id + ' > div.my_vinkedits > div.count').text(counter);
+
+  // Update vinks counter
+  counter = $('div#panel_club_' + club_id + ' > div.vinkedits > div.count').text();
+  counter = parseInt(counter) + 1;
+  $('div#panel_club_' + club_id + ' > div.vinkedits > div.count').text(counter);
+
+  // Update users counter
+  vinks = <%= VinkCalculator.new.vinks?(@vink.club, @vink.user) %>;
+  if (parseInt(vinks) == 1) {
+    counter = $('div#panel_club_' + club_id + ' > div.users > div.count').text();
+    counter = parseInt(counter) + 1;
+    $('div#panel_club_' + club_id + ' > div.users > div.count').text(counter);
+  }
+
+  // Change color
+  classes = $('div#panel_club_' + club_id).attr('class');
+  if (classes.indexOf("not_vinked") != -1){
+    $('div#panel_club_' + club_id).removeClass('not_vinked');
+    $('div#panel_club_' + club_id).addClass('vinked');
+    $('div#panel_club_' + club_id + ' > div.vink > a.vink_button > i.fi-checkbox').removeClass('grey');
+    $('div#panel_club_' + club_id + ' > div.vink > a.vink_button > i.fi-checkbox').addClass('white');
+  }
+}
+else {
+  id = <%= @vink.club.id %>;
+  $('div#club_' + id + ' div.errors').empty();
+  $('div#club_' + id + ' div.errors').append('<div class=form_errors></div>');
+  $('div#club_' + id + ' div.errors > div.form_errors').append("<ul></ul>");
+  errors = errors.split("&quot;, &quot;");
+  for (i = 0, max = errors.length; i < max; i++) {
+    errors[i] = errors[i].replace('[&quot;', '').replace('&quot;]', '');
+    $('div#club_' + id + ' div.errors > div.form_errors > ul').append("<li>" + errors[i] + "</li>");
+  }
+}

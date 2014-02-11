@@ -1,0 +1,20 @@
+- if can? :index, Club
+  - if @maintenance == true
+    - title = I18n.t('.clubs.clubs_title')
+  - else
+    - if params[:view] == "own"
+      - title = I18n.t('.clubs.my_index_title')
+    - else
+      - title = I18n.t('.clubs.all_index_title')
+
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
+
+  - if @maintenance == true
+    = render "maintenance"
+  - else
+    - if can? :create, Club and current_user.premium?
+      .row
+        .small-offset-10.small-2.columns
+          .action= link_to I18n.t('.clubs.new_title'), new_club_path, class: 'button secondary'
+
+    = render "all_clubs"

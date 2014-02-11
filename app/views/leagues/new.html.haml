@@ -1,0 +1,6 @@
+- if can? :create, League
+  = render "layouts/page_header", level1_title: I18n.t('.leagues.index_title'), level1_path: leagues_path, level2_title: I18n.t('.leagues.new_title')
+
+  .row
+    .small-8.small-centered.columns
+      = render "form"

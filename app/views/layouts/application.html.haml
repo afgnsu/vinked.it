@@ -1,0 +1,61 @@
+!!!
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{ lang: "en"}
+  / <![endif]
+  %head
+    %title= content_for?(:title) ? yield(:title) : I18n.t('.site.title')
+    %meta{ charset: "utf-8" }
+    %meta{ content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport" }/
+    %link{ href: "http://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet", type: "text/css" }
+    %script{src: "https://www.google.com/jsapi", type: "text/javascript"}
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tag
+
+    /[if lt IE 9]
+      <script src='assets/javascripts/ie/html5shiv.js' type='text/javascript'></script>
+      <script src='assets/javascripts/ie/respond.min.js' type='text/javascript'></script>
+  %body{ 'data-no-turbolink' => true }
+    %nav.top-bar{"data-topbar" => ""}
+      %ul.title-area
+        %li.name
+          %h1= link_to I18n.t('.site.title'), root_path
+        %li.toggle-topbar.menu-icon
+          %a{href: "#"} Menu
+      %section.top-bar-section
+        / Right Nav Section
+        %ul.right
+          - if signed_in? and current_user.admin?
+            %li.divider
+            %li.has-dropdown
+              %a{href: "#"}= I18n.t(".users.roles.admin")
+              %ul.dropdown
+                %li= link_to I18n.t(".leagues.index_title"), leagues_path
+                %li= link_to I18n.t(".clubs.clubs_title"), clubs_path
+          - if signed_in?
+            %li.divider
+            %li.has-dropdown
+              %a{href: "#"}= current_user.screen_name
+              %ul.dropdown
+                %li= link_to I18n.t(".devise.sessions.sign_out"), destroy_user_session_path, method: :delete
+          - else
+            %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
+        %ul.left
+          - if signed_in?
+            %li.divider
+            %li.has-dropdown
+              %a{href: "#"}= I18n.t(".clubs.index_title")
+              %ul.dropdown
+                %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
+                %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
+                %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
+
+    .row
+      .small-12.columns
+        = yield
+
+    = javascript_include_tag "application"

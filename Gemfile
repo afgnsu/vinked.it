@@ -16,6 +16,8 @@ gem 'activerecord-postgresql-adapter'
 gem 'rolify'
 gem 'i18n'
 gem 'bcrypt-ruby'
+gem 'foundation-rails'
+gem 'googlecharts', :require => "gchart"
 
 group :development do
   gem 'better_errors'
@@ -30,7 +32,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'zeus'
   gem 'poltergeist'
-  gem 'rack-mini-profiler'
+  #gem 'rack-mini-profiler'
   gem "shoulda-matchers"
   gem 'letter_opener'
 end
