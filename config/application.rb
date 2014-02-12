@@ -19,7 +19,7 @@ module VinkedIt
         :address        => ENV['POSTMARK_SMTP_SERVER'],
         :user_name      => ENV['POSTMARK_API_KEY'],
         :password       => ENV['POSTMARK_API_KEY'],
-        :domain         => 'backbone-app.heroku.com',
+        :domain         => 'vinkedit.heroku.com',
         :authentication => :plain,
     }
 
@@ -34,9 +34,9 @@ module VinkedIt
       g.helper_specs false
     end
 
-    config.i18n.default_locale = :en
-    config.i18n.enforce_available_locales = false
     config.assets.initialize_on_precompile = false
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.exceptions_app = self.routes
+    config.i18n.enforce_available_locales = false
   end
 end
