@@ -41,12 +41,9 @@ class UsersController < ApplicationController
     authorize! :destroy, User
 
     user = User.find(params[:id])
-    unless user == current_user
-      user.destroy
-      redirect_to users_path, notice: I18n.t('.users.message_delete')
-    else
-      redirect_to users_path, notice: I18n.t('.users.message_self')
-    end
+    user.destroy
+
+    redirect_to root_path, notice: I18n.t('.users.message_delete')
   end
 
   private
