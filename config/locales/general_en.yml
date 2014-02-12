@@ -16,9 +16,10 @@ en:
   users:
     title:          Users
     new_title:      Add user
-    edit_title:     Edit user
+    edit_title:     Edit profile
     show_title:     User
     edit_profile:   Change profile
+    profile_title:  My profile
     message_create: Vinker has been added successfully
     message_update: Vinker has been edited successfully
     message_delete: Vinker has been removed successfully
@@ -30,6 +31,10 @@ en:
     profile:        User data
     settings:       Settings
     my_account:     My account
+    cancel:         Cancel my account
+    subscriptions:
+      basic:        Basic
+      premium:      Premium
     stats:
       countries:    countries
       clubs:        clubs
@@ -54,6 +59,8 @@ en:
       password_confirmation: Repeat password
       password_new: New password
       password_current: Current Password
+      last_login:  Last login
+      registered_at: Registered at
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
@@ -160,85 +167,3 @@ en:
           trillion: "biljoen"
           quadrillion: "biljard"
 
-  datetime:
-    distance_in_words:
-      half_a_minute: "een halve minuut"
-      less_than_x_seconds:
-        one:   "minder dan \xC3\xA9\xC3\xA9n seconde"
-        other: "minder dan %{count} seconden"
-      x_seconds:
-        one:   "1 seconde"
-        other: "%{count} seconden"
-      less_than_x_minutes:
-        one:   "minder dan \xC3\xA9\xC3\xA9n minuut"
-        other: "minder dan %{count} minuten"
-      x_minutes:
-        one:   "1 minuut"
-        other: "%{count} minuten"
-      about_x_hours:
-        one:   "ongeveer \xC3\xA9\xC3\xA9n uur"
-        other: "ongeveer %{count} uur"
-      x_days:
-        one:   "1 dag"
-        other: "%{count} dagen"
-      about_x_months:
-        one: "ongeveer \xC3\xA9\xC3\xA9n maand"
-        other: "ongeveer %{count} maanden"
-      x_months:
-        one:   "1 maand"
-        other: "%{count} maanden"
-      about_x_years:
-        one: "ongeveer \xC3\xA9\xC3\xA9n jaar"
-        other: "ongeveer %{count} jaar"
-      over_x_years:
-        one: "meer dan \xC3\xA9\xC3\xA9n jaar"
-        other: "meer dan %{count} jaar"
-      almost_x_years:
-        one:   "bijna \xC3\xA9\xC3\xA9n jaar"
-        other: "bijna %{count} jaar"
-    prompts:
-      year:   "jaar"
-      month:  "maand"
-      day:    "dag"
-      hour:   "uur"
-      minute: "minuut"
-      second: "seconde"
-  errors:
-    format: "%{attribute} %{message}"
-
-    messages: &errors_messages
-      inclusion: "is niet in de lijst opgenomen"
-      exclusion: "is niet beschikbaar"
-      invalid: "is ongeldig"
-      confirmation: "komt niet met de bevestiging overeen"
-      accepted: "moet worden geaccepteerd"
-      empty: "moet opgegeven zijn"
-      blank: "moet opgegeven zijn"
-      too_long: "is te lang (maximaal %{count} tekens)"
-      too_short: "is te kort (minimaal %{count} tekens)"
-      wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
-      not_a_number: "is geen getal"
-      not_an_integer: "moet een geheel getal zijn"
-      greater_than: "moet groter zijn dan %{count}"
-      greater_than_or_equal_to: "moet groter dan of gelijk zijn aan %{count}"
-      equal_to: "moet gelijk zijn aan %{count}"
-      less_than: "moet minder zijn dan %{count}"
-      less_than_or_equal_to: "moet minder dan of gelijk zijn aan %{count}"
-      odd: "moet oneven zijn"
-      even: "moet even zijn"
-
-  activerecord:
-    errors:
-      template:
-        header:
-          one:    "%{model} niet opgeslagen: 1 fout gevonden"
-          other:  "%{model} niet opgeslagen: %{count} fouten gevonden"
-        body: "Controleer de volgende velden:"
-
-      messages:
-        taken: "is al in gebruik"
-        record_invalid: "Validatie mislukt: %{errors}"
-        <<: *errors_messages
-
-      full_messages:
-        format: "%{attribute} %{message}"

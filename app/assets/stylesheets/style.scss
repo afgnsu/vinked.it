@@ -47,7 +47,7 @@ i.green {
   }
 }
 .login {
-  margin-top: 150px;
+  margin-top: 20px;
 }
 .page-header {
   border-bottom: 2px solid $border-color;
@@ -325,4 +325,11 @@ table {
 }
 .placeholder {
   text-align: center;
+}
+.profile {
+  margin-top: 20px;
+
+  .columns {
+    padding: 10px;
+  }
 }
