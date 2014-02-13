@@ -3,22 +3,17 @@ class ClubsController < ApplicationController
     authorize! :index, Club
 
     if params[:view] == "own"
-      puts "HUH1"
       @clubs = Club.includes(:vinks).where("vinks.user_id = ?", current_user.id).uniq.order("vinks.vink_date DESC")
     elsif params[:view] == "all"
-      puts "HUH2"
       @clubs = Club.includes(:vinks).order("name")
     elsif params[:view] == "latest"
-      puts "HUH3"
       @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
     else
-            puts "HUH4"
-
       if params[:country].blank?
         country = Country.where(country: "England").first
-        @clubs = Club.where(country_id: country).order("name").page(params[:page]).per_page(10)
+        @clubs = Club.where(country_id: country).order("name").page(params[:page])
       else
-        @clubs = Club.where(country_id: params[:country]).order("name").page(params[:page]).per_page(10)
+        @clubs = Club.where(country_id: params[:country]).order("name").page(params[:page])
       end
       @maintenance = true
     end

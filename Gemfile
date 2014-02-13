@@ -18,7 +18,6 @@ gem 'i18n'
 gem 'bcrypt-ruby'
 gem 'foundation-rails'
 gem 'googlecharts', :require => "gchart"
-gem 'rails_12factor'
 gem 'will_paginate', '~> 3.0'
 
 group :development do
@@ -41,6 +40,7 @@ end
 
 group :production do
   gem 'unicorn'
+  gem 'rails_12factor'
 end
 
 group :test do

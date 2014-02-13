@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_locale
 
+  WillPaginate.per_page = 10
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, alert: I18n.t('.general.not_authorized')
   end

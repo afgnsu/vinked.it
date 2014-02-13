@@ -21,5 +21,4 @@ $(document).ready(function(){
     $('#vink_'+id).toggle();
   });
 
-
 });
