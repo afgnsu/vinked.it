@@ -1,6 +1,6 @@
-.row.clubs
-  - unless @clubs.blank?
-    - @clubs.each do |club|
-      = render "clubs/club_details", club: club
-  - else
-    = render "clubs/no_visits"
+.row.clubs#clubs
+  = render "clubs", clubs: @clubs
+
+.row
+  .small-12.large-8.large-centered.columns
+    = will_paginate @clubs

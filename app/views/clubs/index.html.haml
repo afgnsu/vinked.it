@@ -4,6 +4,8 @@
   - else
     - if params[:view] == "own"
       - title = I18n.t('.clubs.my_index_title')
+    - if params[:view] == "latest"
+      - title = I18n.t('.clubs.latest_index_title')
     - else
       - title = I18n.t('.clubs.all_index_title')
 

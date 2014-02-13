@@ -2,22 +2,20 @@ class ClubsController < ApplicationController
   def index
     authorize! :index, Club
 
-    if params[:view] == "own"
-      @clubs = Club.includes(:vinks).where("vinks.user_id = ?", current_user.id).uniq.order("vinks.vink_date DESC")
-    elsif params[:view] == "all"
-      @clubs = Club.includes(:vinks).order("name")
-    elsif params[:view] == "latest"
-      @clubs = Club.includes(:vinks).order("vinks.vink_date DESC").limit(25)
-    else
-      if params[:country].blank?
-        country = Country.where(country: "England").first
-        @clubs = Club.where(country_id: country).order("name").page(params[:page])
-      else
-        @clubs = Club.where(country_id: params[:country]).order("name").page(params[:page])
-      end
+    collection = Collections::ClubCollection.new(current_ability, params, current_user)
+    @clubs = collection.items
+
+    if params[:view].blank?
       @maintenance = true
     end
+
     form_data
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+
   end
 
   def show
