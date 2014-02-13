@@ -1,12 +1,15 @@
 - unless clubs.blank?
   - clubs.each do |club|
-    %tr
-      %td= decorate_data_field(club.name)
-      %td= decorate_data_field(club.country.country)
-      %td
-        - if can? :edit, Club
-          = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'tiny secondary button'
-        - if can? :destroy, League
-          = link_to I18n.t('.helpers.destroy'), club_path(club), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'tiny alert button'
+    - if @maintenance == true
+      %tr
+        %td= decorate_data_field(club.name)
+        %td= decorate_data_field(club.country.country)
+        %td
+          - if can? :edit, Club
+            = link_to I18n.t('.helpers.edit'), edit_club_path(club), class: 'tiny secondary button'
+          - if can? :destroy, League
+            = link_to I18n.t('.helpers.destroy'), club_path(club), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'tiny alert button'
+    - else
+      = render "clubs/club_details", club: club
 - else
-  = render "layouts/placeholder", colspan: "4"
+  = render "clubs/no_visits"

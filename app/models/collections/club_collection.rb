@@ -4,11 +4,11 @@ module Collections
     module CountryScope
       def items
         if params[:view] == "own"
-          super.where("vinks.user_id = ?", current_user.id).uniq
+          super.where("vinks.user_id = ?", @user.id).uniq
         elsif params[:view] == "all"
           super
         elsif params[:view] == "latest"
-          super.limit(25)
+          super
         else
           if params[:country].blank?
             country = Country.where(country: "England").first
@@ -32,9 +32,10 @@ module Collections
 
     attr_reader :ability, :params
 
-    def initialize(ability, params)
+    def initialize(ability, params, user)
       @ability = ability
       @params  = params
+      @user = user
       extend Authorisation, CountryScope, Ordering
     end
 

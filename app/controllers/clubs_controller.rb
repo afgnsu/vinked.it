@@ -2,7 +2,7 @@ class ClubsController < ApplicationController
   def index
     authorize! :index, Club
 
-    collection = Collections::ClubCollection.new(current_ability, params)
+    collection = Collections::ClubCollection.new(current_ability, params, current_user)
     @clubs = collection.items
 
     if params[:view].blank?
@@ -10,6 +10,12 @@ class ClubsController < ApplicationController
     end
 
     form_data
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+
   end
 
   def show

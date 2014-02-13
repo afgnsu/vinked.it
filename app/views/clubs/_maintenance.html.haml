@@ -6,7 +6,7 @@
       .action= link_to I18n.t('.clubs.new_title'), new_club_path, class: 'small button secondary'
 
 .row
-  .small-12.large08.large-centered.columns
+  .small-12.large-8.large-centered.columns
     %table
       %thead
         %tr
@@ -17,5 +17,5 @@
         = render "clubs", clubs: @clubs
 
 .row
-  .small-12.large08.large-centered.columns
+  .small-12.large-8.large-centered.columns
     = will_paginate @clubs
