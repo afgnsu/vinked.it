@@ -1,0 +1,6 @@
+$('#leagues').append('<%= j render("leagues", leagues: @leagues) %>');
+<% if @leagues.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@leagues) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>

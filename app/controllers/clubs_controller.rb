@@ -11,9 +11,9 @@ class ClubsController < ApplicationController
     else
       if params[:country].blank?
         country = Country.where(country: "England").first
-        @clubs = Club.where(country_id: country).order("name")
+        @clubs = Club.where(country_id: country).order("name").page(params[:page])
       else
-        @clubs = Club.where(country_id: params[:country]).order("name")
+        @clubs = Club.where(country_id: params[:country]).order("name").page(params[:page])
       end
       @maintenance = true
     end

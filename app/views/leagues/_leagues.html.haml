@@ -1,0 +1,14 @@
+- unless leagues.blank?
+  - leagues.each do |league|
+    %tr
+      %td= decorate_data_field(league.level)
+      %td= decorate_data_field(league.name)
+      %td= decorate_data_field(league.country.country)
+      %td
+        - if can? :edit, League
+          = link_to I18n.t('.helpers.edit'), edit_league_path(league), class: 'tiny secondary button'
+        - if can? :destroy, League
+          = link_to I18n.t('.helpers.destroy'), league_path(league), method: :delete, data: { confirm: I18n.t('.helpers.confirm') }, class: 'tiny alert button'
+- else
+  = render "layouts/placeholder", colspan: "4"
+

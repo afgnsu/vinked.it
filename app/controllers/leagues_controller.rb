@@ -4,9 +4,9 @@ class LeaguesController < ApplicationController
 
     if params[:country].blank?
       country = Country.where(country: "England").first
-      @leagues = League.includes(:country).where(country_id: country).order("level, name")
+      @leagues = League.includes(:country).where(country_id: country).order("level, name").page(params[:page])
     else
-      @leagues = League.includes(:country).where(country_id: params[:country]).order("level, name")
+      @leagues = League.includes(:country).where(country_id: params[:country]).order("level, name").page(params[:page])
     end
     @countries = Country.order(:country)
   end

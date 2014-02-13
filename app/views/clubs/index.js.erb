@@ -1,0 +1,6 @@
+$('#clubs').append('<%= j render("clubs", clubs: @clubs) %>');
+<% if @clubs.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@clubs) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>
