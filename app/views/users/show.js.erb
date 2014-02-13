@@ -1,0 +1,6 @@
+$('#vinks').append('<%= j render("vinks", vinks: @vinks) %>');
+<% if @vinks.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@vinks) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>

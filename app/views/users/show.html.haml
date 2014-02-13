@@ -15,9 +15,11 @@
       .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating)
       .text= I18n.t('.users.stats.rating')
 
-.row.details
-  - unless @vinks.blank?
-    - @vinks.each do |vink|
-      = render "vinks/vink_details", vink: vink, view: "user"
+.row.details#vinks
+  = render "vinks", vinks: @vinks
+
+.row
+  .small-12.large-8.large-centered.columns
+    = will_paginate @vinks
 
 

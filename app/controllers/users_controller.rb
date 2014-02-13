@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     authorize! :show, User
     @user = User.find(params[:id])
-    @vinks = @user.vinks.order("vink_date DESC")
+    @vinks = @user.vinks.order("vink_date DESC").page(params[:page])
     @commentable = @user
     @comments = @commentable.comments
     @comment = Comment.new
