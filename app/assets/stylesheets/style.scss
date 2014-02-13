@@ -333,3 +333,39 @@ table {
     padding: 10px;
   }
 }
+.pagination {
+  text-align: center;
+  margin: 5px;
+}
+.splash {
+  margin-top: 50px;
+
+  .feature {
+    margin-top: 20px;
+  }
+
+  .dictionary {
+    margin-top: 40px;
+
+    .title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .pronounciation {
+      margin-top: 10px;
+      font-size: 1em;
+      font-weight: normal;
+      font-style: italic;
+    }
+    .type {
+      margin-top: 0px;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+    .explanation {
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+  }
+}

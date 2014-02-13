@@ -33,10 +33,12 @@
           .small-12.columns
             %label= I18n.t('.users.form.subscription')
             = f.collection_select :subscription, [["basic", I18n.t('.users.subscriptions.basic')] ,["premium", I18n.t('.users.subscriptions.premium')]], :first, :last, include_blank: true
-        .row
-          .small-12.columns
-            %label= I18n.t('.users.form.password')
-            = f.password_field :password
+
+        - if f.object.encrypted_password.present?
+          .row
+            .small-12.columns
+              %label= I18n.t('.users.form.password')
+              = f.password_field :password
         .row
           .small-12.columns
             = f.submit(class: 'button', value: I18n.t('.general.save'))

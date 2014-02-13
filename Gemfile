@@ -19,6 +19,7 @@ gem 'bcrypt-ruby'
 gem 'foundation-rails'
 gem 'googlecharts', :require => "gchart"
 gem 'will_paginate', '~> 3.0'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'better_errors'
