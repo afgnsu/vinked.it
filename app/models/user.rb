@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   #validates :first_name, :last_name, :location, length: { maximum: 50 }
   #validates :screen_name, length: { maximum: 15 }
 
-  before_save { |user| user.email = email.downcase }
+  #before_save { |user| user.email = email.downcase }
 
   def full_name
     "#{self.first_name} #{self.last_name}"
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
-      #user.provider = auth.provider
+      user.provider = auth.provider
       user.uid = auth.uid
       user.screen_name = auth.info.nickname
     end
