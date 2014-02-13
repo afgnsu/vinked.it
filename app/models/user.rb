@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
-      user.provider = auth.provider
+      #user.provider = auth.provider
       user.uid = auth.uid
       user.screen_name = auth.info.nickname
     end
@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
   def email_required?
     super && provider.blank?
   end
-=begin
+
   def first_name_required?
     super && provider.blank?
   end
@@ -77,7 +77,6 @@ class User < ActiveRecord::Base
   def last_name_required?
     super && provider.blank?
   end
-=end
 
 end
 
