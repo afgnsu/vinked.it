@@ -11,6 +11,8 @@
 
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
+  = render('clubs/alphabet')
+
   - if @maintenance == true
     = render "maintenance"
   - else
