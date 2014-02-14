@@ -23,7 +23,10 @@
     %nav.top-bar{"data-topbar" => ""}
       %ul.title-area
         %li.name
-          %h1= link_to I18n.t('.site.title'), root_path
+          - if signed_in?
+            %h1= link_to I18n.t('.site.title'), user_path(current_user)
+          - else
+            %h1= link_to I18n.t('.site.title'), root_path
         %li.toggle-topbar.menu-icon
           %a{href: "#"} Menu
       %section.top-bar-section

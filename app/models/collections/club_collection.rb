@@ -20,6 +20,16 @@ module Collections
       end
     end
 
+    module LetterScope
+      def items
+        if params[:letter].present?
+          super.per_letter(params[:letter])
+        else
+          super
+        end
+      end
+    end
+
     module Ordering
       def items
         if params[:view] == "own" or params[:view] == "latest"
@@ -36,7 +46,7 @@ module Collections
       @ability = ability
       @params  = params
       @user = user
-      extend Authorisation, CountryScope, Ordering
+      extend Authorisation, CountryScope, LetterScope, Ordering
     end
 
     def items

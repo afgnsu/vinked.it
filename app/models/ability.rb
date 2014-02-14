@@ -12,8 +12,7 @@ class Ability
         can [:index, :show], Club
         can [:index, :show, :create, :update, :destroy], Vink
 
-        cannot [:destroy], User
-        cannot [:create, :update, :destroy], User
+        cannot [:create, :destroy], User
         cannot [:index, :show, :create, :update, :destroy], Country
         cannot [:index, :show, :create, :update, :destroy], League
       elsif user.premium?
@@ -22,8 +21,7 @@ class Ability
         can [:index, :show, :create], Club
         can [:index, :show, :create, :update, :destroy], Vink
 
-        cannot [:destroy], User
-        cannot [:update, :destroy], User
+        cannot [:create, :destroy], User
         cannot [:index, :show, :create, :update, :destroy], Country
         cannot [:index, :show, :create, :update, :destroy], League
       end

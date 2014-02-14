@@ -4,13 +4,18 @@ class User < ActiveRecord::Base
   has_many :vinks, dependent: :destroy
   has_many :clubs, through: :vinks
   has_many :comments, as: :commentable
+=begin
+  validates :first_name, presence: true if self.provider.blank?
+  validates :last_name, presence: true  if last_name_required?
+  validates :email, presence: true      if email_required?
+  validates :first_name, presence: true if first_name_required?
 
-  #validates :first_name, :last_name, :screen_name, :email, :role, :locale, :subscription, presence: true
-  #validates :first_name, :last_name, :location, length: { maximum: 50 }
-  #validates :screen_name, length: { maximum: 15 }
+  validates :screen_name, :role, :locale, :subscription, presence: true
+  validates :first_name, :location, length: { maximum: 50 } if first_name_required?
+  validates :last_name,  :location, length: { maximum: 50 } if first_name_required?
 
-  before_save { |user| user.email = email.downcase }
-
+  before_save { |user| user.email = email.downcase } if email_required?
+=end
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
@@ -37,9 +42,11 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
-      #user.provider = auth.provider
+      user.provider = auth.provider
       user.uid = auth.uid
       user.screen_name = auth.info.nickname
+      user.confirmed_at = DateTime.now
+      user.subscription = "basic"
     end
   end
 
@@ -70,7 +77,7 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
-  def first_name_required?
+  def self.first_name_required?
     super && provider.blank?
   end
 

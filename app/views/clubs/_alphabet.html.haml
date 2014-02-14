@@ -1,0 +1,8 @@
+.row
+  .small-12.large-12.columns.letter_filter
+    .letter_first.found= link_to "All", clubs_path, remote: true
+    - @letter_array.each do |letter|
+      - if @club_array.include? letter
+        .letter.found= link_to letter, clubs_path(letter: letter), remote: true
+      - else
+        .letter.notfound= letter

@@ -1,7 +1,7 @@
 - if can? :profile, User and @user = current_user
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.users.profile_title')
 
-  - if can? :edit, User
+  - if can? :update, User
     .row
       .small-offset-10.small-2.columns
         .action= link_to I18n.t('.helpers.edit'), edit_user_path(@user), class: 'button secondary'

@@ -4,3 +4,19 @@ $('.pagination').replaceWith('<%= j will_paginate(@clubs) %>');
 <% else %>
 $('.pagination').remove();
 <% end %>
+
+
+<%
+
+=begin
+
+$('.contacts_canvas').empty();
+- if @extra_info
+  - page_title = I18n.t(:contacts_index_title) + ' ' + I18n.t(:contacts_extra_title) + ' "' + @extra_info + '"'
+- else
+  - page_title = I18n.t(:contacts_index_title)
+$('.contacts_canvas').html("#{escape_javascript(render('layouts/pagetitle', :title => page_title, :path => contacts_path))}#{escape_javascript(render('contacts/alphabet'))}#{escape_javascript(render('all_contacts', :contacts => @contacts, :layout => 'normal'))}");
+
+=end
+
+%>
