@@ -345,12 +345,37 @@ table {
   margin: 5px;
 }
 .splash {
-  margin-top: 50px;
+  margin-top: 10px;
 
-  .feature {
-    margin-top: 20px;
+  .teaser {
+    margin-top: 50px;
+
+    .icon {
+      float: left;
+      width: 25%;
+      text-align: center;
+      font-size: 300%;
+      color: $primary-color;
+      padding: 10px 0 0 10px;
+    }
+    .text {
+      float: right;
+      width: 74%;
+
+      .title {
+        font-weight: bold;
+        padding-top: 5px;
+      }
+      .content {
+        padding-top: 5px;
+        font-size: 90%;
+      }
+    }
   }
+  .register {
+    margin-top: 100px;
 
+  }
   .dictionary {
     margin-top: 40px;
 
