@@ -2,18 +2,26 @@
   = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: "#{I18n.t('.users.show_title')}: #{@user.screen_name}"
 
 .row.stats
-  .small-4.columns
+  .small-3.columns
     .panel
       .count= @user.clubs.uniq.count
       .text= I18n.t('.users.stats.clubs')
-  .small-4.columns
+  .small-3.columns
     .panel
       .count= @user.vinks.count
       .text= I18n.t('.users.stats.vinks')
-  .small-4.columns
+  .small-3.columns
     .panel
       .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating)
       .text= I18n.t('.users.stats.rating')
+  .small-3.columns
+    .panel
+      .count= Comment.where(user_id: @user.id).count
+      .text= I18n.t('.users.stats.comments')
+
+.row
+  .small-4.columns
+    = link_to "comments", user_comments_path(@user), class: "button"
 
 .row.details#vinks
   = render "vinks", vinks: @vinks

@@ -294,11 +294,12 @@ table {
       clear: both;
       float: right;
       font-size: 75%;
-      padding: 0;
+      padding: 5px;
       margin-top: 5px;
     }
     .content {
       float: left;
+      padding: 5px;
       font-size: 90%;
       word-wrap: break-word;
     }
@@ -367,41 +368,5 @@ table {
       margin-top: 20px;
       font-size: 0.9em;
     }
-  }
-}
-.letter_filter {
-  width: 100%;
-  height: 30px;
-  margin: 10px;
-
-  a, a:visited, a:hover {
-    font-size: 120%;
-    text-decoration: none;
-    color: #27b3ec;
-  }
-  .letter {
-    border: 1px solid #27b3ec;
-    background-color: #EEEEEE;
-    width: 12px;
-    height: 20px;
-    padding: 3px 3px 0 4px;
-    float: left;
-    margin-right: 4px;
-  }
-  .letter_first {
-    background-color: #EEEEEE;
-    width: auto;
-    height: 20px;
-    padding: 3px 3px 0 3px;
-    float: left;
-    margin-right: 4px;
-  }
-  .found {
-    border: 1px solid #27b3ec;
-  }
-  .notfound {
-    font-size: 120%;
-    border: 1px solid #CDC8C8;
-    color: #CDC8C8;
   }
 }

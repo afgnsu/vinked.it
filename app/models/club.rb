@@ -20,18 +20,6 @@ class Club < ActiveRecord::Base
     ("A".."Z").to_a
   end
 
-  def self.get_club_letters(clubs)
-    club_array = []
-    clubs.each do |club|
-      club_array << club.name[0,1]
-    end
-
-    club_array.sort!
-    club_array.uniq!
-
-    club_array
-  end
-
   def self.get_clubs(params)
     if params[:letter]
       order("name ASC").where("name LIKE ?", params[:letter] + "%")
