@@ -61,6 +61,13 @@
                 %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
 
     .row
+      .small-12.columns.messages
+        - flash.each do |name, msg|
+          %div{class: "alert-box #{name}"}
+            %a.close{"data-dismiss" => "alert"} x
+            = msg
+
+    .row
       .small-12.columns
         = yield
 

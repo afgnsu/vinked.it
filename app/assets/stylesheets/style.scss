@@ -42,8 +42,14 @@ i.green {
     }
   }
 }
-.alerts {
+.messages {
   .notice {
+    background-color: #CCF5C1;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+  }
+  .close {
+    color: $primary-color;
   }
 }
 .login {
