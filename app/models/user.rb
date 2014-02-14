@@ -42,10 +42,6 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
-      puts "IMAGE #{auth.description.profile_image_url}"
-      puts "LANG #{auth.description.lang}"
-      puts "LOCATION #{auth.description.location}"
-      puts "TWITTER #{auth.urls.twitter}"
       user.provider = auth.provider
       user.uid = auth.uid
       user.screen_name = auth.info.nickname
