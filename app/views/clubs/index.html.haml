@@ -4,14 +4,12 @@
   - else
     - if params[:view] == "own"
       - title = I18n.t('.clubs.my_index_title')
-    - if params[:view] == "latest"
+    - elsif params[:view] == "latest"
       - title = I18n.t('.clubs.latest_index_title')
     - else
       - title = I18n.t('.clubs.all_index_title')
 
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
-
-  = render('clubs/alphabet')
 
   - if @maintenance == true
     = render "maintenance"

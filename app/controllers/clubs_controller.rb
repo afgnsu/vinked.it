@@ -11,13 +11,6 @@ class ClubsController < ApplicationController
 
     form_data
 
-=begin
-# Set extra page title for filter requests
-    if params[:letter]
-      @extra_info = params[:letter]
-    end
-=end
-
     respond_to do |format|
       format.js
       format.html
@@ -105,6 +98,5 @@ class ClubsController < ApplicationController
     @countries = Country.order(:country)
     @calculator = VinkCalculator.new
     @letter_array = Club.set_alphabet_letters
-    @club_array = Club.get_club_letters(@clubs)
   end
 end
