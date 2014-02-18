@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213163950) do
+ActiveRecord::Schema.define(version: 20140217171808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20140213163950) do
     t.boolean  "gmaps"
     t.integer  "country_id"
     t.integer  "old_id"
+    t.integer  "league_id"
   end
 
   add_index "clubs", ["country_id"], name: "index_clubs_on_country_id", using: :btree
+  add_index "clubs", ["league_id"], name: "index_clubs_on_league_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "content"

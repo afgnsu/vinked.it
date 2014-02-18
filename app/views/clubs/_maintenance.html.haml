@@ -1,4 +1,4 @@
-- if can? :create, League
+- if can? :create, Club
   .row
     .small-6.columns
       = render "layouts/country_filter", target_path: clubs_path
@@ -11,6 +11,7 @@
       %thead
         %tr
           %th= I18n.t(".clubs.form.name")
+          %th= I18n.t(".clubs.form.league_id")
           %th= I18n.t(".clubs.form.country_id")
           %th
       %tbody#clubs

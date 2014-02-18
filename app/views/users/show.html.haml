@@ -20,8 +20,8 @@
       .text= I18n.t('.users.stats.comments')
 
 .row
-  .small-4.columns
-    = link_to "comments", user_comments_path(@user), class: "button"
+  .small-12.columns
+    //= link_to "comments", user_comments_path(@user), class: "button"
 
 .row.details#vinks
   = render "vinks", vinks: @vinks

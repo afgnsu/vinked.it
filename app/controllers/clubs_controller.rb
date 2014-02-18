@@ -6,6 +6,7 @@ class ClubsController < ApplicationController
     @clubs = collection.items
 
     if params[:view].blank?
+      authorize! :maintain, Club
       @maintenance = true
     end
 
@@ -38,6 +39,7 @@ class ClubsController < ApplicationController
   end
 
   def new
+    authorize! :create, Club
     @club = Club.new
     @leagues = League.includes(:country).order(:name)
   end
@@ -88,7 +90,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :country_id, :latitude, :longitude)
+    params.require(:club).permit(:name, :country_id, :league_id, :latitude, :longitude)
   end
 
   def form_data
@@ -97,6 +99,5 @@ class ClubsController < ApplicationController
     @form_leagues = League.order("level, name")
     @countries = Country.order(:country)
     @calculator = VinkCalculator.new
-    @letter_array = Club.set_alphabet_letters
   end
 end

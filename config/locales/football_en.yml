@@ -47,6 +47,7 @@ en:
     form:
       name:       Club
       country_id: Country
+      league_id:  League
   vinks:
     new_title:    Add vink
     edit_title:   Edit vink
