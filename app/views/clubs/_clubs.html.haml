@@ -3,6 +3,7 @@
     - if @maintenance == true
       %tr
         %td= decorate_data_field(club.name)
+        %td= decorate_data_field(League.find(club.league_id).name) unless club.league_id.blank?
         %td= decorate_data_field(club.country.country)
         %td
           - if can? :edit, Club

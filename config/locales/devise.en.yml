@@ -59,6 +59,7 @@ en:
       sign_in:  "Login"
       or:        "or"
       sign_up:  "Register"
+      sign_up_now:  "Join us now!"
       sign_out: "Logout"
     unlocks:
       title: "Resend unlock instructions"

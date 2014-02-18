@@ -352,7 +352,7 @@ table {
 
     .icon {
       float: left;
-      width: 25%;
+      width: 20%;
       text-align: center;
       font-size: 300%;
       color: $primary-color;
@@ -360,7 +360,7 @@ table {
     }
     .text {
       float: right;
-      width: 74%;
+      width: 80%;
 
       .title {
         font-weight: bold;
@@ -373,8 +373,17 @@ table {
     }
   }
   .register {
-    margin-top: 100px;
+    margin-top: 70px;
 
+    .teaser_button {
+      display: inline-block;
+      padding: 30px 20px;
+      background-color: $primary-color;
+      color: #FFFFFF;
+      width: 100%;
+      text-align: center;
+      font-size: 150%;
+    }
   }
   .dictionary {
     margin-top: 40px;
