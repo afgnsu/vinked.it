@@ -94,7 +94,7 @@ class ClubsController < ApplicationController
   end
 
   def form_data
-    @vink = Vink.new
+    @new_vink = Vink.new
     @form_clubs = Club.order(:name)
     @form_leagues = League.order("level, name")
     @countries = Country.order(:country)

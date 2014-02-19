@@ -12,7 +12,7 @@
       .text= I18n.t('.users.stats.vinks')
   .small-3.columns
     .panel
-      .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating)
+      .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating).round(2)
       .text= I18n.t('.users.stats.rating')
   .small-3.columns
     .panel
