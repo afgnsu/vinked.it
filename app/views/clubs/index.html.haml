@@ -21,4 +21,8 @@
           .small-offset-10.small-2.columns
             .action= link_to I18n.t('.clubs.new_title'), new_club_path, class: 'button secondary'
 
+    .row
+      .small-12.columns
+        = render "quick_filter"
+
     = render "all_clubs"

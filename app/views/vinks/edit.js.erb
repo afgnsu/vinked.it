@@ -1,2 +1,3 @@
-$('.vinkdata').empty();
-$('.vinkdata').html("<%= escape_javascript(render partial: 'clubs/vink_form') %>");
+id = <%= @vink.id %>;
+$('div#vink_' + id + ' .vinkdata').empty();
+$('div#vink_' + id + ' .vinkdata').html("<%= escape_javascript(render partial: 'clubs/vink_form') %>");

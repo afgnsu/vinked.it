@@ -6,6 +6,8 @@ class Club < ActiveRecord::Base
 
   validates :name, :country_id, presence: true
 
+  scope :starts_with, -> (letter) { where("name LIKE ?", letter + "%") }
+
   def last_vink
     unless self.vinks.blank?
       self.vinks.order("vink_date ASC").last
