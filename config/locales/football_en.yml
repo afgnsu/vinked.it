@@ -44,6 +44,10 @@ en:
       created:    Club has been added succesfully
       updated:    Club has been updated succesfully
       removed:    Club has been removed succesfully
+    filter:
+      club:       Club
+      league:     League
+      letter:     Clubs starting with
     form:
       name:       Club
       country_id: Country

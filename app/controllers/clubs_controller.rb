@@ -3,7 +3,7 @@ class ClubsController < ApplicationController
     authorize! :index, Club
 
     collection = Collections::ClubCollection.new(current_ability, params, current_user)
-    @clubs = collection.items
+    @clubs = collection.paginated.items
 
     if params[:view].blank?
       authorize! :maintain, Club

@@ -1,0 +1,31 @@
+.row.filter
+  .small-3.columns= I18n.t('.clubs.filter.club')
+  .small-3.columns= I18n.t('.clubs.filter.league')
+  .small-3.columns= I18n.t('.clubs.filter.letter')
+  .small-3.columns
+.row
+  = form_tag clubs_path, method: :get do
+    - if params[:view] and params[:view] != ""
+      = hidden_field_tag :view, params[:view]
+
+    .small-3.columns
+      - if params[:country].present?
+        = select_tag :country, options_for_select(@countries.map{ |c| [c.country, c.id] }, params[:country]), include_blank: true
+      - else
+        = select_tag :country, options_for_select(@countries.map{ |c| [c.country, c.id] }), include_blank: true
+
+    .small-3.columns
+      - if params[:league].present?
+        = select_tag :league, options_for_select(@form_leagues.map{ |c| [c.name, c.id, {'data-country' => c.country_id}] }, params[:league]), include_blank: true
+      - else
+        = select_tag :league, options_for_select(@form_leagues.map{ |c| [c.name, c.id, {'data-country' => c.country_id}] }), include_blank: true
+
+    .small-3.columns
+      - letters = ("A".."Z").to_a
+      - if params[:letter].present?
+        = select_tag :letter, options_for_select(letters, params[:letter]), include_blank: true
+      - else
+        = select_tag :letter, options_for_select(letters), include_blank: true
+
+    .small-3.columns
+      = submit_tag :submit, value: I18n.t('.general.filter'), class: 'button'
