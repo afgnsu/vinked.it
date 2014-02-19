@@ -1,5 +1,5 @@
-- unless @vink.club.blank?
-  - club = @vink.club
+- unless @new_vink.club.blank?
+  - club = @new_vink.club
   - style = nil
   - title = I18n.t('.vinks.edit_title')
 - else
@@ -7,7 +7,7 @@
   - title = I18n.t('.vinks.new_title')
 
 %div{ id: "club_#{club.id}", class: "vink_form", style: style }
-  = form_for @vink, remote: true, remote: true do |f|
+  = form_for @new_vink, remote: true, remote: true do |f|
     = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :club_id, value: club.id
     .row
