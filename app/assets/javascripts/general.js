@@ -21,4 +21,24 @@ $(document).ready(function(){
     $('#vink_'+id).toggle();
   });
 
+  if ($("#league").length > 0){
+    $.conditionalize($("#country"), $("#league"), "data-country");
+  }
+
 });
+
+
+$.conditionalize = function(sourceSelect, targetSelect, dataSelector){
+  options = $(targetSelect).children().clone();
+  $(sourceSelect).on('change', function() {
+    selected_id = $(this).val();
+    $(targetSelect).children().remove();
+    if (selected_id == ""){
+      options.appendTo(targetSelect);
+    }
+    else{
+      options.filter('[' + dataSelector + '="' + selected_id + '"]').appendTo(targetSelect);
+      $(targetSelect).prepend("<option value=''></option>");
+    }
+  });
+}

@@ -45,7 +45,7 @@ en:
       updated:    Club has been updated succesfully
       removed:    Club has been removed succesfully
     filter:
-      club:       Club
+      country:    Country
       league:     League
       letter:     Clubs starting with
     form:

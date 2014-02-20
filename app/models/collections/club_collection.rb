@@ -61,7 +61,7 @@ module Collections
       @ability = ability
       @params  = params
       @user = user
-      extend Authorisation, ViewScope, CountryScope, LeagueScope, LetterScope, Ordering
+      extend ViewScope, CountryScope, LeagueScope, LetterScope, Ordering
     end
 
     def items
