@@ -51,7 +51,6 @@ module Collections
         if params[:view] == "own" or params[:view] == "latest"
           super.order("vinks.vink_date DESC")
         else
-          puts "HUH"
           super.order("name")
         end
       end
