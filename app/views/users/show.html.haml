@@ -1,33 +1,49 @@
 - if can? :show, User
   = render "layouts/page_header", level1_title: I18n.t('.users.title'), level1_path: users_path, level2_title: "#{I18n.t('.users.show_title')}: #{@user.screen_name}"
 
-.row.stats
-  .small-3.columns
-    .panel
-      .count= @user.clubs.uniq.count
-      .text= I18n.t('.users.stats.clubs')
-  .small-3.columns
-    .panel
-      .count= @user.vinks.count
-      .text= I18n.t('.users.stats.vinks')
-  .small-3.columns
-    .panel
-      .count= @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating).round(2)
-      .text= I18n.t('.users.stats.rating')
-  .small-3.columns
-    .panel
-      .count= Comment.where(user_id: @user.id).count
-      .text= I18n.t('.users.stats.comments')
+  - clubs_count = @user.clubs.uniq.count
+  - vinks_count = @user.vinks.count
+  - vinks_average = @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating).round(2)
+  - comments_count = @user.comments.count
+  .row.stats
+    .small-3.columns
+      .panel
+        .count= clubs_count
+        .text= I18n.t('.users.stats.clubs')
+    .small-3.columns
+      .panel
+        .count= vinks_count
+        .text= I18n.t('.users.stats.vinks')
+    .small-3.columns
+      .panel
+        .count= vinks_average
+        .text= I18n.t('.users.stats.rating')
+    .small-3.columns
+      .panel
+        .count= comments_count
+        .text= I18n.t('.users.stats.comments')
 
-.row
-  .small-12.columns
-    //= link_to "comments", user_comments_path(@user), class: "button"
+  .row
+    .small-12.columns
+      %dl.tabs{"data-tab" => ""}
+        %dd.active
+          %a{href: "#panel1"}= "#{I18n.t('.users.stats.vinks').humanize} (#{vinks_count})"
+        %dd
+          %a{href: "#panel2"}= "#{I18n.t('.users.stats.comments').humanize} (#{comments_count})"
+      .tabs-content
+        #panel1.content.active
+          .details#vinks
+            = render "vinks", vinks: @vinks
 
-.row.details#vinks
-  = render "vinks", vinks: @vinks
+          = will_paginate @vinks
+        #panel2.content
+          .row.details
+            .small-8.small-centered.columns.comments
+              = render "comments/all_comments", comments: @comments
+              - if current_user.premium?
+                = render "comments/comment_form"
 
-.row
-  .small-12.large-8.large-centered.columns
-    = will_paginate @vinks
+
+
 
 
