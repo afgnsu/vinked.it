@@ -1200,3 +1200,6 @@ $paragraph-line-height: 2;
 .breadcrumbs {
   margin-bottom: 0;
 }
+.tabs-content > .content.active {
+  width: 100%;
+}
