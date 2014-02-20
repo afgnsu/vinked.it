@@ -13,16 +13,6 @@ Bundler.require(:default, Rails.env)
 
 module VinkedIt
   class Application < Rails::Application
-    config.action_mailer.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
-        :port           => '25',
-        :address        => ENV['POSTMARK_SMTP_SERVER'],
-        :user_name      => ENV['POSTMARK_API_KEY'],
-        :password       => ENV['POSTMARK_API_KEY'],
-        :domain         => 'vinkedit.heroku.com',
-        :authentication => :plain,
-    }
-
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
 

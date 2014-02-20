@@ -1,22 +1,16 @@
-- if can? :create, Club
+- if can? :maintain, Club
   .row
-    .small-6.columns
-      = render "layouts/country_filter", target_path: clubs_path
-    .small-offset-4.small-2.columns
-      .action= link_to I18n.t('.clubs.new_title'), new_club_path, class: 'small button secondary'
+    .small-12.large-8.large-centered.columns
+      %table
+        %thead
+          %tr
+            %th= I18n.t(".clubs.form.name")
+            %th= I18n.t(".clubs.form.league_id")
+            %th= I18n.t(".clubs.form.country_id")
+            %th
+        %tbody#clubs
+          = render "clubs", clubs: @clubs
 
-.row
-  .small-12.large-8.large-centered.columns
-    %table
-      %thead
-        %tr
-          %th= I18n.t(".clubs.form.name")
-          %th= I18n.t(".clubs.form.league_id")
-          %th= I18n.t(".clubs.form.country_id")
-          %th
-      %tbody#clubs
-        = render "clubs", clubs: @clubs
-
-.row
-  .small-12.large-8.large-centered.columns
-    = will_paginate @clubs unless @clubs.blank?
+  .row
+    .small-12.large-8.large-centered.columns
+      = will_paginate @clubs unless @clubs.blank?
