@@ -38,8 +38,6 @@ en:
     vinkedits_show_title:   Vinkedit's for
     users_show_title:   Users who vinked
     comments_show_title:   Comments for
-    none1:        "Bummer, no vinked.it's yet!"
-    none2:        "Why not add some?"
     messages:
       created:    Club has been added succesfully
       updated:    Club has been updated succesfully

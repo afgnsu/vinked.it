@@ -88,11 +88,15 @@ table {
   width: 100%;
 }
 .clubs {
-  .no_data {
-    clear: both;
-    align: left;
-    text-align: center;
-    padding: 10px;
+  .none {
+    margin-top: 20px;
+
+    .no_data {
+      clear: both;
+      align: left;
+      text-align: center;
+      padding: 10px;
+    }
   }
   .vinked {
     border: 1px solid $primary-color;

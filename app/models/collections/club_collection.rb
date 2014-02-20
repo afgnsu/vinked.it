@@ -9,6 +9,8 @@ module Collections
           super
         elsif params[:view] == "latest"
           super
+        else
+          super
         end
       end
     end
