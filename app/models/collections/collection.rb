@@ -41,7 +41,7 @@ module Collections
 
     module Pagination
       def items
-        super.page(params[:page])
+        super.page(params[:page]) unless super.blank?
       end
     end
 

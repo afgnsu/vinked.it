@@ -9,6 +9,8 @@ module Collections
           super
         elsif params[:view] == "latest"
           super
+        else
+          super
         end
       end
     end
@@ -61,7 +63,7 @@ module Collections
       @ability = ability
       @params  = params
       @user = user
-      extend Authorisation, ViewScope, CountryScope, LeagueScope, LetterScope, Ordering
+      extend ViewScope, CountryScope, LeagueScope, LetterScope, Ordering
     end
 
     def items
