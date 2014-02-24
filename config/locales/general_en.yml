@@ -20,6 +20,7 @@ en:
     show_title:     User
     edit_profile:   Change profile
     profile_title:  My profile
+    vinks_title:    My vinklist
     message_create: Vinker has been added successfully
     message_update: Vinker has been edited successfully
     message_delete: Vinker has been removed successfully

@@ -26,10 +26,10 @@ en:
       level:      Level
       country_id: Country
   clubs:
-    index_title:  Vinked.it's
-    my_index_title:  My vinked.it's
-    latest_index_title:  Latest vinked.it's
-    all_index_title:  All vinked.it's
+    index_title:  Clubs
+    my_index_title:  My vinked clubs
+    latest_index_title:  Latest vinked clubs
+    all_index_title:  All vinked clubs
     clubs_title:  Clubs
     new_title:    Add club
     edit_title:   Edit club
