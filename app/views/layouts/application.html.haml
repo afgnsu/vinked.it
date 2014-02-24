@@ -49,7 +49,7 @@
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
           - if signed_in?
-            %li= link_to I18n.t('.user.vinks_title'), user_path(current_user)
+            %li= link_to I18n.t('.users.vinks_title'), user_path(current_user)
             %li.divider
             %li.has-dropdown
               %a{href: "#"}= I18n.t(".clubs.index_title")
