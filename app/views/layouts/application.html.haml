@@ -23,10 +23,7 @@
     %nav.top-bar{"data-topbar" => ""}
       %ul.title-area
         %li.name
-          - if signed_in?
-            %h1= link_to I18n.t('.site.title'), user_path(current_user)
-          - else
-            %h1= link_to I18n.t('.site.title'), root_path
+          %h1= link_to I18n.t('.site.title'), root_path
         %li.toggle-topbar.menu-icon
           %a{href: "#"} Menu
       %section.top-bar-section
@@ -52,6 +49,7 @@
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
         %ul.left
           - if signed_in?
+            %li= link_to I18n.t('.user.vinks_title'), user_path(current_user)
             %li.divider
             %li.has-dropdown
               %a{href: "#"}= I18n.t(".clubs.index_title")
