@@ -24,6 +24,9 @@ $(document).ready(function(){
   if ($("#league").length > 0){
     $.conditionalize($("#country"), $("#league"), "data-country");
   }
+  if ($("#club_league_id").length > 0){
+    $.conditionalize($("#club_country_id"), $("#club_league_id"), "data-country");
+  }
 
 });
 
