@@ -417,3 +417,18 @@ table {
 .filter {
   padding-bottom: 10px;
 }
+.details {
+  h2, h3 {
+    text-align: center;
+  }
+  .count {
+    padding: 20px 0;
+  }
+  .attachment {
+    text-align: center;
+  }
+  .subtext {
+    text-align: center;
+    font-size: 75%;
+  }
+}

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $(".fancybox").fancybox();
+
   $(document).on('click', '.close', function(e) {
     $(this).parent().remove();
   });

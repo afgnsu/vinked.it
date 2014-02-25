@@ -1,5 +1,11 @@
 class VinksController < ApplicationController
 
+  def show
+    authorize! :show, Vink
+
+    @vink = Vink.find(params[:id])
+  end
+
   def create
     authorize! :create, Vink
 
@@ -12,7 +18,7 @@ class VinksController < ApplicationController
   end
 
   def edit
-    @vink = Vink.find(params[:id])
+    @new_vink = Vink.find(params[:id])
     @form_clubs = Club.order(:name)
     @form_leagues = League.order("level, name")
     @calculator = VinkCalculator.new
@@ -48,7 +54,8 @@ class VinksController < ApplicationController
 
   def vink_params
     params.require(:vink).permit(:vink_date, :vink_nr, :ground, :street, :city, :result,
-      :season, :kickoff, :gate, :ticket, :rating, :club_id, :away_club_id, :user_id, :countfor92, :league_id)
+      :season, :kickoff, :gate, :ticket, :rating, :club_id, :away_club_id, :user_id, :countfor92,
+      :ticket_link, :programme_link, :league_id)
   end
 
 end
