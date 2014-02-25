@@ -2,6 +2,8 @@ en:
   site:
     title:          Vinked.it
     dashboard:      Dashboard
+    faq_long:       Frequently Asked Questions
+    faq_short:      FAQ
   general:
     not_authorized: You don't have access to that page!
     save:           Save

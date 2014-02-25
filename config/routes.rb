@@ -14,6 +14,8 @@ VinkedIt::Application.routes.draw do
     resources :comments
   end
 
+  get "site/faq"
+
   get "/404", to: "errors#not_found"
   get "/403", to: "errors#not_authorized"
   get "/500", to: "errors#internal_server_error"

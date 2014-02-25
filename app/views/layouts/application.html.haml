@@ -38,12 +38,15 @@
                 %li= link_to I18n.t(".clubs.clubs_title"), clubs_path
           - if signed_in?
             %li.divider
+            %li= link_to I18n.t(".site.faq_short"), site_faq_path
+            %li.divider
             %li.has-dropdown
               %a{href: "#"}= current_user.screen_name
               %ul.dropdown
                 %li= link_to I18n.t(".users.profile_title"), user_profile_path(current_user)
                 %li= link_to I18n.t(".devise.sessions.sign_out"), destroy_user_session_path, method: :delete
           - else
+            %li.divider
             %li= link_to I18n.t(".devise.sessions.sign_up"), new_user_registration_path
             %li.divider
             %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
