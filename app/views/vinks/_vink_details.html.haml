@@ -83,9 +83,10 @@
 
                     - (1..(10-vink.rating)).each do |n|
                       .fi-star.off
-            - if can? :edit, Vink and vink.user == current_user
-              .row
-                .small-12.columns
-                  = link_to "edit", edit_vink_path(vink, club: vink.club), remote: true, class: "tiny button"
+            .row
+              .small-12.columns
+                - if can? :edit, Vink and vink.user == current_user
+                  = link_to I18n.t('.helpers.edit'), edit_vink_path(vink, club: vink.club), remote: true, class: "tiny button"
+                = link_to I18n.t('.vinks.details'), vink_path(vink), class: "tiny button"
 
 

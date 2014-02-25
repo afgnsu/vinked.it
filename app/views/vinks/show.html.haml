@@ -1,0 +1,107 @@
+- if can? :show, Vink
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.vinks.show_title')
+
+  .details
+    .small-8.small-centered.columns
+      %h3= decorate_data_field(@vink.ground)
+    .small-8.small-centered.columns
+      %h3= "#{@vink.club.name} v #{Club.find(@vink.away_club_id).name}"
+    .small-8.small-centered.columns
+      %h3= decorate_data_field(@vink.result)
+
+
+    .small-8.columns
+      %table
+        %thead
+          %tr
+            %th{colspan: 2}= I18n.t('.vinks.show_title')
+        %tbody
+          %tr
+            %td= I18n.t('.vinks.form.visited_by')
+            %td= link_to decorate_data_field(@vink.user.screen_name), user_path(@vink.user) unless @vink.user.blank?
+          %tr
+            %td= I18n.t('.vinks.form.visit_nr')
+            - vinks = @vink.user.vinks.count
+            %td= "#{decorate_data_field(@vink.vink_nr)} / #{decorate_data_field(vinks)}"
+          %tr
+            %td= I18n.t('.vinks.form.countfor92')
+            %td
+              - if @vink.countfor92 == true
+                Yes
+              - else
+                No
+          %tr
+            %td= I18n.t('.vinks.form.visit_date')
+            %td= decorate_data_field(@vink.vink_date, true)
+          %tr
+            %td= I18n.t('.vinks.form.country_id')
+            %td= decorate_data_field(League.find(@vink.league_id).country.country) unless @vink.league_id.blank?
+          %tr
+            %td= I18n.t('.vinks.form.league_id')
+            - league = League.find(@vink.league_id)
+            %td= "[#{decorate_data_field(league.level)}] #{decorate_data_field(league.name)}"
+          %tr
+            %td= I18n.t('.vinks.form.league_now')
+            - league = League.find(@vink.club.league_id) unless @vink.club.league_id.blank?
+            %td= "[#{decorate_data_field(league.level)}] #{decorate_data_field(league.name)}"
+          %tr
+            %td= I18n.t('.vinks.form.season')
+            %td= decorate_data_field(@vink.season)
+          %tr
+            %td= I18n.t('.vinks.form.gate')
+            %td= decorate_data_field(@vink.gate)
+          %tr
+            %td= I18n.t('.vinks.form.kickoff')
+            %td= decorate_data_field(@vink.kickoff)
+          %tr
+            %td= I18n.t('.vinks.form.ticket')
+            %td= decorate_data_field(number_to_currency(@vink.ticket, precision: 2))
+          %tr
+            %td= I18n.t('.vinks.form.street')
+            %td= decorate_data_field(@vink.street)
+          %tr
+            %td= I18n.t('.vinks.form.city')
+            %td= decorate_data_field(@vink.city)
+          %tr
+            %td
+            %td
+
+    .small-4.columns
+      .small-12.columns
+        %table.stats
+          %thead
+            %tr
+              %th= I18n.t('.vinks.form.rating')
+          %tbody
+            %tr
+              %td.count
+                - if @vink.rating.blank?
+                  .count 0
+                - else
+                  .count= @vink.rating
+
+      .small-12.columns
+        - unless @vink.ticket_link.blank?
+          %table
+            %thead
+              %tr
+                %th= I18n.t('.vinks.ticket')
+            %tbody
+              %tr
+                %td.attachment
+                  %a.fancybox{href: @vink.ticket_link, rel: "group"}
+                    %img{src: @vink.ticket_link, alt: "", width: "200"}/
+                  .subtext click to enlarge
+
+      .small-12.columns
+        - unless @vink.programme_link.blank?
+          %table
+            %thead
+              %tr
+                %th= I18n.t('.vinks.programme')
+            %tbody
+              %tr
+                %td.attachment
+                  %a.fancybox{href: @vink.programme_link, rel: "group"}
+                    %img{src: @vink.programme_link, alt: "", width: "200"}/
+                  .subtext click to enlarge

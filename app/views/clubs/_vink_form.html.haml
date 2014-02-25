@@ -62,6 +62,13 @@
           %label= I18n.t('.vinks.form.city')
           = f.text_field :city, placeholder: "#{I18n.t('.helpers.eg')} London"
       .row
+        .small-6.columns
+          %label= I18n.t('.vinks.form.ticket_link')
+          = f.text_field :ticket_link
+        .small-6.columns
+          %label= I18n.t('.vinks.form.programme_link')
+          = f.text_field :programme_link
+      .row
         .small-12.columns
           %label= I18n.t('.vinks.form.rating')
         .small-12.columns

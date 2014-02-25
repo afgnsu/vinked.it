@@ -54,8 +54,12 @@ en:
     new_title:    Add vink
     edit_title:   Edit vink
     delete_title: Remove vinked.it
+    show_title:   Vink details
     last_month_title: Vinks made by our members this month
     save:         Vinked.it!
+    details:      more details
+    ticket:       Ticket
+    programme:    Programme
     messages:
       created:    You vinked.it
       updated:    vink has been updated succesfully
@@ -64,6 +68,7 @@ en:
       visit_nr:           Vink nr.
       the92_nr:           The 92 nr.
       visit_date:         Visit date
+      visited_by:         Visited by
       ground:             Ground
       street:             Street name
       city:               City
@@ -75,11 +80,12 @@ en:
       rating:             Rating
       programme:          Programme
       ticket:             Ticket price
-      league_id:          League visited
-      league_now:         League now
+      league_id:          Visited league
+      league_now:         Current league
       club_id:            Home club
       away_club_id:       Away club
       match:              Match
       photo:              Photo
       country_id:         Country
-
+      ticket_link:        Link to ticket image
+      programme_link:     Link to programme image
