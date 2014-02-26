@@ -10,6 +10,27 @@
     }
   }
 }
+footer {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  width: 100%;
+  border-top: 2px solid $primary-color;
+
+  .copyright {
+    color: $font-color;
+    font-weight: normal;
+    font-size: 80%;
+
+    a, a:visited, a:hover {
+      color: #FFFFFF;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
 i.large {
   font-size: 30px;
 }
