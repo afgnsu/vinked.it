@@ -1,1 +1,65 @@
 = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.site.faq_long')
+
+.row
+  .small-12.columns
+    %dl.accordion{"data-accordion" => ""}
+      %dd
+        %a{href: "#panel1"} How can I see which clubs I vinked?
+        #panel1.content.active
+          %p Simple: grey clubs are clubs you didn't vink yet, green clubs are club you have vinked. So you can easily see how much clubs you still have to vink when filtering on a certain country or league.
+      %dd
+        %a{href: "#panel2"} My vinklist is empty, how do I add my vinks?
+        #panel2.content
+          %p Vinks are always made at a club, so if you want to add a vink, select "Clubs > All clubs" from the menu and look for the club you vinked. You can easily browse the clubs by using the country, league or first character filter. Then you can click on the vink symbol to the left of the club name:
+
+          .small-12
+            = image_tag("add_vink1.png")
+
+          %p Then a form opens and you can fill in all the information about the vink. Only date and away club are mandatory, the other fields are optional, depending on how much information you can and/or want to share.
+
+          .small-12
+            = image_tag("add_vink2.png")
+      %dd
+        %a{href: "#panel3"} What is the meaning of all the symbols at a club?
+        #panel3.content
+          %p The symbols you see at a club give information how many times that club has been vinked by you and others.
+
+          .small-12
+            = image_tag("symbols.png")
+
+          %p
+          %ul
+            %li 1: The most recent date this club has been vinked by any of the members.
+            %li 2: The number of times all members have vinked this club.
+            %li 3: The number of times you have vinked this club.
+            %li 4: The number of vinkers that have vinked this club.
+            %li 5: The number of comments written about this club by the members.
+      %dd
+        %a{href: "#panel4"} What if a club I vinked is not in the list?
+        #panel4.content
+          %p Up to a certain level all clubs of a country are added by default. When a season ends, all promoted and relegated clubs will be adapted to reflect the new league they will be active in for the next season. If you vinked a club below these leagues and the club has not been vinked yet by another member, you can add a club if you select "Clubs > All clubs" from the menu and then click on the "Add club" button. Here is an overview of the leagues for which all clubs are added by default:
+
+          %ul
+            %li England: Premier League, The Championship, League One, League Two, The Conference, Conference North and South.
+            %li Scotland: Scottish Premier League, Scottish Championship, Scottish League One and Scottish League Two.
+            %li Wales: Welsh Premier League
+            %li Northern Ireland: IFA Premiership
+            %li Ireland: League of Ireland
+      %dd
+        %a{href: "#panel5"} Why are other countries like Germany or Belgium not supported?
+        #panel5.content
+          %p Here at Vinked.it we are crazy about English, Scottish, Welsh and (Northern) Irish football, that's our passion and niche. We don't aim to be a general vinkers site and also we don't aim to specifically attract general vinkers as members. There are other websites for that. We want to attract the same vinkers as us: genuine British and Irish football fanatics.
+      %dd
+        %a{href: "#panel6"} Will there any new features coming or is this everything there is?
+        #panel6.content
+          %p Vinked.it will be contineously developed and improved, but it is an one man spare time job, so please bear with me. What I have planned to add is:
+
+          %ul
+            %li Mini Frenzy: after this season I will not continu with The Old Spotted Dog Frenzy, because there is not enough interactivity there, but I have planned to reuse some of it and create a mini version here.
+            %li Social network: I want to add lots of interactivity here. Now you can already comment on clubs and members, but I want to extend this to a more mature social network, where you can follow members you find interesting. It should also be possible to write about things you want to say about clubs or vinks.
+            %li Earn points: when you achieve something, like you vinked a new country or completed a league you earn points.
+            %li Much more....
+      %dd
+        %a{href: "#panel7"} What if I have a questions which is not answered here?
+        #panel7.content
+          %p You can always contact us via Twitter at @vinkedit for questions, remarks, bugs and cheers. If your question is interesting for more members, we will add it here.

@@ -1215,3 +1215,10 @@ $paragraph-line-height: 2;
 .tabs-content > .content.active {
   width: 100%;
 }
+.accordion {
+  dd {
+    a {
+      border: 1px solid darken(#e3e3e3, 10%);
+    }
+  }
+}
