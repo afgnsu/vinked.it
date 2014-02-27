@@ -75,13 +75,13 @@
                 .visit_label= I18n.t('.vinks.form.rating')
                 .visit_item
                   - if vink.rating.blank?
-                    - (1..10).each do |n|
+                    - (1..5).each do |n|
                       .fi-star.off
                   - else
                     - (1..vink.rating).each do |n|
                       .fi-star.on
 
-                    - (1..(10-vink.rating)).each do |n|
+                    - (1..(5-vink.rating)).each do |n|
                       .fi-star.off
             .row
               .small-12.columns
