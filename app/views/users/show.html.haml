@@ -5,20 +5,20 @@
   - vinks_count = @user.vinks.count
   - vinks_average = @user.vinks.average(:rating).blank? ? 0 : @user.vinks.average(:rating).round(2)
   - comments_count = @user.comments.count
-  .row.stats
-    .small-3.columns
+  .row.stats{"data-equalizer" => ""}
+    .small-3.columns{"data-equalizer" => ""}
       .panel
         .count= clubs_count
         .text= I18n.t('.users.stats.clubs')
-    .small-3.columns
+    .small-3.columns{"data-equalizer" => ""}
       .panel
         .count= vinks_count
         .text= I18n.t('.users.stats.vinks')
-    .small-3.columns
+    .small-3.columns{"data-equalizer" => ""}
       .panel
         .count= vinks_average
         .text= I18n.t('.users.stats.rating')
-    .small-3.columns
+    .small-3.columns{"data-equalizer" => ""}
       .panel
         .count= comments_count
         .text= I18n.t('.users.stats.comments')
