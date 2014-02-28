@@ -4,6 +4,9 @@ class VinksController < ApplicationController
     authorize! :show, Vink
 
     @vink = Vink.find(params[:id])
+    @commentable = @vink
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def create

@@ -13,8 +13,6 @@ class UsersController < ApplicationController
     @comments = @commentable.comments
     @comment = Comment.new
     @calculator = VinkCalculator.new
-
-    #@countries = GraphBuilder.new.show_countries(@user)
   end
 
   def profile

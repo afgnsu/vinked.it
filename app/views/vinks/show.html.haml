@@ -4,9 +4,9 @@
   .details
     .small-12.large-8.large-centered.columns
       %h3= decorate_data_field(@vink.ground)
-    .small-12.large-8.large.columns
+    .small-12.large-8.large-centered.columns
       %h3= "#{@vink.club.name} v #{Club.find(@vink.away_club_id).name}"
-    .small-12.large-8.large.columns
+    .small-12.large-8.large-centered.columns
       %h3= decorate_data_field(@vink.result)
 
 
@@ -105,3 +105,9 @@
                   %a.fancybox{href: @vink.programme_link, rel: "group"}
                     %img{src: @vink.programme_link, alt: "", width: "200"}/
                   .subtext click to enlarge
+
+    .small-12.columns.comments
+      .title= "#{I18n.t('.comments.for')} #{@vink.user.screen_name}"
+      = render "comments/all_comments", comments: @comments
+      - if current_user.premium?
+        = render "comments/comment_form"

@@ -73,6 +73,7 @@ en:
     no_comments:    No comments yet!
     message_create: Comment has been added successfully
     created_by:     added by
+    for:            Comments for
   helpers:
     actions:   Actions
     edit:     edit
