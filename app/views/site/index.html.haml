@@ -14,40 +14,44 @@
         .explanation When a vinker has visited a football match for at least 20 minutes at a new football ground.
 
   .row
-    .small-6.large-6.columns.teaser
-      .icon
-        %i.fi-checkbox
-      .text
-        .title Store your visits
-        .content
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-    .small-6.large-6.columns.teaser
-      .icon
-        %i.fi-checkbox
-      .text
-        .title Store your visits
-        .content
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+    .small-12.large-3.large-centered.columns.register
+      = link_to I18n.t(".devise.sessions.sign_up_now"), new_user_registration_path, class: "teaser_button"
 
-  .row
-    .small-6.large-6.columns.teaser
+  .row.teaser
+    .small-12.large-6.columns.image
+      = image_tag("teaser1.png")
+    .small-12.large-6.columns
       .icon
         %i.fi-checkbox
       .text
-        .title Store your visits
+        .title Store
         .content
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-    .small-6.large-6.columns.teaser
+          Looking for a place to store all your football visits? Looking for a place to easily add, edit and browse your football visits
+          Looking for a place to see statistics about your football visits? Look no further! Here at Vinked.it you can safely store all your football
+          visit details and share them with other people like you: genuine British and Irish football addicts.
+
+  .row.teaser
+    .small-12.large-6.columns.image
+      = image_tag("teaser2.png")
+    .small-12.large-6.columns
       .icon
         %i.fi-checkbox
       .text
-        .title Store your visits
+        .title Explore
         .content
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          Only storing your own football visits is fun, but you could use an Excel sheet for that. It is more fun to share your visits with others and explore the visits
+          of other vinkers too! See how many times a club has been visited by who and when. What is the most popular club? What club has been visited most recently? And that hidden gem in Northern Ireland, has it been visited already by someone else? Explore and find out!
+
+  .row.teaser
+    .small-12.large-6.columns.image
+      = image_tag("teaser3.png")
+    .small-12.large-6.columns
+      .icon
+        %i.fi-checkbox
+      .text
+        .title Communicate
+        .content
+          Storing your visits and exploring other people's visits is fun, but what about talking about your visits with them? You can easily add comments to other other members and clubs to talk about your passion. And that is not all, if this website turns out to attract a significant amount of vinkers, we want to expand to a real social football network, where you can follow other members and get updates about what they are up to!
 
   .row
     .small-12.large-3.large-centered.columns.register

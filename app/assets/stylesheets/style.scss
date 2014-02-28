@@ -375,13 +375,16 @@ table {
   .teaser {
     margin-top: 50px;
 
+    .image {
+      padding-top: 25px;
+    }
     .icon {
       float: left;
       width: 20%;
       text-align: center;
       font-size: 300%;
       color: $primary-color;
-      padding: 10px 0 0 10px;
+      padding: 0 10px 10px 10px;
     }
     .text {
       float: right;
@@ -389,16 +392,18 @@ table {
 
       .title {
         font-weight: bold;
-        padding-top: 5px;
+        font-size: 150%;
+        padding: 5px 0 10px 0;
       }
       .content {
         padding-top: 5px;
         font-size: 90%;
+        line-height: 25px;
       }
     }
   }
   .register {
-    margin-top: 70px;
+    margin-top: 40px;
 
     .teaser_button {
       display: inline-block;
