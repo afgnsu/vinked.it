@@ -5,7 +5,7 @@ class ClubsController < ApplicationController
     collection = Collections::ClubCollection.new(current_ability, params, current_user)
     @clubs = collection.paginated.items
 
-    if params[:view].blank?
+    if params[:view] == "maintenance"
       authorize! :maintain, Club
       @maintenance = true
     end

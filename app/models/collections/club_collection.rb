@@ -28,7 +28,6 @@ module Collections
     module LeagueScope
       def items
         if params[:league].present?
-          puts "HUH"
           super.where(league_id: params[:league])
         else
           super

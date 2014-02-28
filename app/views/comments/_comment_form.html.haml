@@ -1,11 +1,13 @@
 .add_comment
-  %h3= I18n.t('.comments.new_title')
+  %h3
+    = I18n.t('.comments.new_title')
+    %span.countdown
   = form_for [@commentable, @comment] do |f|
     = render "layouts/error_messages", target: @comment
     = f.hidden_field :user_id, value: current_user.id
     .row
       .small-12.columns
-        = f.text_field :content, length: 140, maxlength: 140
+        = f.text_area :content, length: 140, maxlength: 140, rows: "2", cols: "60", class: "comment_input"
     .row
       .small-12.columns
         = f.submit(class: 'button', value: I18n.t('.general.save'))

@@ -5,6 +5,7 @@ class Club < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :name, :country_id, presence: true
+  validates :name, uniqueness: true, case_sensitive: false
 
   scope :starts_with, -> (letter) { where("name LIKE ?", letter + "%") }
 

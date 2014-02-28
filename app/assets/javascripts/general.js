@@ -30,6 +30,10 @@ ready = function() {
   if ($("#club_league_id").length > 0){
     $.conditionalize($("#club_country_id"), $("#club_league_id"), "data-country");
   }
+
+  updateCountdown();
+  $('.comment_input').change(updateCountdown);
+  $('.comment_input').keyup(updateCountdown);
 };
 
 $(document).ready(ready);
@@ -48,4 +52,9 @@ $.conditionalize = function(sourceSelect, targetSelect, dataSelector){
       $(targetSelect).prepend("<option value=''></option>");
     }
   });
+}
+
+function updateCountdown() {
+  var remaining = 140 - jQuery('.comment_input').val().length;
+  jQuery('.countdown').text(remaining + ' characters remaining');
 }

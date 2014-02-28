@@ -36,7 +36,7 @@
                 %a{href: "#"}= I18n.t(".users.roles.admin")
                 %ul.dropdown
                   %li= link_to I18n.t(".leagues.index_title"), leagues_path
-                  %li= link_to I18n.t(".clubs.clubs_title"), clubs_path
+                  %li= link_to I18n.t(".clubs.clubs_title"), clubs_path(view: "maintenance")
             - if signed_in?
               %li.divider
               %li= link_to I18n.t(".site.faq_short"), site_faq_path
@@ -61,6 +61,9 @@
                   %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
                   %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
                   %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
+                  - if can? :create, Club
+                    - if current_user.premium?
+                      %li= link_to I18n.t('.clubs.new_title'), new_club_path
 
       .row
         .small-12.columns.messages

@@ -2,15 +2,15 @@
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.vinks.show_title')
 
   .details
-    .small-8.small-centered.columns
+    .small-12.large-8.large-centered.columns
       %h3= decorate_data_field(@vink.ground)
-    .small-8.small-centered.columns
+    .small-12.large-8.large.columns
       %h3= "#{@vink.club.name} v #{Club.find(@vink.away_club_id).name}"
-    .small-8.small-centered.columns
+    .small-12.large-8.large.columns
       %h3= decorate_data_field(@vink.result)
 
 
-    .small-8.columns
+    .small-12.large-8.columns
       %table
         %thead
           %tr
@@ -66,7 +66,7 @@
             %td
             %td
 
-    .small-4.columns
+    .small-12.large-4.columns
       .small-12.columns
         %table.stats
           %thead

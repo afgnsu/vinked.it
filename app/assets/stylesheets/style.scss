@@ -336,7 +336,7 @@ table {
 }
 .comments {
   .comment {
-    margin-top: 20px;
+    margin-top: 10px;
 
     .details {
       clear: both;
@@ -347,15 +347,22 @@ table {
     }
     .content {
       float: left;
-      padding: 5px;
+      padding: 10px;
       font-size: 90%;
+      overflow: hidden;
       word-wrap: break-word;
     }
   }
   .add_comment {
-    margin-top: 20px;
+    margin-top: 10px;
     h3 {
       font-size: 100%;
+      text-align: left;
+
+      .countdown {
+        float: right;
+        font-size: 80%;
+      }
     }
   }
 }
