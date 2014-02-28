@@ -1,4 +1,5 @@
-$(document).ready(function(){
+var ready;
+ready = function() {
   $(".fancybox").fancybox();
 
   $(document).on('click', '.close', function(e) {
@@ -29,9 +30,10 @@ $(document).ready(function(){
   if ($("#club_league_id").length > 0){
     $.conditionalize($("#club_country_id"), $("#club_league_id"), "data-country");
   }
+};
 
-});
-
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 $.conditionalize = function(sourceSelect, targetSelect, dataSelector){
   options = $(targetSelect).children().clone();
