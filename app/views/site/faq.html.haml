@@ -60,6 +60,12 @@
             %li Earn points: when you achieve something, like you vinked a new country or completed a league you earn points.
             %li Much more....
       %dd
-        %a{href: "#panel7"} What if I have a questions which is not answered here?
+        %a{href: "#panel8"} Can I import vinks I have already registered?
+        #panel8.content
+          %p I have planned to add an import module. Till then I can import vinks from an Excel sheet for you. Here is a link to an example excel sheet. I f you fill this one with your vink data and email it to me at vinkedit@gmail.com, I can import it for you.
+
+          = link_to "example_sheet", asset_path("example_file.xlsx")
+      %dd
+        %a{href: "#panel8"} What if I have a questions which is not answered here?
         #panel7.content
-          %p You can always contact us via Twitter at @vinkedit for questions, remarks, bugs and cheers. If your question is interesting for more members, we will add it here.
+          %p You can always contact us via Twitter at <a href="https://twitter.com/VinkedIt">@VinkedIt</a> for questions, remarks, bugs and cheers. If your question is interesting for more members, we will add it here.
