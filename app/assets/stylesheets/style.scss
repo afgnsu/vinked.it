@@ -1,5 +1,22 @@
 @import "variables";
 
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page_wrapper {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+.page_wrapper:after {
+  content: "";
+  display: block;
+}
+.footer, .page_wrapper:after {
+  height: 100px;
+}
 .top-bar {
   .title-area {
     .icon {
@@ -74,7 +91,7 @@ i.green {
   }
 }
 .login {
-  margin-top: 20px;
+  margin-top: 100px;
 }
 .page-header {
   border-bottom: 2px solid $border-color;

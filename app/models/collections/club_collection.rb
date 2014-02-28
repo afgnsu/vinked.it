@@ -8,7 +8,7 @@ module Collections
         elsif params[:view] == "all"
           super
         elsif params[:view] == "latest"
-          super
+          super.order("vinks.created_at DESC")
         else
           super
         end
@@ -17,11 +17,10 @@ module Collections
 
     module CountryScope
       def items
-        if params[:country].blank?
-          country = Country.where(country: "England").first
-          super.where(country_id: country)
-        else
+        if params[:country].present?
           super.where(country_id: params[:country])
+        else
+          super
         end
       end
     end
@@ -29,6 +28,7 @@ module Collections
     module LeagueScope
       def items
         if params[:league].present?
+          puts "HUH"
           super.where(league_id: params[:league])
         else
           super

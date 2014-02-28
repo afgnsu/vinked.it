@@ -19,60 +19,61 @@
     /[if lt IE 9]
       <script src='assets/javascripts/ie/html5shiv.js' type='text/javascript'></script>
       <script src='assets/javascripts/ie/respond.min.js' type='text/javascript'></script>
-  %body{ 'data-no-turbolink' => true }
-    %nav.top-bar{"data-topbar" => ""}
-      %ul.title-area
-        %li.name
-          %h1= link_to I18n.t('.site.title'), root_path
-        %li.toggle-topbar.menu-icon
-          %a{href: "#"} Menu
-      %section.top-bar-section
-        / Right Nav Section
-        %ul.right
-          - if signed_in? and current_user.admin?
-            %li.divider
-            %li.has-dropdown
-              %a{href: "#"}= I18n.t(".users.roles.admin")
-              %ul.dropdown
-                %li= link_to I18n.t(".leagues.index_title"), leagues_path
-                %li= link_to I18n.t(".clubs.clubs_title"), clubs_path
-          - if signed_in?
-            %li.divider
-            %li= link_to I18n.t(".site.faq_short"), site_faq_path
-            %li.divider
-            %li.has-dropdown
-              %a{href: "#"}= current_user.screen_name
-              %ul.dropdown
-                %li= link_to I18n.t(".users.profile_title"), user_profile_path(current_user)
-                %li= link_to I18n.t(".devise.sessions.sign_out"), destroy_user_session_path, method: :delete
-          - else
-            %li.divider
-            %li= link_to I18n.t(".devise.sessions.sign_up"), new_user_registration_path
-            %li.divider
-            %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
-        %ul.left
-          - if signed_in?
-            %li= link_to I18n.t('.users.vinks_title'), user_path(current_user)
-            %li.divider
-            %li.has-dropdown
-              %a{href: "#"}= I18n.t(".clubs.index_title")
-              %ul.dropdown
-                %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
-                %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
-                %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
+  %body
+    .page_wrapper
+      %nav.top-bar{"data-topbar" => ""}
+        %ul.title-area
+          %li.name
+            %h1= link_to I18n.t('.site.title'), root_path
+          %li.toggle-topbar.menu-icon
+            %a{href: "#"} Menu
+        %section.top-bar-section
+          / Right Nav Section
+          %ul.right
+            - if signed_in? and current_user.admin?
+              %li.divider
+              %li.has-dropdown
+                %a{href: "#"}= I18n.t(".users.roles.admin")
+                %ul.dropdown
+                  %li= link_to I18n.t(".leagues.index_title"), leagues_path
+                  %li= link_to I18n.t(".clubs.clubs_title"), clubs_path
+            - if signed_in?
+              %li.divider
+              %li= link_to I18n.t(".site.faq_short"), site_faq_path
+              %li.divider
+              %li.has-dropdown
+                %a{href: "#"}= current_user.screen_name
+                %ul.dropdown
+                  %li= link_to I18n.t(".users.profile_title"), user_profile_path(current_user)
+                  %li= link_to I18n.t(".devise.sessions.sign_out"), destroy_user_session_path, method: :delete
+            - else
+              %li.divider
+              %li= link_to I18n.t(".devise.sessions.sign_up"), new_user_registration_path
+              %li.divider
+              %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
+          %ul.left
+            - if signed_in?
+              %li= link_to I18n.t('.users.vinks_title'), user_path(current_user)
+              %li.divider
+              %li.has-dropdown
+                %a{href: "#"}= I18n.t(".clubs.index_title")
+                %ul.dropdown
+                  %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")
+                  %li= link_to I18n.t(".clubs.latest_index_title"), clubs_path(view: "latest")
+                  %li= link_to I18n.t(".clubs.all_index_title"), clubs_path(view: "all")
 
-    .row
-      .small-12.columns.messages
-        - flash.each do |name, msg|
-          %div{class: "alert-box #{name}"}
-            %a.close{"data-dismiss" => "alert"} x
-            = msg
+      .row
+        .small-12.columns.messages
+          - flash.each do |name, msg|
+            %div{class: "alert-box #{name}"}
+              %a.close{"data-dismiss" => "alert"} x
+              = msg
 
-    .row
-      .small-12.columns
-        = yield
+      .row
+        .small-12.columns
+          = yield
 
-    %footer
+    %footer.footer
       .copyright &copy; 2014 DutchAddick
 
     = javascript_include_tag "application"

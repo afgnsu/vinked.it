@@ -34,7 +34,7 @@ en:
       updated: "Your password was changed successfully. You are now signed in."
       updated_not_active: "Your password was changed successfully."
       title: "Forgot your password?"
-      submit: "Send me reset password instructions"
+      submit: "Send me reset instructions"
       edit_title: "Change your password"
       change_submit: "Change my password"
     registrations:
