@@ -29,5 +29,6 @@ module VinkedIt
     config.assets.paths << Rails.root.join("app", "assets", "files")
     config.exceptions_app = self.routes
     config.i18n.enforce_available_locales = false
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end
