@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.fancybox.js
+//= require jquery.fancybox.pack.js
 //= require foundation
-//= require_tree .
+//= require endless.js.coffee
+//= require general.js
 
 $(function(){ $(document).foundation(); });
