@@ -16,5 +16,6 @@
 //= require jquery.fancybox.pack.js
 //= require foundation
 //= require endless.js.coffee
+//= require general.js
 
 $(function(){ $(document).foundation(); });
