@@ -12,14 +12,14 @@
     %meta{ content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport" }/
     %link{ href: "http://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet", type: "text/css" }
     %script{src: "https://www.google.com/jsapi", type: "text/javascript"}
-    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "vendor/modernizr"
-    = csrf_meta_tag
+    = csrf_meta_tags
 
     /[if lt IE 9]
       <script src='assets/javascripts/ie/html5shiv.js' type='text/javascript'></script>
       <script src='assets/javascripts/ie/respond.min.js' type='text/javascript'></script>
-  %body{ 'data-no-turbolink' => true }
+  %body
     .page_wrapper
       %nav.top-bar{"data-topbar" => ""}
         %ul.title-area
@@ -52,6 +52,8 @@
               %li.divider
               %li= link_to I18n.t(".devise.sessions.sign_in"), new_user_session_path
           %ul.left
+            %li= link_to I18n.t('.users.vinks_index'), users_path
+            %li.divider
             - if signed_in?
               %li= link_to I18n.t('.users.vinks_title'), user_path(current_user)
               %li.divider

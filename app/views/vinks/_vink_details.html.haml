@@ -17,9 +17,8 @@
             .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
 
         .details
-          - if current_user.premium?
-            = link_to "#", class: "vink_details", id: vink.id do
-              %i.fi-list.large.green
+          = link_to "#", class: "vink_details", id: vink.id do
+            %i.fi-list.large.green
         - if view == "club"
           .user= link_to decorate_data_field(vink.user.screen_name), user_path(vink.user) unless vink.user.blank?
         %div{ id: "vink_#{vink.id}", class: "vink_details_panel", style: "display:none;" }

@@ -55,6 +55,8 @@ $.conditionalize = function(sourceSelect, targetSelect, dataSelector){
 }
 
 function updateCountdown() {
-  var remaining = 140 - jQuery('.comment_input').val().length;
-  jQuery('.countdown').text(remaining + ' characters remaining');
+  if $('.comment_input').length > 0{
+    var remaining = 140 - jQuery('.comment_input').val().length;
+    jQuery('.countdown').text(remaining + ' characters remaining');
+  }
 }

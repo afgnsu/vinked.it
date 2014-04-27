@@ -29,6 +29,8 @@ class Ability
     else
       # Unregistered users
       cannot :manage, :all
+      can [:index, :show], User
+      can [:show], Vink
     end
   end
 end

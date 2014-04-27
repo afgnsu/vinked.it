@@ -109,5 +109,5 @@
     .small-12.columns.comments
       .title= "#{I18n.t('.comments.for')} #{@vink.user.screen_name}"
       = render "comments/all_comments", comments: @comments
-      - if current_user.premium?
+      - if current_user and current_user.premium?
         = render "comments/comment_form"

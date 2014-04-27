@@ -1,15 +1,8 @@
 - if can? :index, User
-  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.users.title')
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.users.vinks_index')
 
   .row
-    .small-8.small-centered.columns
-      %table
-        %thead
-          %tr
-            %th= I18n.t('.users.form.screen_name')
-            %th= I18n.t('.users.form.registered_at')
-        %tbody
-          - @users.each do |user|
-            %tr
-              %td= link_to user.screen_name, user_path(user)
-              %td= user.created_at.strftime('%d-%m-%Y')
+    .small-12.small-centered.columns.users
+      - @users.each do |user|
+        .panel.small-3.columns
+          = link_to user.screen_name, user_path(user)
