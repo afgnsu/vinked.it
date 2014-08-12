@@ -4,7 +4,7 @@ class Search
     @vinks = set_vinks_scope(user_id)
 
     if is_number?(keyword)
-      @user.vinks.where('vink_nr > ? and vink_nr < ?', keyword.to_i - 4, keyword.to_i + 4).order("vink_date DESC")
+      @vinks.where('vink_nr > ? and vink_nr < ?', keyword.to_i - 4, keyword.to_i + 4)
     else
       keyword_search = "%#{keyword.downcase}%"
 
@@ -26,7 +26,7 @@ class Search
     else
       vinks = User.find(user_id).vinks
     end
-    vinks.order("vink_date DESC")
+    vinks.order("vink_nr DESC")
   end
 
   def self.is_number?(nr)
