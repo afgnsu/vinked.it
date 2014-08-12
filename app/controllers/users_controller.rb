@@ -7,12 +7,14 @@ class UsersController < ApplicationController
 
   def show
     authorize! :show, User
+
     @user = User.find(params[:id])
-    @vinks = @user.vinks.order("vink_date DESC").page(params[:page])
-    @commentable = @user
-    @comments = @commentable.comments
-    @comment = Comment.new
-    @calculator = VinkCalculator.new
+
+    if params[:keyword]
+      @vinks = Search.for(params[:keyword])
+    else
+      @vinks = @user.vinks.order("vink_date DESC").limit(10)
+    end
   end
 
   def profile

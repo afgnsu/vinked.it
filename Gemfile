@@ -1,22 +1,21 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
-gem 'rails', '4.0.5'
-gem 'sass-rails', '~> 4.0.0'
+gem 'rails', '4.1.4'
+gem 'sass-rails', '4.0.2'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'cancan'
 gem 'devise'
-gem 'haml-rails'
+gem 'haml-rails', '0.5.3'
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
 gem 'rolify'
 gem 'i18n'
 gem 'bcrypt-ruby'
 gem 'foundation-rails'
-gem 'googlecharts', :require => "gchart"
 gem 'will_paginate', '~> 3.0'
 gem 'omniauth-twitter'
 
@@ -31,11 +30,8 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'zeus'
   gem 'poltergeist'
-  #gem 'rack-mini-profiler'
   gem "shoulda-matchers"
-  gem 'letter_opener'
 end
 
 group :production do

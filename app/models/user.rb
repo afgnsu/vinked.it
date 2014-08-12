@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, :omniauthable
 
   has_many :vinks, dependent: :destroy
   has_many :clubs, through: :vinks
@@ -36,4 +36,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
