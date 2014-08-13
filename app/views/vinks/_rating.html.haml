@@ -1,0 +1,9 @@
+- if vink.rating.blank?
+  - (1..5).each do |n|
+    .fi-star.off
+- else
+  - (1..vink.rating).each do |n|
+    .fi-star.on
+
+  - (1..(5-vink.rating)).each do |n|
+    .fi-star.off

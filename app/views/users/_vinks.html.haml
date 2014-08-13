@@ -1,4 +1,13 @@
-- unless vinks.blank?
+- if vinks.blank?
+  .row
+    .small-centered.small-8.columns
+      .panel= I18n.t('.general.no_data')
+- else
+  - if params[:keyword]
+    .row
+      .small-centered.small-7.columns
+        .panel.search= "#{vinks.count} #{I18n.t('.general.search_result')}: '#{params[:keyword]}'"
+
   - vinks.each do |vink|
     = render "vinks/vink_details", vink: vink, view: "user"
 

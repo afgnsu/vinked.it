@@ -4,5 +4,5 @@
   .row
     .small-12.small-centered.columns.users
       - @users.each do |user|
-        .panel.small-3.columns
+        .panel.small-3.end.columns
           = link_to user.screen_name, user_path(user)

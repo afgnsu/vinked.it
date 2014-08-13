@@ -15,6 +15,7 @@ en:
     error_plural:   error
     error_text:     "detected when saving:"
     home:           home
+    search_result:  results for search
   users:
     title:          Users
     new_title:      Add user
@@ -172,4 +173,3 @@ en:
           billion: "miljard"
           trillion: "biljoen"
           quadrillion: "biljard"
-

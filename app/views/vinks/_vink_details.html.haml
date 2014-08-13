@@ -5,7 +5,7 @@
 
 %span{ id: "vinkdetails_#{vink.id}" }
   .row
-    .small-12.small-centered.large-7.large-centered.columns
+    .small-12.small-centered.large-10.large-centered.columns
       .panel.vink
         .vink_date= "#{decorate_data_field(vink.vink_nr)}."
         .vink_date= decorate_data_field(vink.vink_date, true)
@@ -14,7 +14,7 @@
           .away_club= decorate_data_field(Club.find(vink.away_club_id).name) unless vink.away_club_id.blank?
         - else
           - unless vink.club.blank? or Club.find(vink.away_club_id).blank?
-            .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
+            .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name} - #{decorate_data_field(vink.ground)}"
 
         .details
           = link_to "#", class: "vink_details", id: vink.id do
@@ -73,19 +73,9 @@
               .small-12.columns
                 .visit_label= I18n.t('.vinks.form.rating')
                 .visit_item
-                  - if vink.rating.blank?
-                    - (1..5).each do |n|
-                      .fi-star.off
-                  - else
-                    - (1..vink.rating).each do |n|
-                      .fi-star.on
-
-                    - (1..(5-vink.rating)).each do |n|
-                      .fi-star.off
+                  = render "vinks/rating", vink: vink
             .row
               .small-12.columns
                 - if can? :edit, Vink and vink.user == current_user
                   = link_to I18n.t('.helpers.edit'), edit_vink_path(vink, club: vink.club), remote: true, class: "tiny button"
                 = link_to I18n.t('.vinks.details'), vink_path(vink), class: "tiny button"
-
-
