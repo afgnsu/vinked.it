@@ -27,7 +27,7 @@ class ClubsController < ApplicationController
     elsif params[:view] == "vinkedits"
       @vinks = Vink.where(club_id: @club.id).order("vinks.vink_date DESC")
     elsif params[:view] == "users"
-      @users = User.includes(:vinks).where("vinks.club_id = ?", @club.id).uniq.order(:screen_name)
+      @users = User.joins(:vinks).where("vinks.club_id = ?", @club.id).uniq.order(:screen_name)
     else
       params[:view] = "comments"
       @commentable = @club
