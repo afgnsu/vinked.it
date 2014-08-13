@@ -9,7 +9,7 @@
         .action= link_to I18n.t('.leagues.new_title'), new_league_path, class: 'small button secondary'
 
 .row
-  .small-12.columns
+  .small-12.large-10.columns
     %table
       %thead
         %tr
@@ -21,6 +21,5 @@
         = render "leagues", leagues: @leagues
 
 .row
-  .small-12.large08.large-centered.columns
+  .small-12.large-10.large-centered.columns
     = will_paginate @leagues
-
