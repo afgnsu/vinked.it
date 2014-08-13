@@ -26,7 +26,7 @@ class Search
     else
       vinks = User.find(user_id).vinks
     end
-    vinks.order("vink_nr DESC")
+    vinks
   end
 
   def self.is_number?(nr)

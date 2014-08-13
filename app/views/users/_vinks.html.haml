@@ -1,3 +1,9 @@
 - unless vinks.blank?
   - vinks.each do |vink|
     = render "vinks/vink_details", vink: vink, view: "user"
+
+  .row
+    .small-5.small-offset-4.columns
+      .buttons
+        = link_to "prev", user_path(@user, prev_vink_nr: vinks.last.vink_nr), class: "button"
+        = link_to "next", user_path(@user, next_vink_nr: vinks.first.vink_nr), class: "button"

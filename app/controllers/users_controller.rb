@@ -10,10 +10,15 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
 
-    if params[:keyword]
-      @vinks = Search.for(params[:keyword])
+    if params[:keyword].present?
+      @vinks = Search.for(params[:keyword], params[:user_id])
+      @vinks.sort! { |a,b| b.vink_nr <=> a.vink_nr }
+    elsif params[:next_vink_nr].present?
+      @vinks = @user.vinks.next_vinks(params[:next_vink_nr])
+    elsif params[:prev_vink_nr].present?
+      @vinks = @user.vinks.prev_vinks(params[:prev_vink_nr])
     else
-      @vinks = @user.vinks.order("vink_date DESC").limit(10)
+      @vinks = @user.vinks.order("vink_nr DESC").limit(10)
     end
   end
 
