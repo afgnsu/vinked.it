@@ -6,23 +6,24 @@
 
   = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
-.row
-  .small-12.large-6.columns
-    %h3= I18n.t('.statistics.visits_per_country')
-    #countries_chart
+.charts
+  .row
+    .small-12.large-6.columns
+      %h3= I18n.t('.statistics.visits_per_country')
+      #countries_chart.chart
 
-  .small-12.large-6.columns
-    %h3= I18n.t('.statistics.visits_per_league')
-    #leagues_chart
+    .small-12.large-6.columns
+      %h3= I18n.t('.statistics.visits_per_league')
+      #leagues_chart.chart
 
-.row
-  .small-12.large-6.columns
-    %h3= I18n.t('.statistics.visits_per_season')
-    #seasons_chart
+  .row
+    .small-12.large-6.columns
+      %h3= I18n.t('.statistics.visits_per_season')
+      #seasons_chart.chart
 
-  .small-12.large-6.columns
-    %h3= I18n.t('.statistics.visits_per_kickoff')
-    #kickoffs_chart
+    .small-12.large-6.columns
+      %h3= I18n.t('.statistics.visits_per_kickoff')
+      #kickoffs_chart.chart
 
 :javascript
   google.load('visualization', '1.0', {'packages':['corechart']});
@@ -33,6 +34,7 @@
 
     var options = {
       height: 400,
+      width: 400,
       colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
       chartArea: {left: 10, top: 10},
       legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
@@ -50,6 +52,7 @@
 
     var options = {
       height: 400,
+      width: 400,
       colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
       chartArea: {left: 10, top: 10},
       legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
@@ -67,6 +70,7 @@
 
     var options = {
       height: 400,
+      width: 400,
       colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
       chartArea: {left: 10, top: 10},
       legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
@@ -84,6 +88,7 @@
 
     var options = {
       height: 400,
+      width: 400,
       colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
       chartArea: {left: 10, top: 10},
       legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
