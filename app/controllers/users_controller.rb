@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def statistics
-    authorize! :index, :statistics
+    authorize! :statistics, User
 
     @user = User.find(params[:user_id])
 
@@ -61,6 +61,13 @@ class UsersController < ApplicationController
     @kickoffs = GraphBuilder.new.show_kickoffs(@user)
     @top10_home = GraphBuilder.new.show_top10_home(@user)
     @top10_away = GraphBuilder.new.show_top10_away(@user)
+  end
+
+  def map
+    authorize! :map, User
+
+    @user = User.find(params[:user_id])
+    @locations = GraphBuilder.new.show_locations(@user)
   end
 
   private

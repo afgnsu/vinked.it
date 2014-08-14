@@ -98,4 +98,8 @@ en:
     visits_per_season:    Visits per season
     visits_per_kickoff:   Visits per kick-off
     top10_home:           Top 10 home visits
-    top10_away:           Top 10 away visits  
+    top10_away:           Top 10 away visits
+  map:
+    title:              Visits on a map
+    my_map:             My visits on a map
+    map_visit:          Visits on a map of

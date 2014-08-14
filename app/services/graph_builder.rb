@@ -64,4 +64,18 @@ class GraphBuilder
     end
     @top10_away
   end
+
+  def show_locations(user)
+    @locations = Array.new
+    @locations << ["Lat", "Long", "Location"]
+    vinks = Vink.all
+    vinks.each do |key, value|
+      if key.latitude.blank?
+        puts "EMPTY #{key.ground} - #{key.club.name}"
+      else
+        @locations << [key.latitude, key.longitude, "#{key.ground} - #{key.club.name}"]
+      end
+    end
+    @locations
+  end
 end

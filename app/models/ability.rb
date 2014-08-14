@@ -8,17 +8,16 @@ class Ability
         can :manage, :all
       elsif user.premium?
         # Premium subscription users
-        can [:index, :show, :update, :profile], User
+        can [:index, :show, :update, :profile, :statistics, :map], User
         can [:index, :show, :create], Club
         can [:index, :show, :create, :update, :destroy], Vink
-        can [:index], :statistics
 
         cannot [:update, :destroy, :maintain], Club
         cannot [:index, :show, :create, :update, :destroy], Country
         cannot [:index, :show, :create, :update, :destroy], League
       elsif user.basic?
         # Basic subscription users
-        can [:index, :show, :update, :profile], User
+        can [:index, :show, :update, :profile, :statistics, :map], User
         can [:index, :show], Club
         can [:index, :show, :create, :update, :destroy], Vink
 
@@ -26,14 +25,12 @@ class Ability
         cannot [:create, :update, :destroy, :maintain], Club
         cannot [:index, :show, :create, :update, :destroy], Country
         cannot [:index, :show, :create, :update, :destroy], League
-        can [:index], :statistics
       end
     else
       # Unregistered users
       cannot :manage, :all
-      can [:index, :show], User
+      can [:index, :show, :statistics, :map], User
       can [:show], Vink
-      can [:index], :statistics
     end
   end
 end
