@@ -25,15 +25,6 @@
       %h3= I18n.t('.statistics.visits_per_kickoff')
       #kickoffs_chart.chart
 
-  .row
-    .small-12.large-6.columns
-      %h3= I18n.t('.statistics.top10_home')
-      #top10_home_chart.chart
-
-    .small-12.large-6.columns
-      %h3= I18n.t('.statistics.top10_away')
-      #top10_away_chart.chart
-
 :javascript
   google.load('visualization', '1.0', {'packages':['corechart']});
   google.setOnLoadCallback(drawCountriesChart);
@@ -106,38 +97,4 @@
     };
 
     new google.visualization.PieChart(document.getElementById('kickoffs_chart')).draw(data_kickoffs, options);
-  }
-
-  google.load('visualization', '1.0', {'packages':['corechart']});
-  google.setOnLoadCallback(drawTop10Home);
-  function drawTop10Home() {
-    var data_top10_home = new google.visualization.arrayToDataTable(#{@top10_home});
-
-    var options = {
-      height: 300,
-      width: 500,
-      chartArea: {top: -5},
-      colors: ['#FF3300'],
-      stacked: true,
-      legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}}
-    };
-
-    new google.visualization.BarChart(document.getElementById('top10_home_chart')).draw(data_top10_home, options);
-  }
-
-  google.load('visualization', '1.0', {'packages':['corechart']});
-  google.setOnLoadCallback(drawTop10Away);
-  function drawTop10Away() {
-    var data_top10_away = new google.visualization.arrayToDataTable(#{@top10_away});
-
-    var options = {
-      height: 300,
-      width: 500,
-      chartArea: {top: -5},
-      colors: ['#FF3300'],
-      stacked: true,
-      legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}}
-    };
-
-    new google.visualization.BarChart(document.getElementById('top10_away_chart')).draw(data_top10_away, options);
   }

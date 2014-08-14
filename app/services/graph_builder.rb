@@ -43,4 +43,25 @@ class GraphBuilder
     @kickoffs
   end
 
+  def show_top10_home(user)
+    @top10_home = Array.new
+    @top10_home << ["Club", "Vinks"]
+    vinks = Vink.includes(:club).group(:club_id).order('count_id DESC').limit(10).count('id')
+    vinks.each do |key, value|
+      club = Club.find(key)
+      @top10_home << [club.name, value]
+    end
+    @top10_home
+  end
+
+  def show_top10_away(user)
+    @top10_away = Array.new
+    @top10_away << ["Club", "Vinks"]
+    vinks = Vink.includes(:club).group(:away_club_id).order('count_id DESC').limit(10).count('id')
+    vinks.each do |key, value|
+      club = Club.find(key)
+      @top10_away << [club.name, value]
+    end
+    @top10_away
+  end
 end

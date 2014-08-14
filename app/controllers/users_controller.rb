@@ -59,6 +59,8 @@ class UsersController < ApplicationController
     @leagues = GraphBuilder.new.show_leagues(@user)
     @seasons = GraphBuilder.new.show_seasons(@user)
     @kickoffs = GraphBuilder.new.show_kickoffs(@user)
+    @top10_home = GraphBuilder.new.show_top10_home(@user)
+    @top10_away = GraphBuilder.new.show_top10_away(@user)
   end
 
   private

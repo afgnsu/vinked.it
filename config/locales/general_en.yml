@@ -23,7 +23,8 @@ en:
     show_title:     User
     edit_profile:   Change profile
     profile_title:  My profile
-    vinks_title:    My vinklist
+    vinks_title:    My vinks
+    vinklist_title: My vinklist
     vinks_index:    Vinklists
     message_create: Vinker has been added successfully
     message_update: Vinker has been edited successfully

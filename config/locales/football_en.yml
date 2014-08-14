@@ -96,4 +96,6 @@ en:
     visits_per_country:   Visits per country
     visits_per_league:    Visits per league
     visits_per_season:    Visits per season
-    visits_per_kickoff:    Visits per kick-off
+    visits_per_kickoff:   Visits per kick-off
+    top10_home:           Top 10 home visits
+    top10_away:           Top 10 away visits  
