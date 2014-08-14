@@ -1,5 +1,10 @@
 - if can? :index, :statistics
-  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.statistics.my_statistics')
+  - if current_user
+    - title = I18n.t('.statistics.my_statistics')
+  - else
+    - title = "#{I18n.t('.statistics.stats_visit')}: #{@user.screen_name}"
+
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: title
 
 .row
   .small-12.large-6.columns
