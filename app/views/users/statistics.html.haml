@@ -1,0 +1,90 @@
+- if can? :index, :statistics
+  = render "layouts/page_header", level1_title: nil, level1_path: nil, level2_title: I18n.t('.statistics.my_statistics')
+
+.row
+  .small-12.large-6.columns
+    %h3= I18n.t('.statistics.visits_per_country')
+    #countries_chart
+
+  .small-12.large-6.columns
+    %h3= I18n.t('.statistics.visits_per_league')
+    #leagues_chart
+
+.row
+  .small-12.large-6.columns
+    %h3= I18n.t('.statistics.visits_per_season')
+    #seasons_chart
+
+  .small-12.large-6.columns
+    %h3= I18n.t('.statistics.visits_per_kickoff')
+    #kickoffs_chart
+
+:javascript
+  google.load('visualization', '1.0', {'packages':['corechart']});
+  google.setOnLoadCallback(drawCountriesChart);
+
+  function drawCountriesChart() {
+    var data_countries = google.visualization.arrayToDataTable(#{@countries});
+
+    var options = {
+      height: 400,
+      colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
+      chartArea: {left: 10, top: 10},
+      legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
+      is3D: false,
+      pieHole: 0.4
+    };
+
+    new google.visualization.PieChart(document.getElementById('countries_chart')).draw(data_countries, options);
+  }
+
+  google.load('visualization', '1.0', {'packages':['corechart']});
+  google.setOnLoadCallback(drawLeaguesChart);
+  function drawLeaguesChart() {
+    var data_leagues = google.visualization.arrayToDataTable(#{@leagues});
+
+    var options = {
+      height: 400,
+      colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
+      chartArea: {left: 10, top: 10},
+      legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
+      is3D: false,
+      pieHole: 0.4
+    };
+
+    new google.visualization.PieChart(document.getElementById('leagues_chart')).draw(data_leagues, options);
+  }
+
+  google.load('visualization', '1.0', {'packages':['corechart']});
+  google.setOnLoadCallback(drawSeasonsChart);
+  function drawSeasonsChart() {
+    var data_seasons = new google.visualization.arrayToDataTable(#{@seasons});
+
+    var options = {
+      height: 400,
+      colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
+      chartArea: {left: 10, top: 10},
+      legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
+      is3D: false,
+      pieHole: 0.4
+    };
+
+    new google.visualization.PieChart(document.getElementById('seasons_chart')).draw(data_seasons, options);
+  }
+
+  google.load('visualization', '1.0', {'packages':['corechart']});
+  google.setOnLoadCallback(drawKickoffsChart);
+  function drawKickoffsChart() {
+    var data_kickoffs = new google.visualization.arrayToDataTable(#{@kickoffs});
+
+    var options = {
+      height: 400,
+      colors: ['#FF3300', 'green', '#FFD700', '#FF9933', 'blue', 'purple', '#D17519'],
+      chartArea: {left: 10, top: 10},
+      legend: {position: 'none', textStyle: {color: 'black', fontSize: 12}},
+      is3D: false,
+      pieHole: 0.4
+    };
+
+    new google.visualization.PieChart(document.getElementById('kickoffs_chart')).draw(data_kickoffs, options);
+  }

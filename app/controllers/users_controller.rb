@@ -50,6 +50,14 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: I18n.t('.users.message_delete')
   end
 
+  def statistics
+    user = User.find(params[:user_id])
+    @countries = GraphBuilder.new.show_countries(user)
+    @leagues = GraphBuilder.new.show_leagues(user)
+    @seasons = GraphBuilder.new.show_seasons(user)
+    @kickoffs = GraphBuilder.new.show_kickoffs(user)
+  end
+
   private
 
   def user_params

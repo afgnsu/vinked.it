@@ -89,3 +89,10 @@ en:
       country_id:         Country
       ticket_link:        Link to ticket image
       programme_link:     Link to programme image
+  statistics:
+    title:                Statistics
+    my_statistics:        My statistics
+    visits_per_country:   Visits per country
+    visits_per_league:    Visits per league
+    visits_per_season:    Visits per season
+    visits_per_kickoff:    Visits per kick-off

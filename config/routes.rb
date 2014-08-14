@@ -3,6 +3,7 @@ VinkedIt::Application.routes.draw do
 
   resources :users do
     get :profile
+    get :statistics
     resources :comments
   end
   resources :countries, except: [:show]

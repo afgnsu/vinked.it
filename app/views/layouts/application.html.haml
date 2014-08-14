@@ -57,6 +57,13 @@
               %li= link_to I18n.t('.users.vinks_title'), user_path(current_user)
               %li.divider
               %li.has-dropdown
+                %a{href: "#"}= I18n.t(".statistics.title")
+                %ul.dropdown
+                  - if can? :index, :statistics
+                    - if current_user.premium?
+                      %li= link_to I18n.t(".statistics.my_statistics"), user_statistics_path(current_user)
+              %li.divider
+              %li.has-dropdown
                 %a{href: "#"}= I18n.t(".clubs.index_title")
                 %ul.dropdown
                   %li= link_to I18n.t(".clubs.my_index_title"), clubs_path(view: "own")

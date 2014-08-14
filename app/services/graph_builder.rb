@@ -5,7 +5,7 @@ class GraphBuilder
 
   def show_countries(user)
     @countries = Array.new
-    @countries << ["Country", "Nr. vinks"]
+    @countries << ["Country", "Vinks"]
     countries = Country.all
     countries.each do |country|
       @countries << ["#{country.country}", user.vinks.joins(:club).where("clubs.country_id = ?", country.id).count]
@@ -13,49 +13,34 @@ class GraphBuilder
     @countries
   end
 
+  def show_leagues(user)
+    @leagues = Array.new
+    @leagues << ["League", "Vinks"]
+    leagues = League.includes(:country).order("country_id, level")
+    leagues.each do |league|
+      @leagues << ["[#{league.country.country_short}] #{league.name}", user.vinks.where("league_id = ?", league.id).count]
+    end
+    @leagues
+  end
+
+  def show_seasons(user)
+    @seasons = Array.new
+    @seasons << ["Season", "Vinks"]
+    vinks = Vink.order("season").group(:season).count
+    vinks.each do |key, value|
+      @seasons << [key, value]
+    end
+    @seasons
+  end
+
+  def show_kickoffs(user)
+    @kickoffs = Array.new
+    @kickoffs << ["Kick-off", "Vinks"]
+    vinks = Vink.order("kickoff").group(:kickoff).count
+    vinks.each do |key, value|
+      @kickoffs << [key, value]
+    end
+    @kickoffs
+  end
+
 end
-
-
-=begin
-
-
-    :javascript
-      google.load('visualization', '1.0', {'packages':['corechart']});
-      google.setOnLoadCallback(drawChartCountries);
-      function drawChartCountries() {
-        // Create and populate the data table.
-        var data_countries = google.visualization.arrayToDataTable(#{@countries});
-
-        // Create and draw the visualization.
-        new google.visualization.PieChart(document.getElementById('countries_chart_div')).draw(data_countries,
-          {width:350, height:350, chartArea: {left:60,top:0}, colors: ['#757370','#C41D21'],pieSliceText: "value",legend: {position: 'bottom',
-           textStyle: {color: 'black', fontSize: 12}}}
-        );
-      }
-
-    #countries_chart_div
-
-
-rescue
-
-:javascript
-  google.load('visualization', '1.0', {'packages':['corechart']});
-  google.setOnLoadCallback(drawChartBonus);
-  function drawChartBonus() {
-    // Create and populate the data table.
-    var data_hours = new google.visualization.arrayToDataTable(#{@bonus_hours});
-
-    // Create and draw the visualization.
-    new google.visualization.ColumnChart(document.getElementById('hours_chart_div')).draw(data_hours,
-      { width:750, height:320, colors: ['#C41D21','#757370'], stacked: true,chartArea: {left: 50, top: 25},
-        legend: {position: 'bottom', alignment: 'center',
-        textStyle: {color: 'black', fontSize: 12}}}
-    );
-  }
-
-#hours_chart_div
-
-
- => e
-
-=end

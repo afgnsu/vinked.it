@@ -11,6 +11,7 @@ class Ability
         can [:index, :show, :update, :profile], User
         can [:index, :show, :create], Club
         can [:index, :show, :create, :update, :destroy], Vink
+        can [:index], :statistics
 
         cannot [:update, :destroy, :maintain], Club
         cannot [:index, :show, :create, :update, :destroy], Country
@@ -25,12 +26,13 @@ class Ability
         cannot [:create, :update, :destroy, :maintain], Club
         cannot [:index, :show, :create, :update, :destroy], Country
         cannot [:index, :show, :create, :update, :destroy], League
+        cannot [:index], :statistics
       end
     else
       # Unregistered users
       cannot :manage, :all
       can [:index, :show], User
-      can [:show], Vink
+      can [:show], Vink      
     end
   end
 end
