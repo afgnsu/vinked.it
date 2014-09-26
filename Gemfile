@@ -20,6 +20,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'googlecharts', :require => "gchart"
 gem 'geocoder'
 gem 'rocket_pants'
+gem 'active_model_serializers'
 
 group :development do
   gem 'better_errors'
