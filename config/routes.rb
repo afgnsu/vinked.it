@@ -4,6 +4,7 @@ VinkedIt::Application.routes.draw do
   namespace :api do
     api version: 1, module: 'v1' do
       resources :sessions, only: [:create]
+      resources :vinks, only: [:index]
     end
   end
   
