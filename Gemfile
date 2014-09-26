@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.5'
 gem 'sass-rails', '4.0.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.1'
@@ -17,9 +17,9 @@ gem 'i18n'
 gem 'bcrypt-ruby'
 gem 'foundation-rails'
 gem 'will_paginate', '~> 3.0'
-gem 'omniauth-twitter'
 gem 'googlecharts', :require => "gchart"
 gem 'geocoder'
+gem 'rocket_pants'
 
 group :development do
   gem 'better_errors'
