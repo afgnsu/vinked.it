@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < Api::V1::BaseController
+  skip_before_filter :require_authentication!
+
   def create
     user = User.find_for_authentication(email: user_params[:email])
     if user && user.valid_password?(user_params[:password])
