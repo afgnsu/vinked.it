@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable, :omniauthable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable
 
   has_many :vinks, dependent: :destroy
   has_many :clubs, through: :vinks
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     return true if subscription == "premium"
     false
   end
-  
+
   def generate_authentication_token
     loop do
       self.authentication_token = SecureRandom.hex

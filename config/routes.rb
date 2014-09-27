@@ -1,5 +1,5 @@
 VinkedIt::Application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users
 
   namespace :api do
     api version: 1, module: 'v1' do
@@ -7,7 +7,7 @@ VinkedIt::Application.routes.draw do
       resources :vinks, only: [:index]
     end
   end
-  
+
   resources :users do
     get :profile
     get :statistics
