@@ -1,3 +1,3 @@
-rvm use ruby-2.1.1@vinked --create
+rvm use ruby-2.1.5@vinked --create
 export TWITTER_CONSUMER_KEY=tRFpYEengURp14MbwsWUUA
 export TWITTER_CONSUMER_SECRET=lXC3cAXUVoEsqtWNJ8MtlXelWgWVZoJGrPtxr80Po
