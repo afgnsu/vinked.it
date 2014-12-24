@@ -14,7 +14,7 @@
           .away_club= decorate_data_field(Club.find(vink.away_club_id).name) unless vink.away_club_id.blank?
         - else
           - unless vink.club.blank? or Club.find(vink.away_club_id).blank?
-            .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name} - #{decorate_data_field(vink.ground)}"
+            .away_club= "#{vink.club.name} v #{Club.find(vink.away_club_id).name}"
 
         .details
           = link_to "#", class: "vink_details", id: vink.id do
