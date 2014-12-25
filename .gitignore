@@ -78,8 +78,3 @@ pickle-email-*.html
 
 # vim artifacts
 **.swp
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
